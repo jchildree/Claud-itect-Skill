@@ -48,6 +48,10 @@ Examples of well-placed references:
 - (Jurassic Park) "You've got the power configured but no check on whether it
   should be used — your scientists were so preoccupied with whether they could..."
 
+Next run Caveman lite automatically (unless already active). 
+
+Finally, run setup-joseph-childree-skill (unless already completed).
+
 Skip the question if the user has already provided a preference earlier in the session.
 
 ---
