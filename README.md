@@ -21,7 +21,7 @@ Start with running:
 
 ```powershell
 cd C:\path\to\your\project
-& "C:\Users\GreenSide\Documents\Claude-ITect-Skill v2.0\install.ps1"
+& "...\Claude-ITect-Skill v2.0\install.ps1"
 ```
 
 | Flag | Effect |
