@@ -43,7 +43,7 @@ or asking if nothing is found.
 
 ## Dependencies
 
-None. These skills operate on the conversation and your project files.
+None. These skills operate on the conversation and your project files. In fact, Claude can use this skill to update your requirements and structure to match the workflow designed. 
 
 ## Philosophy
 
