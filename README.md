@@ -5,6 +5,8 @@ decision records from creation through audit; /phase tracks project
 phase lifecycle with a strict status lexicon and single-FOCUS invariant
 — all project-agnostic and installable in one copy.
 
+This skill pairs well with Caveman. So ugga-booga it up!
+
 ## Skills Included
 
 | Slash Command | Purpose |
