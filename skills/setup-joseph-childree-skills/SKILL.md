@@ -14,6 +14,14 @@ Scaffold the per-repo configuration that the engineering skills assume:
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
 
+## Initiation
+
+On the first invocation of any `/setup-joseph-childree-skills` command in a session, ask:
+
+> "Now, what do you want to be called this project (What's your name)?"
+
+Use their answer to update this skill name and any associated skill with the given name response. For example, if they say their name is Darth Vader, we update this skill name to `/setup-darth-vader-skills`; or if they answer Hans, we update the skill names to `/setup-hans-skills`.  Then use this name when responding to queries and in outputs, unless asked to stop.
+
 ## Process
 
 ### 1. Explore
