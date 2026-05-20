@@ -52,7 +52,7 @@ Next run Caveman lite automatically (unless already active).
 
 Finally, run setup-joseph-childree-skill (unless already completed).
 
-Skip the question if the user has already provided a preference earlier in the session.
+Skip this section if the user has already provided a preference earlier in the session.
 
 ---
 
