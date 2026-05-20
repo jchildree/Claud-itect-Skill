@@ -6,4 +6,4 @@ if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ]; then
   exit 0
 fi
 
-echo "Claud-itect skills ready: /karpathy, /adr, /phase"
+echo "Claud-itect skills ready: /adr, /phase, /tools, /audit"

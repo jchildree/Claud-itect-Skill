@@ -7,6 +7,7 @@ description: >
   a verifiable step plan. Use /karpathy review to audit recent work.
   Auto-triggers when user asks to plan an approach, requests a step-by-step breakdown,
   or when the assistant is about to start a multi-file or multi-step change.
+user-invocable: false
 ---
 
 # Karpathy — Disciplined Coding Guidelines
