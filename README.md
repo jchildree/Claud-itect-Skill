@@ -50,4 +50,4 @@ None. These skills operate on the conversation and your project files.
 `/karpathy` is the behavioral core: think before coding, simplicity first, surgical
 changes only, goal-driven execution. `/adr` and `/phase` embed these principles
 as their default operating mode — you don't need to invoke `/karpathy` separately
-before using the other two.  `/adr` allows the user to create/review/update an Architectural Design Record, which allows Claude Code to stay on task and efficiently utilize tokens. This creates requirements, in Markdown, that Claude digests efficiently. `/phase` updates the user on the current phase status and ADRs and provides a project overview, depending on context used.
+before using the other two.  `/adr` allows the user to create/review/update an Architectural Design Record, which allows Claude Code to stay on task and efficiently utilize tokens. This creates requirements, in Markdown, that Claude digests efficiently. `/phase` updates the user on the current phase status and ADRs, or provides a project overview, depending on context used.
