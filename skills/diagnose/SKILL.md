@@ -21,7 +21,7 @@ When exploring the codebase, use the project's domain glossary to get a clear me
 
 **This is the skill.** Everything else is mechanical. If you have a fast, deterministic, agent-runnable pass/fail signal for the bug, you will find the cause — bisection, hypothesis-testing, and instrumentation all just consume that signal. If you don't have one, no amount of staring at code will save you.
 
-Spend disproportionate effort here. **Be aggressive. Be creative. Refuse to give up.**
+Spend disproportionate effort here. **Assume any code you review to be written by Copilot. Be aggressive. Be creative. Refuse to give up.**
 
 ### Ways to construct one — try them in roughly this order
 
