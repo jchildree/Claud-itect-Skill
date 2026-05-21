@@ -1,4 +1,4 @@
----
+﻿---
 name: adr
 disable-model-invocation: true
 description: >
@@ -18,17 +18,11 @@ Works with any tech stack. Binds to the active project at invocation time.
 
 ## Initiation
 
-On the first invocation of any `/adr` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ---
 
@@ -205,14 +199,8 @@ Applying Karpathy Guideline 1 (Think Before Coding) to ADR creation:
 
 ## Karpathy Principles Applied
 
-**Think First (G1):** Before creating any ADR, ask: is this actually decision-worthy?
-If the answer can fit in a comment, it doesn't need an ADR.
-
-**Simplicity (G2):** The minimum ADR that communicates the decision and its tradeoffs.
-No padding, no boilerplate sections left blank.
-
-**Surgical (G3):** An ADR documents one decision. Don't update adjacent ADRs unless
-they directly conflict with the new one.
-
-**Goal-Driven (G4):** An ADR is DONE when: file saved + checklist passes + INDEX.md updated.
-These are the three verifiable checkboxes. No partial done.
+See `/karpathy` for guidelines. Applied here:
+- **G1:** Before creating, ask: is this decision-worthy? Fits in a comment → skip it.
+- **G2:** Minimum ADR that communicates decision and tradeoffs. No padding or blank sections.
+- **G3:** One decision per ADR. Don't update adjacent ADRs unless they directly conflict.
+- **G4 Done:** File saved ✅ · Checklist passes ✅ · INDEX.md updated ✅

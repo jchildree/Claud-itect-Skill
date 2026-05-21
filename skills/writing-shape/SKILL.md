@@ -1,4 +1,4 @@
----
+﻿---
 name: writing-shape
 disable-model-invocation: true
 description: Take a markdown file of raw material and shape it into an article through a conversational session — drafting candidate openings, growing the piece paragraph by paragraph, arguing about format (lists, tables, callouts, quotes) at each step. Use when the user has a pile of notes, fragments, or a rough draft and wants help turning it into something publishable.
@@ -6,17 +6,11 @@ description: Take a markdown file of raw material and shape it into an article t
 
 <initiation>
 
-On the first invocation of any `/writing-shape` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 </initiation>
 

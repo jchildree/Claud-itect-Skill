@@ -1,4 +1,4 @@
----
+﻿---
 name: brainstorming
 description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
 ---
@@ -19,17 +19,11 @@ Every project goes through this process. A todo list, a single-function utility,
 
 ## Initiation
 
-On the first invocation of any `/brainstorming` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Checklist
 

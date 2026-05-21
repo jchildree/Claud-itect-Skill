@@ -1,4 +1,4 @@
----
+﻿---
 name: triage
 disable-model-invocation: true
 description: Triage issues through a state machine driven by triage roles. Use when user wants to create an issue, triage issues, review incoming bugs or feature requests, prepare issues for an AFK agent, or manage issue workflow.
@@ -8,17 +8,11 @@ description: Triage issues through a state machine driven by triage roles. Use w
 
 ## Initiation
 
-On the first invocation of any `/triage` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Move issues on the project issue tracker through a small state machine of triage roles.
 

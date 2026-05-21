@@ -1,4 +1,4 @@
----
+﻿---
 name: requesting-code-review
 description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
 ---
@@ -7,17 +7,11 @@ description: Use when completing tasks, implementing major features, or before m
 
 ## Initiation
 
-On the first invocation of any `/requesting-code-review` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Dispatch a code reviewer subagent to catch issues before they cascade. The reviewer gets precisely crafted context for evaluation — never your session's history. This keeps the reviewer focused on the work product, not your thought process, and preserves your own context for continued work.
 

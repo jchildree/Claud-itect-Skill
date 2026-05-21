@@ -1,23 +1,17 @@
----
+﻿---
 name: tdd
-description: Test-driven development with red-green-refactor loop. Use when user wants to build features or fix bugs using TDD, mentions "red-green-refactor", wants integration tests, or asks for test-first development.
+description: TDD philosophy, planning, and tracer-bullet vertical slice concept. Use when user asks how TDD works, wants to understand test-first thinking, plan which behaviors to test, or discuss tracer bullets. For active implementation enforcement, use test-driven-development.
 ---
 
 # Test-Driven Development
 
 ## Initiation
 
-On the first invocation of any `/tdd` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Philosophy
 

@@ -1,4 +1,4 @@
----
+﻿---
 name: obsidian-vault
 disable-model-invocation: true
 description: Search, create, and manage notes in the Obsidian vault with wikilinks and index notes. Use when user wants to find, create, or organize notes in Obsidian.
@@ -8,17 +8,11 @@ description: Search, create, and manage notes in the Obsidian vault with wikilin
 
 ## Initiation
 
-On the first invocation of any `/obsidian-vault` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Vault location
 

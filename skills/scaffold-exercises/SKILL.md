@@ -1,4 +1,4 @@
----
+﻿---
 name: scaffold-exercises
 disable-model-invocation: true
 description: Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user wants to scaffold exercises, create exercise stubs, or set up a new course section.
@@ -8,17 +8,11 @@ description: Create exercise directory structures with sections, problems, solut
 
 ## Initiation
 
-On the first invocation of any `/scaffold-exercises` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Create exercise directory structures that pass `pnpm ai-hero-cli internal lint`, then commit with `git commit`.
 

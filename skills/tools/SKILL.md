@@ -1,4 +1,4 @@
----
+﻿---
 name: tools
 disable-model-invocation: true
 description: >
@@ -22,17 +22,11 @@ Binds to the active project at invocation time.
 
 ## Initiation
 
-On the first invocation of any `/tools` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ---
 
@@ -210,22 +204,11 @@ finding, they should use `/tools add <tool>` or address it manually.
 
 ## Karpathy Principles Applied
 
-**Think First (G1):** Read the project before suggesting anything. An MCP server
-recommendation without knowing the stack is noise. State assumptions from the scan
-before presenting candidates. If the ecosystem is ambiguous, ask.
-
-**Simplicity (G2):** Suggest the minimum set of tools that solve real gaps.
-Don't recommend tools for hypothetical future needs. One tool that gets used daily
-beats five tools that sit unconfigured.
-
-**Surgical (G3):** When adding a tool, touch only the config block for that tool.
-Don't "clean up" surrounding settings.json content. Don't reorder existing keys.
-Don't add comments to existing entries.
-
-**Goal-Driven (G4):** A tool addition is DONE when:
-1. Config change applied and saved ✅
-2. Tool visible in `claude mcp list` or equivalent verification ✅
-3. User confirmed the tool responds ✅
+See `/karpathy` for guidelines. Applied here:
+- **G1:** Read the project before suggesting anything. State assumptions from the scan.
+- **G2:** Minimum tool set that solves real gaps. One used tool beats five unconfigured.
+- **G3:** Touch only the config block for the approved tool. Don't reorder or clean up surrounding settings.
+- **G4 Done:** Config applied ✅ · Tool visible in `claude mcp list` ✅ · User confirmed response ✅
 
 ---
 

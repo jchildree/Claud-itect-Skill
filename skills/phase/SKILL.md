@@ -1,4 +1,4 @@
----
+﻿---
 name: phase
 description: >
   Track project phase lifecycle: status snapshots, transitions, and ADR impact analysis.
@@ -19,17 +19,11 @@ Binds to the active project at invocation time.
 
 ## Initiation
 
-On the first invocation of any `/phase` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ---
 
@@ -202,18 +196,8 @@ If precedence cannot resolve: halt and ask rather than guess.
 
 ## Karpathy Principles Applied
 
-**Think First (G1):** When asked "what phase are we in," read the registry before answering.
-Don't infer from conversation history. Don't guess from the last thing mentioned.
-
-**Simplicity (G2):** Default to the snapshot. Long form only on explicit request.
-One phase per transition record — don't bundle unrelated transitions.
-
-**Surgical (G3):** A transition record touches only the phases involved.
-Don't rewrite unrelated rows in the registry when recording one transition.
-
-**Goal-Driven (G4):** A transition is DONE when:
-1. Registry table updated ✅
-2. Impact Matrix updated ✅
-3. One-FOCUS invariant holds ✅
-
-These are the three verifiable checks. All three must pass.
+See `/karpathy` for guidelines. Applied here:
+- **G1:** Read the registry before answering phase questions. No inferring from conversation history.
+- **G2:** Default to snapshot. Long form only on explicit request. One transition per record.
+- **G3:** Touch only the phases involved. Don't rewrite unrelated rows.
+- **G4 Done:** Registry updated ✅ · Impact Matrix updated ✅ · One-FOCUS invariant holds ✅

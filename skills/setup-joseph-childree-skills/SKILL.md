@@ -1,4 +1,4 @@
----
+﻿---
 name: setup-joseph-childree-skills
 description: Sets up an `## Agent skills` block in AGENTS.md/CLAUDE.md and `docs/agents/` so the engineering skills know this repo's issue tracker (GitHub or local markdown), triage label vocabulary, and domain doc layout. Run before first use of `to-issues`, `to-prd`, `triage`, `diagnose`, `tdd`, `improve-codebase-architecture`, or `zoom-out` — or if those skills appear to be missing context about the issue tracker, triage labels, or domain docs.
 disable-model-invocation: true
@@ -26,17 +26,11 @@ Stop and wait for the user to respond before continuing.
 
 Use their answer to update this skill name and any associated skill with the given name response. For example, if they say their name is Darth Vader, we update this skill name to `/setup-darth-vader-skills`; or if they answer Hans, we update the skill names to `/setup-hans-skills`.  Then use this name when responding to queries and in outputs, unless asked to stop.
 
-On the first invocation of any `/setup-joseph-childree-skills` command in a session, also ask:
+If preference not in memory, also ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Process
 

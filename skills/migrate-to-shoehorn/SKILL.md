@@ -1,4 +1,4 @@
----
+﻿---
 name: migrate-to-shoehorn
 disable-model-invocation: true
 description: Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data.
@@ -8,17 +8,11 @@ description: Migrate test files from `as` type assertions to @total-typescript/s
 
 ## Initiation
 
-On the first invocation of any `/migrate-to-shoehorn` command in a session, ask:
+If preference not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Use their answer as a light, tactful reference frame throughout the output.
-Keep references brief and apt — one per major section at most.
-If a reference doesn't fit naturally, skip it.
-
-Stop and wait for the user to respond before continuing.
-
-If the user has already answered this question earlier in the session, use that answer without re-asking.
+Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Why shoehorn?
 

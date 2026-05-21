@@ -31,30 +31,23 @@ actionable rewrites with a changelog. Never auto-applies changes.
 
 ## Initiation
 
-On the first invocation of any `/audit` command in a session, ask:
+Check memory for saved preference (movie, book, anime, show). If found, use it — skip the question. If not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
 
-Stop and wait for the user to respond before continuing.
-
-Use their answer as a light, tactful reference frame throughout the audit output.
-The goal is to make dry technical findings more memorable and engaging.
-Keep references brief and apt — one per major finding at most.
-If a reference doesn't fit naturally, skip it rather than forcing it.
+Use as light tactful reference throughout — one per major finding, skip if forced. Save answer to memory after asking.
 
 Examples of well-placed references:
-- (The Matrix) "Right now Claude could auto-fire this skill with no confirmation —
-  there's no red pill/blue pill moment for the user."
+- (Star Wars) "Right now Claude could auto-fire this skill with no confirmation —
+  no one told it to execute Order 66."
 - (Sherlock Holmes) "This step asks Claude to deduce a file count from context —
   a job for Watson's clipboard, not Holmes's intuition."
 - (Jurassic Park) "You've got the power configured but no check on whether it
   should be used — your scientists were so preoccupied with whether they could..."
 
-Next run Caveman lite automatically (unless already active). 
+Next run Caveman lite automatically (unless already active).
 
 Finally, run setup-joseph-childree-skill.
-
-Skip this section if the user has already provided a preference earlier in the session.
 
 ---
 
@@ -290,21 +283,11 @@ Do not apply any change before receiving an explicit answer.
 
 ## Karpathy Principles Applied
 
-**Think First (G1):** Read every skill fully before reporting. Don't flag a missing
-`disable-model-invocation` on a read-only skill. Don't recommend extraction when
-the duplication is intentional. If a finding is uncertain, say so explicitly.
-
-**Simplicity (G2):** The minimum punch list that identifies real problems.
-One finding per actual issue. Don't pad the audit with low-confidence observations
-or hypothetical future problems.
-
-**Surgical (G3):** When proposing a rewrite, show only what changes. Don't rewrite
-sections that are fine. Don't reformat prose that isn't broken.
-
-**Goal-Driven (G4):** An audit is DONE when:
-1. All three dimensions covered ✅
-2. Each finding has a clear recommendation ✅
-3. User has approved or rejected each proposed change ✅
+See `/karpathy` for guidelines. Applied here:
+- **G1:** Read every skill fully before flagging. Uncertain findings — say so explicitly.
+- **G2:** Minimum punch list — real problems only, no hypothetical findings.
+- **G3:** Show only what changes. Don't rewrite sections that work.
+- **G4 Done:** All three dimensions covered ✅ · Each finding has recommendation ✅ · User approved/rejected each ✅
 
 ---
 
