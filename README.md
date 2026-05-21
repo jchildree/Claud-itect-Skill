@@ -2,7 +2,7 @@
 
 # Claude-ITect-Skill
 
-Are you a Claude Architect—or as the industry refuses to call us—Claude-ITects™?
+Are you a Claude Architect or as the industry refuses to call us: Claude-ITects™?
 Good. You’re in the right place.
 
 Welcome to Claude-ITect-Skill:
