@@ -35,7 +35,7 @@ Start by displaying this message:
 
 > "Captainnnnn...CaveMANNNNN!!!!"
 
-Then running the `/caveman lite` skill, then continue this skill.
+Then before any other action, run the `/caveman lite` skill, then continue this skill.
 Check memory for saved preference (movie, book, anime, show). If found, use it — skip the question. If not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
