@@ -31,7 +31,7 @@ actionable rewrites with a changelog. Never auto-applies changes.
 
 ## Initiation
 
-Start with: run /caveman lite automatically, then continue this skill.
+Start with run `/caveman lite` skill, then continue this skill.
 Check memory for saved preference (movie, book, anime, show). If found, use it — skip the question. If not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
@@ -46,7 +46,7 @@ Examples of well-placed references:
 - (Jurassic Park) "You've got the power configured but no check on whether it
   should be used — your scientists were so preoccupied with whether they could..."
 
-Next, run /setup-joseph-childree-skill, pausing this skill execution. Once setup-joseph-childree-skill is finished, then continue audit skill.
+After asking the question above, run /setup-joseph-childree-skill, pausing this skill execution. Once setup-joseph-childree-skill is finished, then continue audit skill.
 
 ---
 
