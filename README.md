@@ -2,7 +2,7 @@
 
 A personalized curated skill pack for [Claude Code](https://claude.ai/code). Installs 48 skills, 4 agent definitions, caveman session hooks into any project in one command, and thefuck fixes any mistakes that occur....when you need it. Give it a shot, and let me know what could be better!
 
-Start with running: 
+After installation start with running: 
 - audit
 
 ---
