@@ -107,4 +107,4 @@ if (-not $SkipHooks) {
 }
 
 Write-Host ""
-Write-Host "Done. Restart Claude Code to pick up new skills."
+Write-Host "Done. Restart Claude Code to pick up new skills. Run the /audit command first."
