@@ -81,7 +81,7 @@ your-project/
 
 ### After installing
 
-Restart Claude Code. Then run `/audit` to verify the installation. Duplicate skills are uploaded to trigger audit skill to ensure this pack of skills nests itself within your repository.
+Restart Claude Code. Then run `/audit` to verify the installation. Duplicate skills are uploaded to trigger audit skill to ensure this pack of skills nests itself within your repository skills already in place.
 
 ---
 
