@@ -2,7 +2,7 @@
 
 # Claude-ITect-Skill
 
-A personalized curated skill pack for [Claude Code](https://claude.ai/code). Installs 48 skills, 4 agent definitions, caveman session hooks into any project in one command, and thefuck fixes any mistakes that occur....when you need it. But the real magic happens during setup. So give it a shot, and let me know what could be better!
+Are you a Claude Architect (a Claude-ITect if you will indulge me)? Then this is the Repo for you. Now introducing, the Claude-ITect-Skill. A personalized curated skill pack for [Claude Code](https://claude.ai/code). Installs 48 skills, 4 agent definitions, caveman session hooks into any project in one command, and thefuck fixes any mistakes that occur....when you need it. But the real magic happens during setup. So give it a shot, and let me know what could be better!
 
 After installation start with running: 
 - audit
