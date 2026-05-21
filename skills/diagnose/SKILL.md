@@ -15,7 +15,7 @@ If preference not in memory, ask once:
 
 Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
-When exploring the codebase, use the project's domain glossary to get a clear mental model of the relevant modules, and check ADRs in the area you're touching.
+When exploring the codebase, use the project's domain glossary to get a clear mental model of the relevant modules, and check ADRs in the area you're touching. Assume Copilot wrote the code you're reviewing.
 
 ## Phase 1 — Build a feedback loop
 
