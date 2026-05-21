@@ -1,4 +1,4 @@
-# Claude-ITect-Skill v2.0 — Windows Install Script
+# Claude-ITect-Skill v2.0 -- Windows Install Script
 # Installs all skills, agents, hooks, and commands into a project's .claude directory.
 # Also wires caveman hooks into the project's .claude/settings.json.
 #
@@ -65,7 +65,7 @@ function Wire-Hooks($hooksDir, $settingsPath) {
             $settings.hooks | Add-Member -NotePropertyName $event -NotePropertyValue @() -Force
         }
         if (Has-Hook $settings.hooks.$event $cmd) {
-            Write-Host "hooks  : $label already wired — skipped"
+            Write-Host "hooks  : $label already wired -- skipped"
             return
         }
         $settings.hooks.$event += [PSCustomObject]@{ hooks = @([PSCustomObject]@{ type = "command"; command = $cmd; timeout = 5000 }) }
@@ -97,7 +97,7 @@ Copy-Files "$src\agents"  "$claude\agents"  "agents "
 Copy-Files "$src\hooks"   "$claude\hooks"   "hooks  "
 
 if (Test-Path "$src\commands-ngon") {
-    Write-Host "commands-ngon: skipped (NgonENGINE-specific — copy manually if needed)"
+    Write-Host "commands-ngon: skipped (NgonENGINE-specific -- copy manually if needed)"
 }
 
 if (-not $SkipHooks) {
