@@ -8,14 +8,17 @@ Good. You’re in the right place.
 Welcome to Claude-ITect-Skill:
 The “I don’t want to configure 47 things manually” starter pack for Claude Code.
 What you get (whether you deserve it or not):
-     -🧠 48 curated skills
-     -🤖 4 agent definitions
-     -🪓 Caveman session hooks (one command, no thinking required)
-     -🔧 thefuck integration for when your terminal betrays you.
+- 🧠 48 curated skills
+- 🤖 4 agent definitions
+- 🪓 Caveman session hooks (one command, no thinking required)
+- 🔧 thefuck integration for when your terminal betrays you.
 
-But don’t get distracted by the features…
+But don’t get distracted by the features.
+
 The real sorcery happens during setup when everything just… works.
+
 No yak shaving. No ritual sacrifices.
+
 Install it. Try it. Judge me harshly afterward.
 
 After installation start with the skill: 
