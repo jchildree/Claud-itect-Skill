@@ -123,4 +123,4 @@ else
 fi
 
 echo ""
-echo "Done. Restart Claude Code to pick up new skills."
+echo "Done. Restart Claude Code to pick up new skills. Run the /audit command first."
