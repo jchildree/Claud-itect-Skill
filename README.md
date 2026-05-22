@@ -45,11 +45,11 @@ After installation start with the skill:
    ```
 3. Run the installer — replace the path with wherever you saved the skill pack:
    ```powershell
-   powershell -ExecutionPolicy Bypass -File "C:\path\to\Claude-ITect-Skill-2\install.ps1"
+   powershell -ExecutionPolicy Bypass -File "C:\path\to\Claude-ITect-Skill\install.ps1"
    ```
    To install into a specific project instead of the current directory:
    ```powershell
-   powershell -ExecutionPolicy Bypass -File "C:\path\to\Claude-ITect-Skill-2\install.ps1" -ProjectPath "C:\path\to\your\project"
+   powershell -ExecutionPolicy Bypass -File "C:\path\to\Claude-ITect-Skill\install.ps1" -ProjectPath "C:\path\to\your\project"
    ```
 
 | Flag | Effect |
@@ -66,16 +66,16 @@ After installation start with the skill:
 1. Open a terminal.
 2. Make the script executable (one-time step):
    ```bash
-   chmod +x "/path/to/Claude-ITect-Skill-2/install.sh"
+   chmod +x "/path/to/Claude-ITect-Skill/install.sh"
    ```
 3. Navigate to your project and run:
    ```bash
    cd /path/to/your/project
-   bash "/path/to/Claude-ITect-Skill-2/install.sh"
+   bash "/path/to/Claude-ITect-Skill/install.sh"
    ```
    Or install into a specific path directly:
    ```bash
-   bash "/path/to/Claude-ITect-Skill-2/install.sh" /path/to/your/project
+   bash "/path/to/Claude-ITect-Skill/install.sh" /path/to/your/project
    ```
 
 | Flag | Effect |
