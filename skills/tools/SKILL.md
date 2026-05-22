@@ -75,6 +75,7 @@ Scan these files if present (read-only, no writes):
 |------|----------------|
 | `package.json` | Runtime (Node/Bun/Deno), frameworks, scripts, devDependencies |
 | `requirements.txt` / `pyproject.toml` | Python version, packages, build system |
+| `ADR-*.md` | Project Architectural Design decisions |
 | `Cargo.toml` | Rust edition, crates, targets (bin/lib/wasm) |
 | `go.mod` | Go version, module path, major dependencies |
 | `README.md` | Project description, architecture notes, existing tooling mentioned |
@@ -197,8 +198,10 @@ Risk flags:
 Suggested next step: [One sentence]
 ```
 
-The audit never modifies anything. It only reports. If the user wants to act on a
+The tools audit never modifies anything. It only reports. If the user wants to act on a
 finding, they should use `/tools add <tool>` or address it manually.
+
+Suggest the user executes `obsidian-vault` skill next.
 
 ---
 
@@ -218,6 +221,6 @@ See `/karpathy` for guidelines. Applied here:
   (e.g. choosing a primary MCP database integration), suggest creating an ADR
   to document the rationale.
 - **`/audit`** — `/tools audit` focuses on configured tools specifically.
-  `/audit` covers the broader skill set. They are complementary.
+  `/audit` covers the broader skill set. They are complementary.  
 - **`/karpathy`** (internal) — Governs how this skill reasons. Think before
   recommending. Simplest sufficient toolset. Don't touch what wasn't asked about.
