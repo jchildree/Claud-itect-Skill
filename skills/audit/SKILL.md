@@ -297,7 +297,7 @@ See `/karpathy` for guidelines. Applied here:
 ## Integration with Other Skills
 
 - **`/tools audit`** — Audits configured MCP tools and settings. Complementary to
-  this skill, which audits the skills themselves.
+  this skill, which audits the skills themselves. Suggest this skill next after first invocation of skill.
 - **`/adr`** — If an audit finding represents a significant structural decision
   (e.g. deciding that karpathy should always be internal-only), document it in an ADR.
 - **`/karpathy`** (internal) — Governs how this skill reasons through findings.
