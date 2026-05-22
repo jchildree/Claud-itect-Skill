@@ -45,9 +45,11 @@ Resolves the ADR directory in this order:
 
 1. User names a path explicitly: "run against `src/decisions/`"
 2. `CLAUDE.md` or `AGENTS.md` in the working directory declares an `adr-path:` field
-3. Search up from working directory for `docs/adr/INDEX.md`
-4. Default assumption: `docs/adr/`
-5. If none found: ask before proceeding
+3. Search up from working directory for `docs/adr/INDEX.md` or 
+4. Search for all Markdown files located within the folder and subfolders: `docs/Obsidian Vault/[Project Name]`
+5. Default assumptions: If this location exists create there- `docs/Obsidian Vault/`, otherwise- `docs/adr/`
+6. Search full repository, if notes, requirements documents, or unformatted ADRs exists already, automatically convert them to this format within the correct folder.
+7. If none found: ask before proceeding
 
 ---
 
@@ -58,6 +60,7 @@ Create one when a decision:
 - Will be **hard to reverse** without significant rework
 - Has **non-obvious tradeoffs** future maintainers will need to understand
 - Changes a **cross-cutting concern** (auth, logging, validation, state, data access)
+- When an unformatted related requirement document or ADR exists
 
 **Don't ADR:** bug fixes, implementation details, naming choices, formatting decisions.
 Every code commit does not need an ADR.
@@ -67,7 +70,7 @@ Every code commit does not need an ADR.
 ## File Naming
 
 ```
-docs/adr/ADR-###-[kebab-case-slug].md
+docs/Obsidian Vault/[Project Name]/ADR-###-[kebab-case-slug].md
 ```
 
 | Rule | Good | Bad |
@@ -154,7 +157,8 @@ Applying Karpathy Guideline 1 (Think Before Coding) to ADR creation:
 
 ## `/adr review` Checklist
 
-- [ ] File is in `docs/adr/ADR-###-[slug].md`
+- [ ] Files are in `docs/adr/ADR-###-[slug].md`
+- [ ] Files are in `docs/Obsidian Vault/[Project Name]/ADR-###-[slug].md`
 - [ ] Number is zero-padded and in sequence (no gaps)
 - [ ] Required fields present: Status, Date, Authors, Affected Layers
 - [ ] Status is exactly `PROPOSED` | `ACCEPTED` | `DEPRECATED`
@@ -170,10 +174,11 @@ Applying Karpathy Guideline 1 (Think Before Coding) to ADR creation:
 ## `/adr audit` Protocol
 
 1. Scan `docs/adr/ADR-*.md` for all ADR files
-2. Extract metadata: number, title, status, date, affected layers
-3. Check for: number gaps, missing required fields, STATUS values not in the legal set, INDEX mismatches
-4. Report as a punch list: each issue on one line with the file and field
-5. Ask before rebuilding INDEX.md automatically
+2. Scan `docs/Obsidian Vault/[Project Name]/*` for all ADR files
+3. Extract metadata: number, title, status, date, affected layers
+4. Check for: number gaps, missing required fields, STATUS values not in the legal set, INDEX mismatches
+5. Report as a punch list: each issue on one line with the file and field
+6. Ask before rebuilding INDEX.md automatically
 
 ---
 
