@@ -36,6 +36,9 @@ Start by displaying this message:
 > "Captainnnnn...CaveMANNNNN!!!!"
 
 Then before any other action, run the `/caveman lite` skill, then continue this skill.
+
+Before any other action, automatically execute the `/using-superpowers` skill, unless it has been executed once, then continue this skill.
+
 Check memory for saved preference (movie, book, anime, show). If found, use it — skip the question. If not in memory, ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
