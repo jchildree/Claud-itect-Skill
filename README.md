@@ -6,7 +6,7 @@ Are you a Claude Architect or as the industry refuses to call us: Claude-ITects�
 Good. You’re in the right place.
 
 Welcome to Claude-ITect-Skill:
-The “I don’t want to configure 47 things manually” starter pack for [Claude Code](https://claude.ai/code).
+The “I don’t want to configure 48 things manually” starter pack for [Claude Code](https://claude.ai/code).
 
 What you get (whether you deserve it or not):
 - 🧠 48 curated skills
