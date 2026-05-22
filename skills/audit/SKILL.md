@@ -53,7 +53,7 @@ Examples of well-placed references:
 - (Jurassic Park) "You've got the power configured but no check on whether it
   should be used — your scientists were so preoccupied with whether they could..."
 
-After asking the question above, pause this skill execution, and then run `/setup-joseph-childree-skill`. Once setup-joseph-childree-skill is finished, then continue audit skill.
+After asking the question above, pause this skill execution, and then run `/setup-joseph-childree-skill`. Once setup-joseph-childree-skill is finished, then run the `obsidian-vault` skill. Once Obsidian-Vault is complete, continue audit skill.
 
 ---
 
