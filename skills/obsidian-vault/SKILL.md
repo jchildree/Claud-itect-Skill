@@ -16,7 +16,7 @@ Use answer as light reference — one per major section, skip if forced. Check m
 
 ## Vault location
 
-Skip if already directed previously on structure.
+Check Memory for saved preference before implementing. Skip if already directed previously on structure.
 
 `/mnt/d/Obsidian Vault/AI Research/`
 
