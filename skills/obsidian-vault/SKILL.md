@@ -16,9 +16,14 @@ Use answer as light reference — one per major section, skip if forced. Check m
 
 ## Vault location
 
+Skip if already directed previously on structure.
+
 `/mnt/d/Obsidian Vault/AI Research/`
 
-Mostly flat at root level.
+Mostly flat at root level, unless there's a `/docs` folder in place within repository, in which case use:
+
+`/docs/Obsidian Vault/<project name>/`
+
 
 ## Naming conventions
 
@@ -30,7 +35,7 @@ Mostly flat at root level.
 
 - Use Obsidian `[[wikilinks]]` syntax: `[[Note Title]]`
 - Notes link to dependencies/related notes at the bottom
-- Ensure on first invocation, that if you see missing `[[wikilinks]]`, then add them and tell the user.
+- Ensure on first invocation, while reviewing if you see missing `[[wikilinks]]`, then add them and tell the user.
 - Index notes are just lists of `[[wikilinks]]`
 
 ## Workflows
