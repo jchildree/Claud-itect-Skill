@@ -22,7 +22,7 @@ Mostly flat at root level.
 
 ## Naming conventions
 
-- **Index notes**: aggregate related topics (e.g., `Ralph Wiggum Index.md`, `Skills Index.md`, `RAG Index.md`)
+- **Index notes**: aggregate related topics (e.g., `Ralph Wiggum Index.md`, `Skills Index.md`, `RAG Index.md`, `ADR Index.md`)
 - **Title case** for all note names
 - No folders for organization - use links and index notes instead
 
@@ -30,6 +30,7 @@ Mostly flat at root level.
 
 - Use Obsidian `[[wikilinks]]` syntax: `[[Note Title]]`
 - Notes link to dependencies/related notes at the bottom
+- Ensure on first invocation, that if you see missing `[[wikilinks]]`, then add them and tell the user.
 - Index notes are just lists of `[[wikilinks]]`
 
 ## Workflows
