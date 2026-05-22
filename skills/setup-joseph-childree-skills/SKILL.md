@@ -26,6 +26,8 @@ Stop and wait for the user to respond before continuing.
 
 Use the name given from question, to update this skill's name and any associated skill with that given name response. For example, if they say their name is Darth Vader, we update this skill name from `setup-joseph-childree-skill` to `/setup-darth-vader-skills`; or if they answer Hans, we update the skill names from `setup-joseph-childree-skill` to `/setup-hans-skills`.  Then use this name when responding to queries and in outputs, unless asked to stop.
 
+Pause this skill, and execute the `setup-pre-commit` skill automatically. Once finished continue this skill.
+
 If preference not in memory, also ask once:
 
 > "Before I start — what's your favorite movie, book, anime, or show?"
