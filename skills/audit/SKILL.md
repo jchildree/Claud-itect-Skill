@@ -282,7 +282,6 @@ Total findings: [N]
   Composability issues:[N]
 
 Proposed changes are above. Which would you like applied?
-```
 
 Do not apply any change before receiving an explicit answer.
 
