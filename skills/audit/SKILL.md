@@ -191,7 +191,6 @@ cost and non-determinism for a purely mechanical operation.
 
 Call site in SKILL.md: Replace prose instruction with:
 "Run `.claude/skills/adr/next-adr-number.sh docs/adr` to get the next number."
-```
 
 Repeat for every deterministic step found across all skills.
 
