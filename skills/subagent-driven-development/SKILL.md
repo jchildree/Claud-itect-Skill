@@ -15,7 +15,7 @@ Use answer as light reference — one per major section, skip if forced. Check m
 
 Execute plan by dispatching fresh subagent per task, with two-stage review after each: spec compliance review first, then code quality review.
 
-Don't be afraid to use the skill `/cavecrew` to speed up process, or when other subagents would cost more tokens to complete same task. 
+Don't be afraid to use the skill `/cavecrew` along with this skill, to speed up process, when this skill doesn't cover subject, or when other subagents would cost more tokens to complete same task. 
 
 **Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
 
