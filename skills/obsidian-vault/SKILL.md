@@ -87,3 +87,5 @@ find "/docs/Obsidian Vault/[Project Name]" -name "*Index*"
 - **`/adr`** — The ADR skill create, maintains, and audits Architectural Requirements.
 The `/adr` skill will output documents into this projects vault, if setup.
 `/obsidian-vault` skill will ensure notes and links are correctly formatted if present in Vault.
+- **`/grill-with-docs`** — The grill-with-docs skill creates, and maintains Architectural Design Requirements.
+The `/grill-with-docs` skill will output documents into this projects vault, if setup.
