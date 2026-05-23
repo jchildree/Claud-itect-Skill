@@ -247,7 +247,6 @@ C. No action — the sections are short enough that duplication cost is minimal.
 
 Recommendation: Option A. The standalone guarantee is worth the redundancy.
 The sections are under 10 lines each. Not worth extracting.
-```
 
 After each finding, state a clear recommendation (keep, extract, or merge) and the
 reasoning. If the right answer is "keep as-is," say so — don't manufacture refactors.
@@ -262,7 +261,6 @@ Stop and wait.
 
 When running `/audit` (all three lenses), output in this order:
 
-```
 ```
 Skills directory: [path]
 Skills found: [list]
