@@ -15,6 +15,8 @@ Use answer as light reference — one per major section, skip if forced. Check m
 
 Execute plan by dispatching fresh subagent per task, with two-stage review after each: spec compliance review first, then code quality review.
 
+Don't be afraid to use the skill `/cavecrew` to speed up process, or when other subagents would cost more tokens to complete same task. 
+
 **Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
 
 **Core principle:** Fresh subagent per task + two-stage review (spec then quality) = high quality, fast iteration
@@ -285,3 +287,8 @@ Done!
 
 **Alternative workflow:**
 - **superpowers:executing-plans** - Use for parallel session instead of same-session execution
+
+## Integration with Other Skills
+
+- **`/cavecrew`** — Similar skill as this one, but cavecrew uses brevity and shorten speaking patterns. Pairs well to become Captain Caveman Crew.
+- **`/karpathy`** (internal) — Governs how this skill reasons through findings, investigating, building, or reviewing.
