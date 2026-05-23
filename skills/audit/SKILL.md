@@ -263,6 +263,7 @@ Stop and wait.
 When running `/audit` (all three lenses), output in this order:
 
 ```
+```
 Skills directory: [path]
 Skills found: [list]
 
@@ -280,7 +281,7 @@ Total findings: [N]
   Visibility flags:    [N]
   Deterministic steps: [N]
   Composability issues:[N]
-
+```
 Proposed changes are above. Which would you like applied?
 
 Do not apply any change before receiving an explicit answer.
