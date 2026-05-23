@@ -22,7 +22,7 @@ Check Memory for saved preference before implementing. Skip if already directed 
 
 Mostly flat at root level, unless there's a `/docs` folder in place within repository, in which case use:
 
-`/docs/Obsidian Vault/<project name>/`
+`/docs/Obsidian Vault/[project name]/`
 
 
 ## Naming conventions
@@ -45,9 +45,13 @@ Mostly flat at root level, unless there's a `/docs` folder in place within repos
 ```bash
 # Search by filename
 find "/mnt/d/Obsidian Vault/AI Research/" -name "*.md" | grep -i "keyword"
+or
+find "docs/Obsidian Vault/[Project Name]" -name "*.md" | grep -i "keyword"
 
 # Search by content
 grep -rl "keyword" "/mnt/d/Obsidian Vault/AI Research/" --include="*.md"
+or
+grep -rl "keyword" "docs/Obsidian Vault/[Project Name]" --include="*.md"
 ```
 
 Or use Grep/Glob tools directly on the vault path.
@@ -65,10 +69,21 @@ Search for `[[Note Title]]` across the vault to find backlinks:
 
 ```bash
 grep -rl "\\[\\[Note Title\\]\\]" "/mnt/d/Obsidian Vault/AI Research/"
+or
+grep -rl "\\[\\[Note Title\\]\\]" "docs/Obsidian Vault/[Project Name]"
 ```
 
 ### Find index notes
 
 ```bash
 find "/mnt/d/Obsidian Vault/AI Research/" -name "*Index*"
+or
+find "/docs/Obsidian Vault/[Project Name]" -name "*Index*"
 ```
+
+```
+## Integration with Other Skills
+
+- **`/adr`** — The ADR skill create, maintains, and audits Architectural Requirements.
+The `/adr` skill will output documents into this projects vault, if setup.
+`/obsidian-vault` skill will ensure notes and links are correctly formatted if present in Vault.
