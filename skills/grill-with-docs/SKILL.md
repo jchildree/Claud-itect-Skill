@@ -38,9 +38,10 @@ Most repos have a single context:
 /
 ├── CONTEXT.md
 ├── docs/
-│   └── adr/
-│       ├── 0001-event-sourced-orders.md
-│       └── 0002-postgres-for-write-model.md
+│   └── Obsidian Vault/
+|       └── [Project Name]/
+│               ├── 0001-event-sourced-orders.md
+│               └── 0002-postgres-for-write-model.md
 └── src/
 ```
 
@@ -50,7 +51,8 @@ If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The ma
 /
 ├── CONTEXT-MAP.md
 ├── docs/
-│   └── adr/                          ← system-wide decisions
+│   └── Obsidian Vault/
+|       └── [Project Name]/                        ← system-wide decisions
 ├── src/
 │   ├── ordering/
 │   │   ├── CONTEXT.md
@@ -60,7 +62,7 @@ If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The ma
 │       └── docs/adr/
 ```
 
-Create files lazily — only when you have something to write. If no `CONTEXT.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+Create files lazily — only when you have something to write. If no `CONTEXT.md` exists, create one when the first term is resolved. If no `docs/Obsidian Vault/[Project Name]` exists, create it when the first ADR is needed.
 
 ## During the session
 
@@ -97,3 +99,8 @@ Only offer to create an ADR when all three are true:
 If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
 
 </supporting-info>
+
+```
+## Integration with Other Skills
+
+- **`/adr`** — Similar tool as they both maintain ADRs, but the `/grill-with-docs` skill looks at folder structure and when to automatically create ADRs, has a step-by-step guide to create new ADRs manually with AI. The `/adr` skill audits requirements and ADRs in place already and focuses on it's format, and also creates ADRs when it thinks is necessary. These two skill can be combined in the future.
