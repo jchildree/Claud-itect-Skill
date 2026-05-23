@@ -88,3 +88,9 @@ Skip investigator. Hand exact path:line to `cavecrew-builder` directly.
 ## Auto-clarity (inherited)
 
 Subagents drop caveman → normal English for security warnings, irreversible-action confirmations, and any output where fragment ambiguity could be misread. Resume caveman after.
+
+## Integration with Other Skills
+
+- **`/subagent-driven-development`** — Similar skill as this one, but doesn't use brevity unlike cavecrew. Pairs well to become Captain Caveman Crew.
+- **`/karpathy`** (internal) — Governs how this skill reasons through findings, investigating, building, or reviewing.
+
