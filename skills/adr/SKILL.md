@@ -50,6 +50,7 @@ Resolves the ADR directory in this order:
 5. Default assumptions: If this location exists create there- `docs/Obsidian Vault/`, otherwise- `docs/adr/`
 6. Search full repository, if notes, requirements documents, or unformatted ADRs exists already, automatically convert them to this format within the correct folder.
 7. If none found: ask before proceeding
+8. **Create or Update SUMMARY.HTML**: a full HTML file that is a full summary of the project requirements and ADRs. Put file in `docs/Obsidian Vault/`, ensure you format to match project first then users esthetics.
 
 ---
 
@@ -168,6 +169,7 @@ Applying Karpathy Guideline 1 (Think Before Coding) to ADR creation:
 - [ ] Implementation Notes are specific enough to act on
 - [ ] Related ADRs cross-linked
 - [ ] INDEX.md has been updated
+- [ ] **Create or Update SUMMARY.HTML** add a full HTML file that is a full summary of the project requirements and ADRs. Put file in `docs/Obsidian Vault/`, ensure you format to match project first then users esthetics.
 
 ---
 
@@ -179,6 +181,7 @@ Applying Karpathy Guideline 1 (Think Before Coding) to ADR creation:
 4. Check for: number gaps, missing required fields, STATUS values not in the legal set, INDEX mismatches
 5. Report as a punch list: each issue on one line with the file and field
 6. Ask before rebuilding INDEX.md automatically
+7. **Create or Update SUMMARY.HTML** add a full HTML file that is a full summary of the project requirements and ADRs. Put file in `docs/Obsidian Vault/`, ensure you format to match project first then users esthetics.
 
 ---
 
@@ -209,3 +212,10 @@ See `/karpathy` for guidelines. Applied here:
 - **G2:** Minimum ADR that communicates decision and tradeoffs. No padding or blank sections.
 - **G3:** One decision per ADR. Don't update adjacent ADRs unless they directly conflict.
 - **G4 Done:** File saved ✅ · Checklist passes ✅ · INDEX.md updated ✅
+
+```
+## Integration with Other Skills
+
+- **`/obsidian-vault`** — This skill is complementary to one another. While ADRs create, audti, and maintain requirements,
+the Obsidian Vault skill creates the project vault and memory storage to ensure that you keep all your project information safe and sound on your own system.
+It is suggested you add the `/docs/` folder to your `.gitignore`.  
