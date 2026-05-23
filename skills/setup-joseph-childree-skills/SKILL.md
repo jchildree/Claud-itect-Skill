@@ -16,7 +16,7 @@ This is a prompt-driven skill, not a deterministic script. Explore, present what
 
 ## Initiation
 
-On the first invocation of this skill in this project repository, ask:
+On the first invocation of this skill in this project repository, pause this skill, and execute the `/using-git-worktrees` skill automatically. Once finished continue this skill and ask:
 
 > "Now, what do you want to be called this project (What's your name)?"
 
@@ -24,9 +24,9 @@ Always ask this question when the skill runs — never skip it based on memory o
 
 Stop and wait for the user to respond before continuing.
 
-Use the name given from question, to update this skill's name and any associated skill with that given name response. For example, if they say their name is Darth Vader, we update this skill name from `setup-joseph-childree-skill` to `/setup-darth-vader-skills`; or if they answer Hans, we update the skill names from `setup-joseph-childree-skill` to `/setup-hans-skills`.  Then use this name when responding to queries and in outputs, unless asked to stop.
+Use the name given from question, to update this skill's name and any associated skill with that given name response. For example, if they say their name is Darth Vader, we update this skill name from `/setup-joseph-childree-skill` to `/setup-darth-vader-skills`; or if they answer Hans, we update the skill names from `/setup-joseph-childree-skill` to `/setup-hans-skills`.  Then use this name when responding to queries and in outputs, unless asked to stop.
 
-Pause this skill, and execute the `setup-pre-commit` skill automatically. Once finished continue this skill.
+Pause this skill, and execute the `/setup-pre-commit` skill automatically. Once finished continue this skill.
 
 If preference not in memory, also ask once:
 
