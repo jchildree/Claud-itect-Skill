@@ -24,7 +24,7 @@ Always ask this question when the skill runs — never skip it based on memory o
 
 Stop and wait for the user to respond before continuing.
 
-Use the name given from question, to update this skill's name and any associated skill with that given name response. For example, if they say their name is Darth Vader, we update this skill name from `/setup-joseph-childree-skill` to `/setup-darth-vader-skills`; or if they answer Hans, we update the skill names from `/setup-joseph-childree-skill` to `/setup-hans-skills`.  Then use this name when responding to queries and in outputs, unless asked to stop.
+Use the name given from question, to update this skill's name and any all skills in this project repository with that given name response. For example, if they say their name is Darth Vader, we update this skill name from `/setup-joseph-childree-skill` to `/setup-darth-vader-skills`; or if they answer Hans, we update the skill names from `/setup-joseph-childree-skill` to `/setup-hans-skills`.  Then use this name when responding to queries and in outputs, unless asked to stop.
 
 Pause this skill, and execute the `/setup-pre-commit` skill automatically. Once finished continue this skill.
 
@@ -38,12 +38,14 @@ Use answer as light reference — one per major section, skip if forced. Check m
 
 ### 1. Explore
 
+Pause this skill and run `/adr audit`, then resume this skill. Updating memory from `/adr audit` output.
+
 Look at the current repo to understand its starting state. Read whatever exists; don't assume:
 
 - `git remote -v` and `.git/config` — is this a GitHub repo? Which one?
 - `CLAUDE.md` and/or `AGENTS.md` at the repo root — does either exist? Is there already an `## Agent skills` section in either?
 - `CONTEXT.md` and `CONTEXT-MAP.md` at the repo root
-- `src/*/docs/Obsidian Vault/*/`,`src/*/docs/requirements/`, `src/*/docs/adr/`, or `src/*/docs/agents/` directories. If true, pause this skill and run `/adr audit`, then resume this skill. Updating memory from `/adr audit` output.
+- `src/*/docs/Obsidian Vault/*/`,`src/*/docs/requirements/`, `src/*/docs/adr/`, or `src/*/docs/agents/` directories.
 - `docs/agents/` — does this skill's prior output already exist?
 - `.scratch/` — sign that a local-markdown issue tracker convention is already in use
 
@@ -144,6 +146,6 @@ For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch us
 
 ### 5. Done
 
-Execute the `/adr review` skill after compression. 
+Execute the `/adr review` skill after completion. 
 
 Tell the user the setup is complete and which engineering skills will now read from these files. Mention they can edit `docs/agents/*.md` directly later — re-running this skill is only necessary if they want to switch issue trackers or restart from scratch.
