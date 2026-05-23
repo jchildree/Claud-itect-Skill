@@ -260,7 +260,6 @@ Stop and wait.
 
 When running `/audit` (all three lenses), output in this order:
 
-```
 Skills directory: [path]
 Skills found: [list]
 
