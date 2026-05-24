@@ -153,5 +153,18 @@ if (-not $SkipHooks) {
 }
 
 Write-Host ""
+Write-Host "Running memory-to-vault outline..."
+$memScript = Join-Path $claude "skills\memory-to-vault\scripts\memory-to-outline.ps1"
+if (Test-Path $memScript) {
+    try {
+        & pwsh -NoProfile -File $memScript -ProjectPath $ProjectPath
+    } catch {
+        Write-Host "  memory-to-vault: skipped -- $_" -ForegroundColor Yellow
+    }
+} else {
+    Write-Host "  memory-to-vault: script not found (skipped)" -ForegroundColor Yellow
+}
+
+Write-Host ""
 if ($ok) { Write-Host "Done. Restart Claude Code to pick up new skills. Run the /audit command first." }
 else     { Write-Host "Installation completed with warnings above. Fix missing items before use." -ForegroundColor Yellow }
