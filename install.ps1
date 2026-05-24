@@ -72,10 +72,29 @@ function Wire-Hooks($hooksDir, $settingsPath) {
         Write-Host "hooks  : wired $label"
     }
 
-    Add-HookEntry "SessionStart"     $activateCmd "SessionStart -> caveman-activate.js"
-    Add-HookEntry "UserPromptSubmit" $trackerCmd  "UserPromptSubmit -> caveman-mode-tracker.js"
+    function Add-HookEntryWithMatcher($event, $matcher, $cmd, $label) {
+        if (-not $settings.hooks.PSObject.Properties[$event]) {
+            $settings.hooks | Add-Member -NotePropertyName $event -NotePropertyValue @() -Force
+        }
+        if (Has-Hook $settings.hooks.$event $cmd) {
+            Write-Host "hooks  : $label already wired -- skipped"
+            return
+        }
+        $settings.hooks.$event += [PSCustomObject]@{
+            matcher = $matcher
+            hooks   = @([PSCustomObject]@{ type = "command"; command = $cmd; timeout = 5000 })
+        }
+        Write-Host "hooks  : wired $label"
+    }
 
-    $settings | ConvertTo-Json -Depth 10 | Set-Content $settingsPath -Encoding UTF8
+    $encodingCmd = "node `"$hooksDir\check-encoding.js`""
+
+    Add-HookEntry            "SessionStart"     $activateCmd  "SessionStart -> caveman-activate.js"
+    Add-HookEntry            "UserPromptSubmit" $trackerCmd   "UserPromptSubmit -> caveman-mode-tracker.js"
+    Add-HookEntryWithMatcher "PostToolUse"      "Write|Edit"  $encodingCmd "PostToolUse(Write|Edit) -> check-encoding.js"
+
+    $json = $settings | ConvertTo-Json -Depth 10
+    [System.IO.File]::WriteAllText($settingsPath, $json + "`n", [System.Text.UTF8Encoding]::new($false))
 }
 
 # Prerequisite check
@@ -107,4 +126,32 @@ if (-not $SkipHooks) {
 }
 
 Write-Host ""
-Write-Host "Done. Restart Claude Code to pick up new skills. Run the /audit command first."
+Write-Host "Verifying installation..."
+$ok = $true
+
+$expectedSkills = @("caveman","audit","safe-push","writing-skills","using-superpowers")
+foreach ($s in $expectedSkills) {
+    $sp = Join-Path $claude "skills\$s\SKILL.md"
+    if (Test-Path $sp) { Write-Host "  [ok] skills/$s/SKILL.md" }
+    else               { Write-Host "  [MISSING] skills/$s/SKILL.md" -ForegroundColor Red; $ok = $false }
+}
+
+$expectedHooks = @("caveman-activate.js","caveman-mode-tracker.js","check-encoding.js")
+foreach ($h in $expectedHooks) {
+    $hp = Join-Path $claude "hooks\$h"
+    if (Test-Path $hp) { Write-Host "  [ok] hooks/$h" }
+    else               { Write-Host "  [MISSING] hooks/$h" -ForegroundColor Red; $ok = $false }
+}
+
+if (-not $SkipHooks) {
+    $settingsPath = Join-Path $claude "settings.json"
+    $settingsRaw  = if (Test-Path $settingsPath) { Get-Content $settingsPath -Raw } else { "" }
+    foreach ($cmd in @("caveman-activate.js","caveman-mode-tracker.js","check-encoding.js")) {
+        if ($settingsRaw -match [regex]::Escape($cmd)) { Write-Host "  [ok] $cmd wired in settings.json" }
+        else { Write-Host "  [MISSING] $cmd not found in settings.json" -ForegroundColor Red; $ok = $false }
+    }
+}
+
+Write-Host ""
+if ($ok) { Write-Host "Done. Restart Claude Code to pick up new skills. Run the /audit command first." }
+else     { Write-Host "Installation completed with warnings above. Fix missing items before use." -ForegroundColor Yellow }

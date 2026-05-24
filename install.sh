@@ -56,9 +56,10 @@ wire_hooks() {
     local settings_path="$2"
     local activate_cmd="node \"$hooks_dir/caveman-activate.js\""
     local tracker_cmd="node \"$hooks_dir/caveman-mode-tracker.js\""
+    local encoding_cmd="node \"$hooks_dir/check-encoding.js\""
 
     # Use node to patch settings.json (avoids jq dependency)
-    node - "$settings_path" "$activate_cmd" "$tracker_cmd" <<'EOF'
+    node - "$settings_path" "$activate_cmd" "$tracker_cmd" "$encoding_cmd" <<'EOF'
 const fs = require('fs');
 const [,, settingsPath, activateCmd, trackerCmd] = process.argv;
 
@@ -83,13 +84,24 @@ function addHook(s, event, cmd) {
     return false;
 }
 
+function addHookWithMatcher(s, event, matcher, cmd) {
+    s.hooks[event] = s.hooks[event] || [];
+    if (hasHook(s.hooks[event], cmd)) return false;
+    s.hooks[event].push({ matcher, hooks: [{ type: 'command', command: cmd, timeout: 5000 }] });
+    return true;
+}
+
+const [,, settingsPath, activateCmd, trackerCmd, encodingCmd] = process.argv;
+
 const a = addHook(s, 'SessionStart',     activateCmd);
 const b = addHook(s, 'UserPromptSubmit', trackerCmd);
+const c = addHookWithMatcher(s, 'PostToolUse', 'Write|Edit', encodingCmd);
 
 fs.writeFileSync(settingsPath, JSON.stringify(s, null, 2) + '\n', 'utf8');
 process.stdout.write(
     (a ? 'wired SessionStart -> caveman-activate.js\n' : 'SessionStart already wired\n') +
-    (b ? 'wired UserPromptSubmit -> caveman-mode-tracker.js\n' : 'UserPromptSubmit already wired\n')
+    (b ? 'wired UserPromptSubmit -> caveman-mode-tracker.js\n' : 'UserPromptSubmit already wired\n') +
+    (c ? 'wired PostToolUse(Write|Edit) -> check-encoding.js\n' : 'PostToolUse(check-encoding) already wired\n')
 );
 EOF
 }
@@ -123,4 +135,34 @@ else
 fi
 
 echo ""
-echo "Done. Restart Claude Code to pick up new skills. Run the /audit command first."
+echo "Verifying installation..."
+ok=1
+
+for skill in caveman audit safe-push writing-skills using-superpowers; do
+    sp="$CLAUDE/skills/$skill/SKILL.md"
+    if [ -f "$sp" ]; then printf "  [ok] skills/%s/SKILL.md\n" "$skill"
+    else printf "  [MISSING] skills/%s/SKILL.md\n" "$skill"; ok=0; fi
+done
+
+for hook in caveman-activate.js caveman-mode-tracker.js check-encoding.js; do
+    hp="$CLAUDE/hooks/$hook"
+    if [ -f "$hp" ]; then printf "  [ok] hooks/%s\n" "$hook"
+    else printf "  [MISSING] hooks/%s\n" "$hook"; ok=0; fi
+done
+
+if [ "$SKIP_HOOKS" -eq 0 ]; then
+    for cmd in caveman-activate.js caveman-mode-tracker.js check-encoding.js; do
+        if grep -q "$cmd" "$CLAUDE/settings.json" 2>/dev/null; then
+            printf "  [ok] %s wired in settings.json\n" "$cmd"
+        else
+            printf "  [MISSING] %s not found in settings.json\n" "$cmd"; ok=0
+        fi
+    done
+fi
+
+echo ""
+if [ "$ok" -eq 1 ]; then
+    echo "Done. Restart Claude Code to pick up new skills. Run the /audit command first."
+else
+    echo "Installation completed with warnings above. Fix missing items before use."
+fi

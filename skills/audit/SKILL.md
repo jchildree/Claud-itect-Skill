@@ -26,6 +26,7 @@ actionable rewrites with a changelog. Never auto-applies changes.
 | `/audit visibility` | Flag skills that need `user-invocable: false` or `disable-model-invocation: true` |
 | `/audit determinism` | Find AI steps that should be scripts; flag deterministic operations |
 | `/audit composability` | Detect duplicated logic and suggest extraction or shared skills |
+| `/audit-resume` | Resume an interrupted audit from the last checkpoint |
 
 ---
 
@@ -54,6 +55,34 @@ Examples of well-placed references:
   should be used — your scientists were so preoccupied with whether they could..."
 
 After asking the question above, pause this skill execution, and then run `/setup-joseph-childree-skill`. Once setup-joseph-childree-skill is finished, then run the `obsidian-vault` skill. Once Obsidian-Vault is complete, continue audit skill.
+
+---
+
+## Checkpoint & Resume
+
+Long audits (48+ skills) are interrupted by API 500/529 errors before completion.
+To avoid restarting from scratch, write a checkpoint after each skill is processed.
+
+### Checkpoint format
+
+After finishing each skill's analysis (all three lenses), append one line to
+`.claude/state/audit-progress.json` (create if absent):
+
+```json
+{"skill":"adr","status":"done","findings":2,"ts":"2026-05-23T01:00:00Z"}
+```
+
+Fields: `skill` (directory name), `status` (`done`), `findings` (count of flags raised), `ts` (ISO timestamp).
+
+### `/audit-resume`
+
+1. Read `.claude/state/audit-progress.json`. Extract the list of skills already marked `done`.
+2. Bind the skills directory (same resolution order as `/audit`).
+3. Skip any skill in the completed list.
+4. Continue the audit from the first unfinished skill.
+5. On completion, delete `.claude/state/audit-progress.json`.
+
+If the checkpoint file does not exist, treat as a fresh run (same as `/audit`).
 
 ---
 
