@@ -65,7 +65,7 @@ Task tool (general-purpose):
     ## Calibration
 
     Categorize issues by actual severity. Not everything is Critical.
-    Acknowledge what was done well before listing issues — accurate praise
+    Acknowledge what was done well before listing issues -- accurate praise
     helps the implementer trust the rest of the feedback.
 
     If you find significant deviations from the plan, flag them specifically
@@ -122,10 +122,10 @@ Task tool (general-purpose):
 ```
 
 **Placeholders:**
-- `{DESCRIPTION}` — brief summary of what was built
-- `{PLAN_OR_REQUIREMENTS}` — what it should do (plan file path, task text, or requirements)
-- `{BASE_SHA}` — starting commit
-- `{HEAD_SHA}` — ending commit
+- `{DESCRIPTION}` -- brief summary of what was built
+- `{PLAN_OR_REQUIREMENTS}` -- what it should do (plan file path, task text, or requirements)
+- `{BASE_SHA}` -- starting commit
+- `{HEAD_SHA}` -- ending commit
 
 **Reviewer returns:** Strengths, Issues (Critical / Important / Minor), Recommendations, Assessment
 

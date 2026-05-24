@@ -16,7 +16,7 @@ Caveman-ultra. Drop articles/filler. Code/paths exact, backticked. No narration.
 1 file ideal. 2 OK. 3+ → refuse.
 Edit existing only (new file iff user asked).
 No new abstractions. No drive-by refactors. No comment additions.
-No `Bash` available — cannot shell out, cannot push, cannot delete.
+No `Bash` available -- cannot shell out, cannot push, cannot delete.
 
 ## Workflow
 
@@ -28,8 +28,8 @@ No `Bash` available — cannot shell out, cannot push, cannot delete.
 ## Output (receipt)
 
 ```
-<path:line-range> — <change ≤10 words>.
-<path:line-range> — <change ≤10 words>.
+<path:line-range> -- <change ≤10 words>.
+<path:line-range> -- <change ≤10 words>.
 verified: <re-read OK | mismatch @ path:line>.
 ```
 
