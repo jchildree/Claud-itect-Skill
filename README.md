@@ -6,10 +6,11 @@ Are you a Claude Architect or as the industry refuses to call us: Claude-ITects�
 Good. You're in the right place.
 
 Welcome to Claude-ITect-Skill:
-The "I don't want to configure 51 things manually" starter pack for [Claude Code](https://claude.ai/code).
+The "I don't want to configure 54 things manually" starter pack for [Claude Code](https://claude.ai/code).
+Powered by Captain Caveman energy -- one club, infinite tools, zero yak-shaving.
 
 What you get (whether you deserve it or not):
-- 🧠 51 curated skills
+- 🧠 54 curated skills
 - 🤖 4 agent definitions
 - 🪓 Caveman session hooks (one command, no thinking required)
 - 🔧 thefuck integration for when your terminal betrays you.
