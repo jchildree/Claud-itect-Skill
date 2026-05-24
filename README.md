@@ -179,7 +179,7 @@ Cuts token usage ~75% while keeping full technical accuracy.
 |---|---|
 | `grill-me` | Relentless interview -- stress-tests plans and designs |
 | `handoff` | Compact current conversation into a handoff doc for another agent |
-| `write-a-skill` | Write a new Claude Code skill from scratch |
+| `writing-skills` | Write a new Claude Code skill from scratch |
 
 ### Writing
 
