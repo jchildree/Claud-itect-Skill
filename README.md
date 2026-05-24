@@ -1,4 +1,5 @@
-<img width="2752" height="1536" alt="v2_watermarked-b7140b17-61e1-49ca-91d1-951ab140b39b" src="https://github.com/user-attachments/assets/14a63b7d-10ab-403f-8180-a2a395282e93" />
+![Uploading v2_watermarked-b7140b17-61e1-49ca-91d1-951ab140b39b.png…]()
+
 
 # Claude-ITect-Skill
 
