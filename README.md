@@ -1,4 +1,4 @@
-<img width="2752" height="1536" alt="v2_watermarked-b7140b17-61e1-49ca-91d1-951ab140b39b" src="https://github.com/jchildree/Claud-itect-Skill/issues/8#issuecomment-4527729583" />
+<img width="2752" height="1536" alt="v2_watermarked-b7140b17-61e1-49ca-91d1-951ab140b39b" src="https://github.com/jchildree/Claud-itect-Skill/issues/8#issuecomment-4527729583"/>
 
 # Claude-ITect-Skill
 
