@@ -137,7 +137,6 @@ Auto-trigger at key moments to shape agent behavior before and during implementa
 | `grill-with-docs` | Interview codebase to build `CONTEXT.md` and ADR entries |
 | `improve-codebase-architecture` | Architecture review and improvement proposals |
 | `prototype` | Spike a solution before committing to full implementation |
-| `setup-joseph-childree-skills` | One-time setup -- configures issue tracker, triage labels, domain docs |
 | `tdd` | Test-driven development workflow |
 | `to-issues` | Break a plan/PRD into independently-grabbable GitHub issues |
 | `to-prd` | Synthesize conversation context into a PRD and publish |
