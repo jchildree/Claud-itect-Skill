@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// caveman — Claude Code SessionStart activation hook
+// caveman -- Claude Code SessionStart activation hook
 //
 // Runs on every session start:
 //   1. Writes flag file at $CLAUDE_CONFIG_DIR/.caveman-active (statusline reads this)
@@ -17,7 +17,7 @@ const settingsPath = path.join(claudeDir, 'settings.json');
 
 const mode = getDefaultMode();
 
-// "off" mode — skip activation entirely, don't write flag or emit rules
+// "off" mode -- skip activation entirely, don't write flag or emit rules
 if (mode === 'off') {
   try { fs.unlinkSync(flagPath); } catch (e) {}
   process.stdout.write('OK');
@@ -28,34 +28,55 @@ if (mode === 'off') {
 safeWriteFlag(flagPath, mode);
 
 // 2. Emit full caveman ruleset, filtered to the active intensity level.
-//    The old 2-sentence summary was too weak — models drifted back to verbose
+//    The old 2-sentence summary was too weak -- models drifted back to verbose
 //    mid-conversation, especially after context compression pruned it away.
 //    Full rules with examples anchor behavior much more reliably.
 //
 //    Reads SKILL.md at runtime so edits to the source of truth propagate
-//    automatically — no hardcoded duplication to go stale.
+//    automatically -- no hardcoded duplication to go stale.
 
-// Modes that have their own independent skill files — not caveman intensity levels.
+// Modes that have their own independent skill files -- not caveman intensity levels.
 // For these, emit a short activation line; the skill itself handles behavior.
 const INDEPENDENT_MODES = new Set(['commit', 'review', 'compress']);
 
 if (INDEPENDENT_MODES.has(mode)) {
-  process.stdout.write('CAVEMAN MODE ACTIVE — level: ' + mode + '. Behavior defined by /caveman-' + mode + ' skill.');
+  process.stdout.write('CAVEMAN MODE ACTIVE -- level: ' + mode + '. Behavior defined by /caveman-' + mode + ' skill.');
   process.exit(0);
 }
 
 // Resolve the canonical label for wenyan alias
 const modeLabel = mode === 'wenyan' ? 'wenyan-full' : mode;
 
-// Read SKILL.md — the single source of truth for caveman behavior.
+// Read SKILL.md -- the single source of truth for caveman behavior.
 // Plugin installs: __dirname = <plugin_root>/hooks/, SKILL.md at <plugin_root>/skills/caveman/SKILL.md
-// Standalone installs: __dirname = $CLAUDE_CONFIG_DIR/hooks/, SKILL.md won't exist — falls back to hardcoded rules.
+// Standalone installs: __dirname = $CLAUDE_CONFIG_DIR/hooks/, SKILL.md won't exist -- falls back to hardcoded rules.
 let skillContent = '';
 try {
   skillContent = fs.readFileSync(
     path.join(__dirname, '..', 'skills', 'caveman', 'SKILL.md'), 'utf8'
   );
-} catch (e) { /* standalone install — will use fallback below */ }
+} catch (e) { /* standalone install -- will use fallback below */ }
+
+// Strips non-active intensity rows from SKILL.md body.
+// Assumes: intensity table rows match /^\|\s*\*\*level\*\*\s*\|/
+//          example lines match /^- level:\s/
+// If SKILL.md format changes, update these two patterns here.
+function filterSkillContent(body, modeLabel) {
+  return body.split('\n').reduce((acc, line) => {
+    const tableRowMatch = line.match(/^\|\s*\*\*(\S+?)\*\*\s*\|/);
+    if (tableRowMatch) {
+      if (tableRowMatch[1] === modeLabel) acc.push(line);
+      return acc;
+    }
+    const exampleMatch = line.match(/^- (\S+?):\s/);
+    if (exampleMatch) {
+      if (exampleMatch[1] === modeLabel) acc.push(line);
+      return acc;
+    }
+    acc.push(line);
+    return acc;
+  }, []);
+}
 
 let output;
 
@@ -63,37 +84,14 @@ if (skillContent) {
   // Strip YAML frontmatter
   const body = skillContent.replace(/^---[\s\S]*?---\s*/, '');
 
-  // Filter intensity table: keep header rows + only the active level's row
-  const filtered = body.split('\n').reduce((acc, line) => {
-    // Intensity table rows start with | **level** |
-    const tableRowMatch = line.match(/^\|\s*\*\*(\S+?)\*\*\s*\|/);
-    if (tableRowMatch) {
-      // Keep only the active level's row (and always keep header/separator)
-      if (tableRowMatch[1] === modeLabel) {
-        acc.push(line);
-      }
-      return acc;
-    }
+  const filtered = filterSkillContent(body, modeLabel);
 
-    // Example lines start with "- level:" — keep only lines matching active level
-    const exampleMatch = line.match(/^- (\S+?):\s/);
-    if (exampleMatch) {
-      if (exampleMatch[1] === modeLabel) {
-        acc.push(line);
-      }
-      return acc;
-    }
-
-    acc.push(line);
-    return acc;
-  }, []);
-
-  output = 'CAVEMAN MODE ACTIVE — level: ' + modeLabel + '\n\n' + filtered.join('\n');
+  output = 'CAVEMAN MODE ACTIVE -- level: ' + modeLabel + '\n\n' + filtered.join('\n');
 } else {
   // Fallback when SKILL.md is not found (standalone hook install without skills dir).
-  // This is the minimum viable ruleset — better than nothing.
+  // This is the minimum viable ruleset -- better than nothing.
   output =
-    'CAVEMAN MODE ACTIVE — level: ' + modeLabel + '\n\n' +
+    'CAVEMAN MODE ACTIVE -- level: ' + modeLabel + '\n\n' +
     'Respond terse like smart caveman. All technical substance stay. Only fluff die.\n\n' +
     '## Persistence\n\n' +
     'ACTIVE EVERY RESPONSE. No revert after many turns. No filler drift. Still active if unsure. Off only: "stop caveman" / "normal mode".\n\n' +
@@ -110,7 +108,7 @@ if (skillContent) {
     'Code/commits/PRs: write normal. "stop caveman" or "normal mode": revert. Level persist until changed or session end.';
 }
 
-// 3. Detect missing statusline config — nudge Claude to help set it up
+// 3. Detect missing statusline config -- nudge Claude to help set it up
 try {
   let hasStatusline = false;
   if (fs.existsSync(settingsPath)) {
@@ -137,7 +135,7 @@ try {
       "Proactively offer to set this up for the user on first interaction.";
   }
 } catch (e) {
-  // Silent fail — don't block session start over statusline detection
+  // Silent fail -- don't block session start over statusline detection
 }
 
 process.stdout.write(output);

@@ -2,45 +2,43 @@
 # memory-to-outline.ps1
 # Locates Claude memory for the current git root and prints all memory file contents.
 # Output is organized by memory type: user, feedback, project, reference.
+# Always exits 0 -- missing memory directory is a normal first-run condition, not an error.
 
 param(
     [string]$ProjectPath = ""
 )
 
-$ErrorActionPreference = "Stop"
+function Get-MemoryDir {
+    param([string]$Root)
+    # git rev-parse returns forward slashes on Windows; normalize before hashing
+    $normalized = $Root -replace '/', '\'
+    $hash = $normalized -replace '[:\\]', '-' -replace '^-+', '' -replace '-+$', ''
+    return Join-Path $env:USERPROFILE ".claude\projects\$hash\memory"
+}
 
 # Resolve project root
-if ($ProjectPath -eq "") {
+$root = $ProjectPath
+if (-not $root) {
     try {
         $root = (git rev-parse --show-toplevel 2>$null).Trim()
-        if (-not $root) { $root = $PWD.Path }
-    } catch {
-        $root = $PWD.Path
-    }
-} else {
-    $root = $ProjectPath
+    } catch {}
+    if (-not $root) { $root = $PWD.Path }
 }
 
-# Normalize path to Claude project hash
-# git rev-parse returns forward slashes on Windows; normalize before hashing
-# C:\Users\Joe\myproject -> C--Users-Joe-myproject
-$root = $root -replace '/', '\'
-$hash = $root -replace '[:\\]', '-' -replace '^-+', '' -replace '-+$', ''
-
-$memDir = Join-Path $env:USERPROFILE ".claude\projects\$hash\memory"
+$memDir = Get-MemoryDir -Root $root
 
 if (-not (Test-Path $memDir)) {
-    Write-Error "Memory directory not found: $memDir`nExpected hash: $hash`nProject root: $root"
-    exit 1
+    Write-Host "  memory-to-vault: no memory directory found at $memDir (skipped -- run after first Claude session)"
+    exit 0
 }
 
-Write-Host "=== MEMORY DIRECTORY: $memDir ==="
+Write-Host "=== MEMORY DIRECTORY: $memDir =="
 Write-Host ""
 
 # Read MEMORY.md index first
 $indexPath = Join-Path $memDir "MEMORY.md"
 if (Test-Path $indexPath) {
-    Write-Host "=== MEMORY INDEX (MEMORY.md) ==="
+    Write-Host "=== MEMORY INDEX (MEMORY.md) =="
     Get-Content $indexPath | Write-Host
     Write-Host ""
 }
@@ -58,7 +56,7 @@ foreach ($prefix in $types) {
     $files = Get-ChildItem -Path $memDir -Filter "$prefix*.md" -File 2>$null
     if ($files.Count -eq 0) { continue }
 
-    Write-Host "=== $($typeLabels[$prefix]) ==="
+    Write-Host "=== $($typeLabels[$prefix]) =="
     foreach ($f in $files) {
         Write-Host "--- $($f.Name) ---"
         Get-Content $f.FullName | Write-Host
@@ -73,7 +71,7 @@ $others = Get-ChildItem -Path $memDir -Filter "*.md" -File | Where-Object {
     -not ($knownPrefixes | Where-Object { $name -like "$_*" })
 }
 if ($others.Count -gt 0) {
-    Write-Host "=== OTHER MEMORY FILES ==="
+    Write-Host "=== OTHER MEMORY FILES =="
     foreach ($f in $others) {
         Write-Host "--- $($f.Name) ---"
         Get-Content $f.FullName | Write-Host

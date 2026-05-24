@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Claude-ITect-Skill v2.0 — Unix Install Script
+# Claude-ITect-Skill v2.0 -- Unix Install Script
 # Installs skills, agents, hooks and wires caveman hooks into settings.json.
 #
 # Usage:
@@ -54,14 +54,11 @@ copy_files() {
 wire_hooks() {
     local hooks_dir="$1"
     local settings_path="$2"
-    local activate_cmd="node \"$hooks_dir/caveman-activate.js\""
-    local tracker_cmd="node \"$hooks_dir/caveman-mode-tracker.js\""
-    local encoding_cmd="node \"$hooks_dir/check-encoding.js\""
 
-    # Use node to patch settings.json (avoids jq dependency)
-    node - "$settings_path" "$activate_cmd" "$tracker_cmd" "$encoding_cmd" <<'EOF'
+    node - "$hooks_dir" "$settings_path" "$SRC/pack-manifest.json" <<'EOF'
 const fs = require('fs');
-const [,, settingsPath, activateCmd, trackerCmd] = process.argv;
+const [,, hooksDir, settingsPath, manifestPath] = process.argv;
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
 let s;
 try {
@@ -72,37 +69,25 @@ try {
 s.hooks = s.hooks || {};
 
 function hasHook(arr, cmd) {
-    return (arr || []).some(e => (e.hooks || []).some(h => h.command === cmd));
+    return (arr || []).some(function(e) {
+        return (e.hooks || []).some(function(h) { return h.command === cmd; });
+    });
 }
 
-function addHook(s, event, cmd) {
-    s.hooks[event] = s.hooks[event] || [];
-    if (!hasHook(s.hooks[event], cmd)) {
-        s.hooks[event].push({ hooks: [{ type: 'command', command: cmd, timeout: 5000 }] });
-        return true;
+manifest.hookWiring.forEach(function(entry) {
+    const cmd = 'node "' + hooksDir + '/' + entry.file + '"';
+    s.hooks[entry.event] = s.hooks[entry.event] || [];
+    if (!hasHook(s.hooks[entry.event], cmd)) {
+        const hookEntry = { hooks: [{ type: 'command', command: cmd, timeout: 5000 }] };
+        if (entry.matcher) hookEntry.matcher = entry.matcher;
+        s.hooks[entry.event].push(hookEntry);
+        process.stdout.write('wired ' + entry.event + ' -> ' + entry.file + '\n');
+    } else {
+        process.stdout.write(entry.event + ' already wired\n');
     }
-    return false;
-}
-
-function addHookWithMatcher(s, event, matcher, cmd) {
-    s.hooks[event] = s.hooks[event] || [];
-    if (hasHook(s.hooks[event], cmd)) return false;
-    s.hooks[event].push({ matcher, hooks: [{ type: 'command', command: cmd, timeout: 5000 }] });
-    return true;
-}
-
-const [,, settingsPath, activateCmd, trackerCmd, encodingCmd] = process.argv;
-
-const a = addHook(s, 'SessionStart',     activateCmd);
-const b = addHook(s, 'UserPromptSubmit', trackerCmd);
-const c = addHookWithMatcher(s, 'PostToolUse', 'Write|Edit', encodingCmd);
+});
 
 fs.writeFileSync(settingsPath, JSON.stringify(s, null, 2) + '\n', 'utf8');
-process.stdout.write(
-    (a ? 'wired SessionStart -> caveman-activate.js\n' : 'SessionStart already wired\n') +
-    (b ? 'wired UserPromptSubmit -> caveman-mode-tracker.js\n' : 'UserPromptSubmit already wired\n') +
-    (c ? 'wired PostToolUse(Write|Edit) -> check-encoding.js\n' : 'PostToolUse(check-encoding) already wired\n')
-);
 EOF
 }
 
@@ -125,7 +110,7 @@ copy_files "$SRC/agents"  "$CLAUDE/agents"  "agents"
 copy_files "$SRC/hooks"   "$CLAUDE/hooks"   "hooks "
 
 if [ -d "$SRC/commands-ngon" ]; then
-    echo "commands-ngon: skipped (NgonENGINE-specific — copy manually if needed)"
+    echo "commands-ngon: skipped (NgonENGINE-specific -- copy manually if needed)"
 fi
 
 if [ "$SKIP_HOOKS" -eq 0 ]; then
@@ -138,27 +123,34 @@ echo ""
 echo "Verifying installation..."
 ok=1
 
-for skill in caveman audit safe-push writing-skills using-superpowers; do
+REQUIRED_SKILLS=$(node -e "var m=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));process.stdout.write(m.requiredSkills.join(' '))" "$SRC/pack-manifest.json")
+REQUIRED_HOOKS=$(node -e "var m=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));process.stdout.write(m.requiredHooks.join(' '))" "$SRC/pack-manifest.json")
+WIRED_FILES=$(node -e "var m=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));process.stdout.write(m.hookWiring.map(function(e){return e.file}).join(' '))" "$SRC/pack-manifest.json")
+
+for skill in $REQUIRED_SKILLS; do
     sp="$CLAUDE/skills/$skill/SKILL.md"
     if [ -f "$sp" ]; then printf "  [ok] skills/%s/SKILL.md\n" "$skill"
     else printf "  [MISSING] skills/%s/SKILL.md\n" "$skill"; ok=0; fi
 done
 
-for hook in caveman-activate.js caveman-mode-tracker.js check-encoding.js; do
+for hook in $REQUIRED_HOOKS; do
     hp="$CLAUDE/hooks/$hook"
     if [ -f "$hp" ]; then printf "  [ok] hooks/%s\n" "$hook"
     else printf "  [MISSING] hooks/%s\n" "$hook"; ok=0; fi
 done
 
 if [ "$SKIP_HOOKS" -eq 0 ]; then
-    for cmd in caveman-activate.js caveman-mode-tracker.js check-encoding.js; do
-        if grep -q "$cmd" "$CLAUDE/settings.json" 2>/dev/null; then
-            printf "  [ok] %s wired in settings.json\n" "$cmd"
+    for file in $WIRED_FILES; do
+        if grep -q "$file" "$CLAUDE/settings.json" 2>/dev/null; then
+            printf "  [ok] %s wired in settings.json\n" "$file"
         else
-            printf "  [MISSING] %s not found in settings.json\n" "$cmd"; ok=0
+            printf "  [MISSING] %s not found in settings.json\n" "$file"; ok=0
         fi
     done
 fi
+
+# memory-to-outline.ps1 is Windows-only; no Unix equivalent in this release
+echo "  memory-to-vault: Windows-only post-install step (skipped on Unix)"
 
 echo ""
 if [ "$ok" -eq 1 ]; then

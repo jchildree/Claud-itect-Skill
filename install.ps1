@@ -17,6 +17,9 @@ param(
 $src    = $PSScriptRoot
 $claude = Join-Path $ProjectPath ".claude"
 
+# Single source of truth for required skills, hooks, and wiring
+$manifest = Get-Content "$src\pack-manifest.json" -Raw | ConvertFrom-Json
+
 function Copy-Dir($from, $to, $label) {
     if (-not (Test-Path $from)) { return }
     New-Item -ItemType Directory -Force -Path $to | Out-Null
@@ -36,10 +39,7 @@ function Copy-Files($from, $to, $label) {
     Write-Host "$label`: copied"
 }
 
-function Wire-Hooks($hooksDir, $settingsPath) {
-    $activateCmd = "node `"$hooksDir\caveman-activate.js`""
-    $trackerCmd  = "node `"$hooksDir\caveman-mode-tracker.js`""
-
+function Wire-Hooks($hooksDir, $settingsPath, $manifest) {
     $settings = if (Test-Path $settingsPath) {
         Get-Content $settingsPath -Raw | ConvertFrom-Json
     } else {
@@ -87,11 +87,15 @@ function Wire-Hooks($hooksDir, $settingsPath) {
         Write-Host "hooks  : wired $label"
     }
 
-    $encodingCmd = "node `"$hooksDir\check-encoding.js`""
-
-    Add-HookEntry            "SessionStart"     $activateCmd  "SessionStart -> caveman-activate.js"
-    Add-HookEntry            "UserPromptSubmit" $trackerCmd   "UserPromptSubmit -> caveman-mode-tracker.js"
-    Add-HookEntryWithMatcher "PostToolUse"      "Write|Edit"  $encodingCmd "PostToolUse(Write|Edit) -> check-encoding.js"
+    foreach ($entry in $manifest.hookWiring) {
+        $cmd   = "node `"$hooksDir\$($entry.file)`""
+        $label = "$($entry.event) -> $($entry.file)"
+        if ($entry.matcher) {
+            Add-HookEntryWithMatcher $entry.event $entry.matcher $cmd $label
+        } else {
+            Add-HookEntry $entry.event $cmd $label
+        }
+    }
 
     $json = $settings | ConvertTo-Json -Depth 10
     [System.IO.File]::WriteAllText($settingsPath, $json + "`n", [System.Text.UTF8Encoding]::new($false))
@@ -120,7 +124,7 @@ if (Test-Path "$src\commands-ngon") {
 }
 
 if (-not $SkipHooks) {
-    Wire-Hooks "$claude\hooks" "$claude\settings.json"
+    Wire-Hooks "$claude\hooks" "$claude\settings.json" $manifest
 } else {
     Write-Host "hooks  : skipped settings.json wiring (-SkipHooks)"
 }
@@ -129,15 +133,13 @@ Write-Host ""
 Write-Host "Verifying installation..."
 $ok = $true
 
-$expectedSkills = @("caveman","audit","safe-push","writing-skills","using-superpowers")
-foreach ($s in $expectedSkills) {
+foreach ($s in $manifest.requiredSkills) {
     $sp = Join-Path $claude "skills\$s\SKILL.md"
     if (Test-Path $sp) { Write-Host "  [ok] skills/$s/SKILL.md" }
     else               { Write-Host "  [MISSING] skills/$s/SKILL.md" -ForegroundColor Red; $ok = $false }
 }
 
-$expectedHooks = @("caveman-activate.js","caveman-mode-tracker.js","check-encoding.js")
-foreach ($h in $expectedHooks) {
+foreach ($h in $manifest.requiredHooks) {
     $hp = Join-Path $claude "hooks\$h"
     if (Test-Path $hp) { Write-Host "  [ok] hooks/$h" }
     else               { Write-Host "  [MISSING] hooks/$h" -ForegroundColor Red; $ok = $false }
@@ -146,9 +148,10 @@ foreach ($h in $expectedHooks) {
 if (-not $SkipHooks) {
     $settingsPath = Join-Path $claude "settings.json"
     $settingsRaw  = if (Test-Path $settingsPath) { Get-Content $settingsPath -Raw } else { "" }
-    foreach ($cmd in @("caveman-activate.js","caveman-mode-tracker.js","check-encoding.js")) {
-        if ($settingsRaw -match [regex]::Escape($cmd)) { Write-Host "  [ok] $cmd wired in settings.json" }
-        else { Write-Host "  [MISSING] $cmd not found in settings.json" -ForegroundColor Red; $ok = $false }
+    foreach ($entry in $manifest.hookWiring) {
+        $file = $entry.file
+        if ($settingsRaw -match [regex]::Escape($file)) { Write-Host "  [ok] $file wired in settings.json" }
+        else { Write-Host "  [MISSING] $file not found in settings.json" -ForegroundColor Red; $ok = $false }
     }
 }
 
@@ -156,10 +159,9 @@ Write-Host ""
 Write-Host "Running memory-to-vault outline..."
 $memScript = Join-Path $claude "skills\memory-to-vault\scripts\memory-to-outline.ps1"
 if (Test-Path $memScript) {
-    try {
-        & pwsh -NoProfile -File $memScript -ProjectPath $ProjectPath
-    } catch {
-        Write-Host "  memory-to-vault: skipped -- $_" -ForegroundColor Yellow
+    & pwsh -NoProfile -File $memScript -ProjectPath $ProjectPath
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "  memory-to-vault: exited $LASTEXITCODE" -ForegroundColor Yellow
     }
 } else {
     Write-Host "  memory-to-vault: script not found (skipped)" -ForegroundColor Yellow
