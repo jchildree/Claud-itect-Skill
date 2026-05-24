@@ -22,7 +22,9 @@ if ($ProjectPath -eq "") {
 }
 
 # Normalize path to Claude project hash
+# git rev-parse returns forward slashes on Windows; normalize before hashing
 # C:\Users\Joe\myproject -> C--Users-Joe-myproject
+$root = $root -replace '/', '\'
 $hash = $root -replace '[:\\]', '-' -replace '^-+', '' -replace '-+$', ''
 
 $memDir = Join-Path $env:USERPROFILE ".claude\projects\$hash\memory"

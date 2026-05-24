@@ -3,18 +3,18 @@
 # Claude-ITect-Skill
 
 Are you a Claude Architect or as the industry refuses to call us: Claude-ITects™?
-Good. You’re in the right place.
+Good. You're in the right place.
 
 Welcome to Claude-ITect-Skill:
-The “I don’t want to configure 49 things manually” starter pack for [Claude Code](https://claude.ai/code).
+The "I don't want to configure 51 things manually" starter pack for [Claude Code](https://claude.ai/code).
 
 What you get (whether you deserve it or not):
-- 🧠 49 curated skills
+- 🧠 51 curated skills
 - 🤖 4 agent definitions
 - 🪓 Caveman session hooks (one command, no thinking required)
 - 🔧 thefuck integration for when your terminal betrays you.
 
-But don’t get distracted by the features.
+But don't get distracted by the features.
 
 The real sorcery happens during setup when everything just… works.
 
@@ -29,8 +29,8 @@ After installation start with the skill:
 
 ## Prerequisites
 
-- **Claude Code** — [claude.ai/code](https://claude.ai/code)
-- **Node.js** (LTS) — [nodejs.org](https://nodejs.org) — required for caveman hooks
+- **Claude Code** -- [claude.ai/code](https://claude.ai/code)
+- **Node.js** (LTS) -- [nodejs.org](https://nodejs.org) -- required for caveman hooks
 
 ---
 
@@ -43,7 +43,7 @@ After installation start with the skill:
    ```powershell
    cd "C:\path\to\your\project"
    ```
-3. Run the installer — replace the path with wherever you saved the skill pack:
+3. Run the installer -- replace the path with wherever you saved the skill pack:
    ```powershell
    powershell -ExecutionPolicy Bypass -File "C:\path\to\Claude-ITect-Skill\install.ps1"
    ```
@@ -57,7 +57,7 @@ After installation start with the skill:
 | `-Force` | Overwrite skills that already exist |
 | `-SkipHooks` | Skip auto-wiring hooks into `settings.json` |
 
-> **Note:** `-ExecutionPolicy Bypass` only applies to this one run — it does not change your system settings.
+> **Note:** `-ExecutionPolicy Bypass` only applies to this one run -- it does not change your system settings.
 
 ---
 
@@ -90,7 +90,7 @@ After installation start with the skill:
 ```
 your-project/
 └── .claude/
-    ├── skills/     49 skills
+    ├── skills/     51 skills
     ├── agents/     4 agent definitions
     └── hooks/      7 hook files
 ```
@@ -105,15 +105,15 @@ Restart Claude Code. Then run `/audit` to verify the installation. Duplicate ski
 
 ---
 
-## Skills (49)
+## Skills (51)
 
-### Superpowers — workflow orchestration
+### Superpowers -- workflow orchestration
 
 Auto-trigger at key moments to shape agent behavior before and during implementation.
 
 | Skill | Triggers on |
 |---|---|
-| `brainstorming` | Any feature/creative work — fires **before** implementation |
+| `brainstorming` | Any feature/creative work -- fires **before** implementation |
 | `dispatching-parallel-agents` | 2+ independent tasks with no shared state |
 | `executing-plans` | Written plan ready to execute in a fresh session |
 | `finishing-a-development-branch` | Implementation complete, deciding how to integrate |
@@ -123,7 +123,7 @@ Auto-trigger at key moments to shape agent behavior before and during implementa
 | `systematic-debugging` | Structured bug hunting with hypothesis loop |
 | `test-driven-development` | Writing tests before implementation |
 | `using-git-worktrees` | Parallel work on multiple branches |
-| `using-superpowers` | Bootstrap — injects skill awareness at session start |
+| `using-superpowers` | Bootstrap -- injects skill awareness at session start |
 | `verification-before-completion` | Final check before declaring a task done |
 | `writing-plans` | Creating structured implementation plans |
 | `writing-skills` | Authoring new Claude Code skill files |
@@ -136,14 +136,14 @@ Auto-trigger at key moments to shape agent behavior before and during implementa
 | `grill-with-docs` | Interview codebase to build `CONTEXT.md` and ADR entries |
 | `improve-codebase-architecture` | Architecture review and improvement proposals |
 | `prototype` | Spike a solution before committing to full implementation |
-| `setup-joseph-childree-skills` | One-time setup — configures issue tracker, triage labels, domain docs |
+| `setup-joseph-childree-skills` | One-time setup -- configures issue tracker, triage labels, domain docs |
 | `tdd` | Test-driven development workflow |
 | `to-issues` | Break a plan/PRD into independently-grabbable GitHub issues |
 | `to-prd` | Synthesize conversation context into a PRD and publish |
 | `triage` | Move issues through the triage state machine |
 | `zoom-out` | Step back and evaluate whether the current approach is correct |
 
-### Caveman — token compression
+### Caveman -- token compression
 
 Cuts token usage ~75% while keeping full technical accuracy.
 
@@ -177,7 +177,7 @@ Cuts token usage ~75% while keeping full technical accuracy.
 
 | Skill | Purpose |
 |---|---|
-| `grill-me` | Relentless interview — stress-tests plans and designs |
+| `grill-me` | Relentless interview -- stress-tests plans and designs |
 | `handoff` | Compact current conversation into a handoff doc for another agent |
 | `write-a-skill` | Write a new Claude Code skill from scratch |
 
@@ -237,10 +237,10 @@ Installed to `.claude/agents/`. Spawn via `Agent` tool with `subagent_type`.
 
 | Agent | `subagent_type` | Purpose |
 |---|---|---|
-| CaveCrew Builder | `cavecrew-builder` | 1–2 file surgical edits only. Hard refuses 3+ file scope. |
+| CaveCrew Builder | `cavecrew-builder` | 1-2 file surgical edits only. Hard refuses 3+ file scope. |
 | CaveCrew Investigator | `cavecrew-investigator` | Read-only code locator. Returns `file:line` table. No fix suggestions. |
 | CaveCrew Reviewer | `cavecrew-reviewer` | Diff reviewer. One finding per line, severity-tagged. No praise. |
-| Geometry Solver | `geometry-solver` | NgonENGINE math — Newell normals, MVC, GJK/EPA, SubRegion, planarity. |
+| Geometry Solver | `geometry-solver` | NgonENGINE math -- Newell normals, MVC, GJK/EPA, SubRegion, planarity. |
 
 ---
 
@@ -274,7 +274,7 @@ The install script writes SessionStart and UserPromptSubmit entries into `.claud
 
 ```
 Claude-ITect-Skill v2.0/
-├── skills/           48 skill directories
+├── skills/           51 skill directories
 ├── agents/           4 agent .md files
 ├── hooks/            7 hook files (JS + PS1)
 ├── commands-ngon/    4 NgonENGINE-specific slash commands (not auto-installed)
