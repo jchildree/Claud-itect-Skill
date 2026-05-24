@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: Validate Skills
 
 on:
   push:
@@ -7,22 +7,51 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  validate:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Build
+    - name: Verify all skill directories have SKILL.md
       run: |
-        npm install
-        npx webpack
+        missing=0
+        for dir in skills/*/; do
+          if [ ! -f "$dir/SKILL.md" ]; then
+            echo "MISSING: $dir/SKILL.md"
+            missing=$((missing + 1))
+          fi
+        done
+        if [ $missing -gt 0 ]; then
+          echo "ERROR: $missing skill directories missing SKILL.md"
+          exit 1
+        fi
+        count=$(find skills -name "SKILL.md" | wc -l)
+        echo "OK: $count SKILL.md files found"
+
+    - name: Check for encoding violations
+      run: |
+        bad=0
+        while IFS= read -r -d '' file; do
+          if grep -qP '[\x{2013}\x{2014}\x{201C}\x{201D}\x{2018}\x{2019}]' "$file" 2>/dev/null; then
+            echo "ENCODING: $file"
+            bad=$((bad + 1))
+          fi
+        done < <(find skills agents -name "*.md" -print0 2>/dev/null)
+        if [ $bad -gt 0 ]; then
+          echo "ERROR: $bad files with em-dashes or smart quotes"
+          exit 1
+        fi
+        echo "OK: no encoding violations"
+
+    - name: Verify required skills present
+      run: |
+        missing=0
+        for skill in caveman audit safe-push using-superpowers llm-wiki memory-to-vault; do
+          if [ ! -f "skills/$skill/SKILL.md" ]; then
+            echo "MISSING: skills/$skill/SKILL.md"
+            missing=$((missing + 1))
+          fi
+        done
+        if [ $missing -gt 0 ]; then exit 1; fi
+        echo "OK: all required skills present"
