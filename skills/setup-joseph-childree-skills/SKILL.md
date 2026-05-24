@@ -1,5 +1,17 @@
 ---
 name: setup-joseph-childree-skills
+version: "2.0"
+category: utilities
+execution_speed: medium
+token_efficiency: medium
+triggers:
+  - "set up engineering skills"
+  - "issue tracker configuration"
+  - "triage label vocabulary"
+  - "setup-joseph-childree-skills"
+  - "configure domain docs"
+dependencies: []
+cache_key: "setup-joseph-childree-skills-2.0"
 description: Sets up an `## Agent skills` block in AGENTS.md/CLAUDE.md and `docs/agents/` so the engineering skills know this repo's issue tracker (GitHub or local markdown), triage label vocabulary, and domain doc layout. Run before first use of `to-issues`, `to-prd`, `triage`, `diagnose`, `tdd`, `improve-codebase-architecture`, or `zoom-out` -- or if those skills appear to be missing context about the issue tracker, triage labels, or domain docs.
 disable-model-invocation: true
 ---
