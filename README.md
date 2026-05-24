@@ -9,7 +9,7 @@ Welcome to Claude-ITect-Skill:
 The “I don’t want to configure 48 things manually” starter pack for [Claude Code](https://claude.ai/code).
 
 What you get (whether you deserve it or not):
-- 🧠 48 curated skills
+- 🧠 49 curated skills
 - 🤖 4 agent definitions
 - 🪓 Caveman session hooks (one command, no thinking required)
 - 🔧 thefuck integration for when your terminal betrays you.
@@ -90,9 +90,9 @@ After installation start with the skill:
 ```
 your-project/
 └── .claude/
-    ├── skills/     48 skills
+    ├── skills/     49 skills
     ├── agents/     4 agent definitions
-    └── hooks/      6 hook files
+    └── hooks/      7 hook files
 ```
 
 `settings.json` is patched to wire caveman hooks (SessionStart + UserPromptSubmit). Existing entries are preserved. NgonENGINE-specific commands in `commands-ngon/` are **not** auto-installed. Comment if you want these as well.
@@ -105,7 +105,7 @@ Restart Claude Code. Then run `/audit` to verify the installation. Duplicate ski
 
 ---
 
-## Skills (48)
+## Skills (49)
 
 ### Superpowers — workflow orchestration
 
@@ -167,6 +167,7 @@ Cuts token usage ~75% while keeping full technical accuracy.
 | `karpathy` | Karpathy-style code quality principles (internal reasoning layer) |
 | `migrate-to-shoehorn` | Migrate to shoehorn pattern |
 | `phase` | Phase-based project management with status lexicon |
+| `safe-push` | Pre-flight large-file, test, uncommitted-change, and diverged-history checks before `git push` |
 | `scaffold-exercises` | Scaffold coding exercise structures |
 | `setup-pre-commit` | Configure pre-commit hooks for a repo |
 | `thefuck` | Fix the previous failed shell command |
@@ -251,6 +252,7 @@ Installed to `.claude/hooks/`. Require Node.js.
 |---|---|---|
 | `caveman-activate.js` | `SessionStart` | Injects active caveman ruleset into session context |
 | `caveman-mode-tracker.js` | `UserPromptSubmit` | Re-injects caveman level reminder each turn |
+| `check-encoding.js` | `PostToolUse(Write\|Edit)` | Blocks write if file contains em-dashes, en-dashes, smart quotes, or UTF-8 BOM |
 | `caveman-config.js` | shared | Reads/writes caveman mode config |
 | `caveman-stats.js` | on demand | Reads real token counts from session log |
 | `caveman-statusline.ps1` | `statusLine` | `[CAVEMAN]` badge in Claude Code status bar (Windows) |
@@ -274,7 +276,7 @@ The install script writes SessionStart and UserPromptSubmit entries into `.claud
 Claude-ITect-Skill v2.0/
 ├── skills/           48 skill directories
 ├── agents/           4 agent .md files
-├── hooks/            6 hook files (JS + PS1)
+├── hooks/            7 hook files (JS + PS1)
 ├── commands-ngon/    4 NgonENGINE-specific slash commands (not auto-installed)
 ├── install.ps1       Windows installer
 ├── install.sh        Unix installer
