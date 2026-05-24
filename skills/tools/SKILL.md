@@ -1,4 +1,4 @@
-﻿---
+---
 name: tools
 disable-model-invocation: true
 description: >
@@ -9,10 +9,10 @@ description: >
   for this project", "audit my MCP config", "what's missing from my toolset", or any
   request to discover, add, or review Claude Code tooling for the current project.
   Backed by Karpathy principles: think first, simplicity, surgical changes only.
-  NEVER auto-implements — proposes then waits for explicit user approval.
+  NEVER auto-implements -- proposes then waits for explicit user approval.
 ---
 
-# Tools — Project Tool Discovery and Configuration
+# Tools -- Project Tool Discovery and Configuration
 
 Project-agnostic tool discovery, recommendation, and configuration for Claude Code.
 Scans your codebase to understand what you are building, then finds tools that fit.
@@ -24,9 +24,9 @@ Binds to the active project at invocation time.
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ---
 
@@ -41,7 +41,7 @@ Use answer as light reference — one per major section, skip if forced. Check m
 
 ---
 
-## Invariant — Propose Before You Act
+## Invariant -- Propose Before You Act
 
 This skill never configures, installs, or modifies anything without explicit user
 approval. Every command that could change state ends with a proposal and stops.
@@ -58,16 +58,16 @@ Resolves the active project in this order:
 
 1. User names a path explicitly: "scan `~/myproject`"
 2. `CLAUDE.md` or `AGENTS.md` in the working directory (read for tech stack hints)
-3. Working directory itself — scan for manifest files (see below)
+3. Working directory itself -- scan for manifest files (see below)
 4. If no project context found: ask before proceeding
 
 Once bound, state the project root and detected ecosystem before scanning.
 
 ---
 
-## `/tools scan` — Project Analysis and Candidate Discovery
+## `/tools scan` -- Project Analysis and Candidate Discovery
 
-### Phase 1 — Read the Project
+### Phase 1 -- Read the Project
 
 Scan these files if present (read-only, no writes):
 
@@ -94,7 +94,7 @@ Key workflows detected: [e.g. "REST API, PostgreSQL, Docker CI"]
 If none of the manifest files exist, say so and ask the user to describe the project
 before proceeding. Do not guess.
 
-### Phase 2 — Find Candidate Tools
+### Phase 2 -- Find Candidate Tools
 
 For each tool category relevant to the detected ecosystem, surface 2-5 candidates.
 Group by category. For each candidate:
@@ -104,26 +104,26 @@ Tool: [name]
 Type: [MCP server | CLI | library | VS Code extension | GitHub repo]
 What it adds: [One sentence. Be concrete. "Lets Claude query your database directly"
                is better than "database integration".]
-Install / config: [exact command or config snippet — don't paraphrase]
-Risk level: [LOW | MEDIUM | HIGH] — HIGH if it can write, deploy, or send data
+Install / config: [exact command or config snippet -- don't paraphrase]
+Risk level: [LOW | MEDIUM | HIGH] -- HIGH if it can write, deploy, or send data
 Source: [URL or package name]
 ```
 
 Categories to consider (include only those relevant to the detected ecosystem):
 
-- **Database / data access** — MCP servers that give Claude read or write access to
+- **Database / data access** -- MCP servers that give Claude read or write access to
   your database. Flag MEDIUM or HIGH risk for write access.
-- **Version control** — `@modelcontextprotocol/server-github`, GitLab MCP, etc.
-- **Search and context** — Brave search MCP, Exa, Perplexity for web-grounded answers.
-- **Filesystem and editing** — filesystem MCP if not already present.
-- **Testing and CI** — tools that let Claude run tests, read CI output, or triage failures.
-- **Documentation** — tools that give Claude access to your docs, API specs, or
+- **Version control** -- `@modelcontextprotocol/server-github`, GitLab MCP, etc.
+- **Search and context** -- Brave search MCP, Exa, Perplexity for web-grounded answers.
+- **Filesystem and editing** -- filesystem MCP if not already present.
+- **Testing and CI** -- tools that let Claude run tests, read CI output, or triage failures.
+- **Documentation** -- tools that give Claude access to your docs, API specs, or
   external documentation (e.g. Context7).
-- **Communication** — Slack, Linear, GitHub Issues MCP. Mark these HIGH risk —
+- **Communication** -- Slack, Linear, GitHub Issues MCP. Mark these HIGH risk --
   they can send messages or create tickets without review.
-- **Infrastructure** — deployment, container, or cloud tooling. Always HIGH risk.
+- **Infrastructure** -- deployment, container, or cloud tooling. Always HIGH risk.
 
-### Phase 3 — Present for Approval
+### Phase 3 -- Present for Approval
 
 After listing candidates, ask:
 
@@ -136,18 +136,18 @@ Stop and wait. Do not proceed until the user responds.
 
 ---
 
-## `/tools add <tool>` — Add a Specific Tool
+## `/tools add <tool>` -- Add a Specific Tool
 
 Use this when the user already knows what they want.
 
-1. **State what will change** — show the exact diff to `.claude/settings.json`
+1. **State what will change** -- show the exact diff to `.claude/settings.json`
    or the exact install command. Nothing else.
-2. **Flag risks** — if the tool has write, deploy, or send-message capabilities,
+2. **Flag risks** -- if the tool has write, deploy, or send-message capabilities,
    call this out explicitly before asking for approval.
-3. **Ask for approval** — one question: "Shall I apply this?" Stop and wait.
-4. **Apply only what was approved** — one tool, one config block, one install.
+3. **Ask for approval** -- one question: "Shall I apply this?" Stop and wait.
+4. **Apply only what was approved** -- one tool, one config block, one install.
    Do not add "related" tools, do not modify other settings.
-5. **Verify** — after applying, confirm the tool appears in the expected location.
+5. **Verify** -- after applying, confirm the tool appears in the expected location.
 
 ### MCP Server Config Template
 
@@ -173,7 +173,7 @@ and tell the user where to get the real value. Never embed real credentials.
 
 ---
 
-## `/tools audit` — Review Configured Tooling
+## `/tools audit` -- Review Configured Tooling
 
 Scans `.claude/settings.json` (and any referenced config files) to review the current
 tool setup. Reports per configured tool:
@@ -217,10 +217,10 @@ See `/karpathy` for guidelines. Applied here:
 
 ## Integration with Other Skills
 
-- **`/adr`** — If adding a tool represents a significant architectural decision
+- **`/adr`** -- If adding a tool represents a significant architectural decision
   (e.g. choosing a primary MCP database integration), suggest creating an ADR
   to document the rationale.
-- **`/audit`** — `/tools audit` focuses on configured tools specifically.
+- **`/audit`** -- `/tools audit` focuses on configured tools specifically.
   `/audit` covers the broader skill set. They are complementary.  
-- **`/karpathy`** (internal) — Governs how this skill reasons. Think before
+- **`/karpathy`** (internal) -- Governs how this skill reasons. Think before
   recommending. Simplest sufficient toolset. Don't touch what wasn't asked about.

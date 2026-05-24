@@ -1,4 +1,4 @@
-﻿---
+---
 name: handoff
 disable-model-invocation: true
 description: Compact the current conversation into a handoff document for another agent to pick up.
@@ -9,9 +9,9 @@ argument-hint: "What will the next session be used for?"
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 name: dispatching-parallel-agents
 description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
 ---
@@ -9,13 +9,13 @@ description: Use when facing 2+ independent tasks that can be worked on without 
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Overview
 
-You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
+You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history -- you construct exactly what they need. This also preserves your own context for coordination work.
 
 When you have multiple unrelated failures (different test files, different subsystems, different bugs), investigating them sequentially wastes time. Each investigation is independent and can happen in parallel.
 

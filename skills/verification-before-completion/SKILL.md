@@ -1,4 +1,4 @@
-﻿---
+---
 name: verification-before-completion
 description: Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
 ---
@@ -9,9 +9,9 @@ description: Use when about to claim work is complete, fixed, or passing, before
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Overview
 

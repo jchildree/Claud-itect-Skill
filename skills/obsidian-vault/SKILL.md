@@ -1,4 +1,4 @@
-﻿---
+---
 name: obsidian-vault
 disable-model-invocation: true
 description: Search, create, and manage notes in the Obsidian vault with wikilinks and index notes. Use when user wants to find, create, or organize notes in Obsidian.
@@ -10,9 +10,9 @@ description: Search, create, and manage notes in the Obsidian vault with wikilin
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Vault location
 
@@ -84,8 +84,8 @@ find "/docs/Obsidian Vault/[Project Name]" -name "*Index*"
 ```
 ## Integration with Other Skills
 
-- **`/adr`** — The ADR skill create, maintains, and audits Architectural Requirements.
+- **`/adr`** -- The ADR skill create, maintains, and audits Architectural Requirements.
 The `/adr` skill will output documents into this projects vault, if setup.
 `/obsidian-vault` skill will ensure notes and links are correctly formatted if present in Vault.
-- **`/grill-with-docs`** — The grill-with-docs skill creates, and maintains Architectural Design Requirements.
+- **`/grill-with-docs`** -- The grill-with-docs skill creates, and maintains Architectural Design Requirements.
 The `/grill-with-docs` skill will output documents into this projects vault, if setup.

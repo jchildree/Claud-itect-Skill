@@ -1,15 +1,15 @@
-﻿---
+---
 name: adr
 disable-model-invocation: true
 description: >
   Create, review, audit, and list Architectural Decision Records for any software project.
   Trigger on: "create an ADR", "document this decision", "ADR for...", "what ADRs exist",
   "review this ADR", "update INDEX.md", architectural trade-offs, or design pivots
-  affecting multiple layers or files. Project-agnostic — works with any tech stack.
+  affecting multiple layers or files. Project-agnostic -- works with any tech stack.
   Backed by Karpathy principles: think before deciding, simplest sufficient ADR, surgical scope.
 ---
 
-# ADR — Architectural Decision Records
+# ADR -- Architectural Decision Records
 
 Project-agnostic ADR creation, review, and governance.
 Works with any tech stack. Binds to the active project at invocation time.
@@ -20,9 +20,9 @@ Works with any tech stack. Binds to the active project at invocation time.
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ---
 
@@ -146,11 +146,11 @@ CI counts ADR files vs INDEX rows and fails on mismatch.
 
 Applying Karpathy Guideline 1 (Think Before Coding) to ADR creation:
 
-1. **State the problem** in one sentence — what are we deciding?
-2. **Name alternatives** — at least two. Don't omit the option you're rejecting.
-3. **Identify constraints** — what makes this non-trivial or hard to reverse?
-4. **Find the next ADR number** — read INDEX.md or count existing files.
-5. **Draft using template** — fill Context and Decision first; Consequences follow.
+1. **State the problem** in one sentence -- what are we deciding?
+2. **Name alternatives** -- at least two. Don't omit the option you're rejecting.
+3. **Identify constraints** -- what makes this non-trivial or hard to reverse?
+4. **Find the next ADR number** -- read INDEX.md or count existing files.
+5. **Draft using template** -- fill Context and Decision first; Consequences follow.
 6. **Run the review checklist** before saving.
 7. **Update INDEX.md** in the same edit.
 
@@ -216,6 +216,6 @@ See `/karpathy` for guidelines. Applied here:
 ```
 ## Integration with Other Skills
 
-- **`/obsidian-vault`** — This skill is complementary to one another. While ADRs create, audti, and maintain requirements,
+- **`/obsidian-vault`** -- This skill is complementary to one another. While ADRs create, audti, and maintain requirements,
 the Obsidian Vault skill creates the project vault and memory storage to ensure that you keep all your project information safe and sound on your own system.
 It is suggested you add the `/docs/` folder to your `.gitignore`.  

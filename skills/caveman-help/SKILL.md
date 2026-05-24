@@ -1,4 +1,4 @@
-﻿---
+---
 name: caveman-help
 description: >
   Quick-reference card for all caveman modes, skills, and commands.
@@ -8,15 +8,15 @@ description: >
 
 # Caveman Help
 
-Display this reference card when invoked. One-shot — do NOT change mode, write flag files, or persist anything. Output in caveman style.
+Display this reference card when invoked. One-shot -- do NOT change mode, write flag files, or persist anything. Output in caveman style.
 
 ## Initiation
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Modes
 

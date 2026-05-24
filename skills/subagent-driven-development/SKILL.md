@@ -1,4 +1,4 @@
-﻿---
+---
 name: subagent-driven-development
 description: Use when executing implementation plans with independent tasks in the current session
 ---
@@ -9,19 +9,19 @@ description: Use when executing implementation plans with independent tasks in t
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Execute plan by dispatching fresh subagent per task, with two-stage review after each: spec compliance review first, then code quality review.
 
 Don't be afraid to use the skill `/cavecrew` along with this skill, to speed up process, when this skill doesn't cover subject, or when other subagents would cost more tokens to complete same task. 
 
-**Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
+**Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history -- you construct exactly what they need. This also preserves your own context for coordination work.
 
 **Core principle:** Fresh subagent per task + two-stage review (spec then quality) = high quality, fast iteration
 
-**Continuous execution:** Do not pause to check in with your human partner between tasks. Execute all tasks from the plan without stopping. The only reasons to stop are: BLOCKED status you cannot resolve, ambiguity that genuinely prevents progress, or all tasks complete. "Should I continue?" prompts and progress summaries waste their time — they asked you to execute the plan, so execute it.
+**Continuous execution:** Do not pause to check in with your human partner between tasks. Execute all tasks from the plan without stopping. The only reasons to stop are: BLOCKED status you cannot resolve, ambiguity that genuinely prevents progress, or all tasks complete. "Should I continue?" prompts and progress summaries waste their time -- they asked you to execute the plan, so execute it.
 
 ## When to Use
 
@@ -290,5 +290,5 @@ Done!
 
 ## Integration with Other Skills
 
-- **`/cavecrew`** — Similar skill as this one, but cavecrew uses brevity and shorten speaking patterns. Pairs well to become Captain Caveman Crew.
-- **`/karpathy`** (internal) — Governs how this skill reasons through findings, investigating, building, or reviewing.
+- **`/cavecrew`** -- Similar skill as this one, but cavecrew uses brevity and shorten speaking patterns. Pairs well to become Captain Caveman Crew.
+- **`/karpathy`** (internal) -- Governs how this skill reasons through findings, investigating, building, or reviewing.

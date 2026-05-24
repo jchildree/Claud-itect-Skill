@@ -1,15 +1,15 @@
-﻿---
+---
 name: phase
 description: >
   Track project phase lifecycle: status snapshots, transitions, and ADR impact analysis.
   Trigger on: "what phase are we in?", "is phase X unblocked?", "did ADR-### move any phase?",
   "give me a status snapshot", "what's next?", "what's blocked?", "phase status",
   creating or editing phase documents, or comparing phase state across plan revisions.
-  Project-agnostic — binds to any project with a Phase Registry.
+  Project-agnostic -- binds to any project with a Phase Registry.
   Backed by Karpathy principles: surface state truthfully, no silent assumptions.
 ---
 
-# Phase — Project Phase Lifecycle Tracking
+# Phase -- Project Phase Lifecycle Tracking
 
 Project-agnostic phase lifecycle governance.
 Enforces a canonical status lexicon and single-FOCUS invariant.
@@ -21,9 +21,9 @@ Binds to the active project at invocation time.
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ---
 
@@ -36,7 +36,7 @@ Use answer as light reference — one per major section, skip if forced. Check m
 | `/phase transition [##]` | Record and validate a phase status change |
 | `/phase impact [adr-###]` | Show which phases an ADR touches |
 | `/phase audit` | Check Phase Registry for invariant violations |
-| `/phase long` | Full report — all phases, all criteria, all notes |
+| `/phase long` | Full report -- all phases, all criteria, all notes |
 
 ---
 
@@ -105,10 +105,10 @@ All other documents defer to it on conflict.
 
 | Phase | Title | Status | Gating ADRs | Source |
 |-------|-------|--------|-------------|--------|
-| 01 | [Phase title] | COMPLETE | — | Plan v1.0 |
+| 01 | [Phase title] | COMPLETE | -- | Plan v1.0 |
 | 02 | [Phase title] | FOCUS | ADR-001, ADR-002 | Plan v1.1 |
 | 03 | [Phase title] | UNBLOCKED | ADR-003 | Plan v1.1 |
-| 04 | [Phase title] | DORMANT | ADR-004 (pending) | — |
+| 04 | [Phase title] | DORMANT | ADR-004 (pending) | -- |
 ```
 
 Update this table first. Prose updates follow. Never the reverse.
@@ -136,11 +136,11 @@ Rule: An ADR ratification is incomplete until this matrix is updated.
 ## `/phase` Snapshot Format
 
 ```
-FOCUS:     Phase 03 — [title]. [One-line state description.]
+FOCUS:     Phase 03 -- [title]. [One-line state description.]
 ACTIVE:    Phase 04, Phase 05.
-UNBLOCKED: Phase 06 — ADR-007 cleared last week.
+UNBLOCKED: Phase 06 -- ADR-007 cleared last week.
 DORMANT:   Phase 07 (waiting: ADR-009), Phase 08 (waiting: ADR-010, ADR-011).
-COMPLETE:  Phases 01–02 locked.
+COMPLETE:  Phases 01-02 locked.
 ```
 
 Keep snapshots under 12 lines. Long form only on `/phase long`.
@@ -150,7 +150,7 @@ Keep snapshots under 12 lines. Long form only on `/phase long`.
 ## `/phase transition [##]` Record
 
 ```markdown
-# Phase ## — [Title]
+# Phase ## -- [Title]
 
 **Previous Status:** [DORMANT|UNBLOCKED|ACTIVE|FOCUS|COMPLETE]
 **Current Status:**  [UNBLOCKED|ACTIVE|FOCUS|COMPLETE|SUPERSEDED]
@@ -188,7 +188,7 @@ When Plan, Requirements, and ADRs disagree on a phase's status:
 1. Most recently `ACCEPTED` ADR
 2. Most recent Requirements version
 3. Project Plan
-4. Memory or inferred state — **never** used as primary evidence
+4. Memory or inferred state -- **never** used as primary evidence
 
 If precedence cannot resolve: halt and ask rather than guess.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 name: caveman-compress
 disable-model-invocation: true
 description: >
@@ -14,9 +14,9 @@ description: >
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Purpose
 
@@ -75,7 +75,7 @@ python3 -m scripts <absolute_filepath>
 ### Compress
 - Use short synonyms: "big" not "extensive", "fix" not "implement a solution for", "use" not "utilize"
 - Fragments OK: "Run tests before commit" not "You should always run tests before committing"
-- Drop "you should", "make sure to", "remember to" — just state the action
+- Drop "you should", "make sure to", "remember to" -- just state the action
 - Merge redundant bullets that say the same thing differently
 - Keep one example where multiple examples show the same pattern
 

@@ -10,7 +10,7 @@ description: >
 user-invocable: false
 ---
 
-# Karpathy — Disciplined Coding Guidelines
+# Karpathy -- Disciplined Coding Guidelines
 
 Behavioral guidelines derived from Andrej Karpathy's observations on LLM coding pitfalls.
 These guidelines bias toward caution over speed. For trivial one-liners, use judgment.
@@ -28,22 +28,22 @@ These guidelines bias toward caution over speed. For trivial one-liners, use jud
 
 ---
 
-## Guideline 1 — Think Before Coding
+## Guideline 1 -- Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
 
 Before implementing:
 - State assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them — don't pick silently.
+- If multiple interpretations exist, present them -- don't pick silently.
 - If a simpler approach exists, say so. Push back when warranted.
 - If something is unclear, stop. Name what's confusing. Ask.
 
 The failure mode: diving into code while silently holding a wrong assumption about
-scope, data shape, or intent — and producing work that solves the wrong problem.
+scope, data shape, or intent -- and producing work that solves the wrong problem.
 
 ---
 
-## Guideline 2 — Simplicity First
+## Guideline 2 -- Simplicity First
 
 **Minimum code that solves the problem. Nothing speculative.**
 
@@ -59,7 +59,7 @@ The failure mode: building a framework when the user asked for a function.
 
 ---
 
-## Guideline 3 — Surgical Changes
+## Guideline 3 -- Surgical Changes
 
 **Touch only what you must. Clean up only your own mess.**
 
@@ -67,7 +67,7 @@ When editing existing code:
 - Don't "improve" adjacent code, comments, or formatting.
 - Don't refactor things that aren't broken.
 - Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it — don't delete it.
+- If you notice unrelated dead code, mention it -- don't delete it.
 
 When your changes create orphans:
 - Remove imports, variables, or functions that YOUR changes made unused.
@@ -76,11 +76,11 @@ When your changes create orphans:
 Test: Every changed line traces directly to the user's request.
 
 The failure mode: PR that fixes one bug, reformats 300 lines, renames three functions,
-and refactors a utility "while we're in here" — making the actual change invisible to review.
+and refactors a utility "while we're in here" -- making the actual change invisible to review.
 
 ---
 
-## Guideline 4 — Goal-Driven Execution
+## Guideline 4 -- Goal-Driven Execution
 
 **Define success criteria. Loop until verified.**
 
@@ -100,7 +100,7 @@ For multi-step tasks, state a brief plan before starting:
 Strong success criteria let you loop independently.
 Weak criteria ("make it work") require constant clarification.
 
-The failure mode: completing ten steps of work and discovering step one was wrong —
+The failure mode: completing ten steps of work and discovering step one was wrong --
 because no one checked before moving on.
 
 ---
@@ -111,14 +111,14 @@ Apply all four guidelines to a task before touching any code.
 Output a plan the user can approve before implementation starts.
 
 ```
-Goal: [One sentence — what done looks like.]
+Goal: [One sentence -- what done looks like.]
 
 Assumptions:
 - [List anything that could be wrong. Flag explicitly.]
 
 Tradeoffs:
-- Option A: [description] — simpler, less flexible
-- Option B: [description] — more complex, handles edge case X
+- Option A: [description] -- simpler, less flexible
+- Option B: [description] -- more complex, handles edge case X
 - Chosen: Option A because [reason]
 
 Step plan:
@@ -130,7 +130,7 @@ Stop conditions (pause and ask before proceeding if):
 - [condition]
 ```
 
-Keep the plan under 20 lines. If it exceeds that, the scope is too large — split it.
+Keep the plan under 20 lines. If it exceeds that, the scope is too large -- split it.
 
 ---
 
@@ -153,8 +153,8 @@ Notes: [One sentence on the most important finding, if any]
 
 ## Integration with Other Skills
 
-- **`/adr`** — Before creating an ADR, `/karpathy plan` frames the decision. The ADR skill embeds these guidelines; you don't need to invoke `/karpathy` first.
-- **`/phase`** — Before advancing a phase, verify success criteria satisfy Guideline 4. The phase skill enforces this in its transition checklist.
+- **`/adr`** -- Before creating an ADR, `/karpathy plan` frames the decision. The ADR skill embeds these guidelines; you don't need to invoke `/karpathy` first.
+- **`/phase`** -- Before advancing a phase, verify success criteria satisfy Guideline 4. The phase skill enforces this in its transition checklist.
 
 ---
 

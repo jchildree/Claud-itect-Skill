@@ -1,6 +1,6 @@
-﻿---
+---
 name: test-driven-development
-description: TDD discipline enforcement — Iron Law, Red-Green-Refactor loop, rationalization resistance. Use when actively implementing features or bugfixes, before writing any production code. For TDD philosophy and planning discussion, use tdd.
+description: TDD discipline enforcement -- Iron Law, Red-Green-Refactor loop, rationalization resistance. Use when actively implementing features or bugfixes, before writing any production code. For TDD philosophy and planning discussion, use tdd.
 ---
 
 # Test-Driven Development (TDD)
@@ -9,9 +9,9 @@ description: TDD discipline enforcement — Iron Law, Red-Green-Refactor loop, r
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Overview
 
