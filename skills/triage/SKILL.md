@@ -1,4 +1,4 @@
-﻿---
+---
 name: triage
 disable-model-invocation: true
 description: Triage issues through a state machine driven by triage roles. Use when user wants to create an issue, triage issues, review incoming bugs or feature requests, prepare issues for an AFK agent, or manage issue workflow.
@@ -10,9 +10,9 @@ description: Triage issues through a state machine driven by triage roles. Use w
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Move issues on the project issue tracker through a small state machine of triage roles.
 
@@ -24,29 +24,29 @@ Every comment or issue posted to the issue tracker during triage **must** start 
 
 ## Reference docs
 
-- [AGENT-BRIEF.md](AGENT-BRIEF.md) — how to write durable agent briefs
-- [OUT-OF-SCOPE.md](OUT-OF-SCOPE.md) — how the `.out-of-scope/` knowledge base works
+- [AGENT-BRIEF.md](AGENT-BRIEF.md) -- how to write durable agent briefs
+- [OUT-OF-SCOPE.md](OUT-OF-SCOPE.md) -- how the `.out-of-scope/` knowledge base works
 
 ## Roles
 
 Two **category** roles:
 
-- `bug` — something is broken
-- `enhancement` — new feature or improvement
+- `bug` -- something is broken
+- `enhancement` -- new feature or improvement
 
 Five **state** roles:
 
-- `needs-triage` — maintainer needs to evaluate
-- `needs-info` — waiting on reporter for more information
-- `ready-for-agent` — fully specified, ready for an AFK agent
-- `ready-for-human` — needs human implementation
-- `wontfix` — will not be actioned
+- `needs-triage` -- maintainer needs to evaluate
+- `needs-info` -- waiting on reporter for more information
+- `ready-for-agent` -- fully specified, ready for an AFK agent
+- `ready-for-human` -- needs human implementation
+- `wontfix` -- will not be actioned
 
 Every triaged issue should carry exactly one category role and one state role. If state roles conflict, flag it and ask the maintainer before doing anything else.
 
-These are canonical role names — the actual label strings used in the issue tracker may differ. The mapping should have been provided to you - run `/setup-joseph-childree-skills` if not.
+These are canonical role names -- the actual label strings used in the issue tracker may differ. The mapping should have been provided to you - run `/setup-joseph-childree-skills` if not.
 
-State transitions: an unlabeled issue normally goes to `needs-triage` first; from there it moves to `needs-info`, `ready-for-agent`, `ready-for-human`, or `wontfix`. `needs-info` returns to `needs-triage` once the reporter replies. The maintainer can override at any time — flag transitions that look unusual and ask before proceeding.
+State transitions: an unlabeled issue normally goes to `needs-triage` first; from there it moves to `needs-info`, `ready-for-agent`, `ready-for-human`, or `wontfix`. `needs-info` returns to `needs-triage` once the reporter replies. The maintainer can override at any time -- flag transitions that look unusual and ask before proceeding.
 
 ## Invocation
 
@@ -61,9 +61,9 @@ The maintainer invokes `/triage` and describes what they want in natural languag
 
 Query the issue tracker and present three buckets, oldest first:
 
-1. **Unlabeled** — never triaged.
-2. **`needs-triage`** — evaluation in progress.
-3. **`needs-info` with reporter activity since the last triage notes** — needs re-evaluation.
+1. **Unlabeled** -- never triaged.
+2. **`needs-triage`** -- evaluation in progress.
+3. **`needs-info` with reporter activity since the last triage notes** -- needs re-evaluation.
 
 Show counts and a one-line summary per issue. Let the maintainer pick.
 
@@ -73,17 +73,17 @@ Show counts and a one-line summary per issue. Let the maintainer pick.
 
 2. **Recommend.** Tell the maintainer your category and state recommendation with reasoning, plus a brief codebase summary relevant to the issue. Wait for direction.
 
-3. **Reproduce (bugs only).** Before any grilling, attempt reproduction: read the reporter's steps, trace the relevant code, run tests or commands. Report what happened — successful repro with code path, failed repro, or insufficient detail (a strong `needs-info` signal). A confirmed repro makes a much stronger agent brief.
+3. **Reproduce (bugs only).** Before any grilling, attempt reproduction: read the reporter's steps, trace the relevant code, run tests or commands. Report what happened -- successful repro with code path, failed repro, or insufficient detail (a strong `needs-info` signal). A confirmed repro makes a much stronger agent brief.
 
 4. **Grill (if needed).** If the issue needs fleshing out, run a `/grill-with-docs` session.
 
 5. **Apply the outcome:**
-   - `ready-for-agent` — post an agent brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)).
-   - `ready-for-human` — same structure as an agent brief, but note why it can't be delegated (judgment calls, external access, design decisions, manual testing).
-   - `needs-info` — post triage notes (template below).
-   - `wontfix` (bug) — polite explanation, then close.
-   - `wontfix` (enhancement) — write to `.out-of-scope/`, link to it from a comment, then close ([OUT-OF-SCOPE.md](OUT-OF-SCOPE.md)).
-   - `needs-triage` — apply the role. Optional comment if there's partial progress.
+   - `ready-for-agent` -- post an agent brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)).
+   - `ready-for-human` -- same structure as an agent brief, but note why it can't be delegated (judgment calls, external access, design decisions, manual testing).
+   - `needs-info` -- post triage notes (template below).
+   - `wontfix` (bug) -- polite explanation, then close.
+   - `wontfix` (enhancement) -- write to `.out-of-scope/`, link to it from a comment, then close ([OUT-OF-SCOPE.md](OUT-OF-SCOPE.md)).
+   - `needs-triage` -- apply the role. Optional comment if there's partial progress.
 
 ## Quick state override
 

@@ -1,4 +1,4 @@
-﻿---
+---
 name: caveman-commit
 description: >
   Ultra-compressed commit message generator. Cuts noise from commit messages while preserving
@@ -13,16 +13,16 @@ Write commit messages terse and exact. Conventional Commits format. No fluff. Wh
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Rules
 
 **Subject line:**
-- `<type>(<scope>): <imperative summary>` — `<scope>` optional
+- `<type>(<scope>): <imperative summary>` -- `<scope>` optional
 - Types: `feat`, `fix`, `refactor`, `perf`, `docs`, `test`, `chore`, `build`, `ci`, `style`, `revert`
-- Imperative mood: "add", "fix", "remove" — not "added", "adds", "adding"
+- Imperative mood: "add", "fix", "remove" -- not "added", "adds", "adding"
 - ≤50 chars when possible, hard cap 72
 - No trailing period
 - Match project convention for capitalization after the colon
@@ -35,8 +35,8 @@ Use answer as light reference — one per major section, skip if forced. Check m
 - Reference issues/PRs at end: `Closes #42`, `Refs #17`
 
 **What NEVER goes in:**
-- "This commit does X", "I", "we", "now", "currently" — the diff says what
-- "As requested by..." — use Co-authored-by trailer
+- "This commit does X", "I", "we", "now", "currently" -- the diff says what
+- "As requested by..." -- use Co-authored-by trailer
 - "Generated with Claude Code" or any AI attribution
 - Emoji (unless project convention requires)
 - Restating the file name when scope already says it
@@ -66,7 +66,7 @@ Diff: breaking API change
 
 ## Auto-Clarity
 
-Always include body for: breaking changes, security fixes, data migrations, anything reverting a prior commit. Never compress these into subject-only — future debuggers need the context.
+Always include body for: breaking changes, security fixes, data migrations, anything reverting a prior commit. Never compress these into subject-only -- future debuggers need the context.
 
 ## Boundaries
 

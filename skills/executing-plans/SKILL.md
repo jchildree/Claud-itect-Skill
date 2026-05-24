@@ -1,4 +1,4 @@
-﻿---
+---
 name: executing-plans
 description: Use when you have a written implementation plan to execute in a separate session with review checkpoints
 ---
@@ -9,9 +9,9 @@ description: Use when you have a written implementation plan to execute in a sep
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Overview
 

@@ -1,4 +1,4 @@
-﻿---
+---
 name: thefuck
 description: Fix the previous failed shell command. Trigger when a command errors out, user says "fix that command", "what should I have typed", "correct that", or types "fuck" as a message. Diagnoses the error, proposes corrected command, confirms before running.
 ---
@@ -11,9 +11,9 @@ Diagnose and correct a failed shell command.
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Trigger patterns
 
@@ -44,7 +44,7 @@ Pull both from conversation context. If not present, ask the user to paste the c
 
 State the corrected command. Explain the fix in one line. Example:
 
-> `gti commit -m "msg"` → `git commit -m "msg"` — typo in command name
+> `gti commit -m "msg"` → `git commit -m "msg"` -- typo in command name
 
 ### 4. Confirm before running
 
@@ -66,15 +66,15 @@ where.exe thefuck
 which thefuck
 ```
 
-If installed, prefer its output — it has hundreds of curated rules. Run the previous command through it:
+If installed, prefer its output -- it has hundreds of curated rules. Run the previous command through it:
 
 ```bash
-# Unix — re-run previous command through thefuck
+# Unix -- re-run previous command through thefuck
 eval $(thefuck $(fc -ln -1))
 ```
 
 ```powershell
-# Windows PowerShell — pipe previous command
+# Windows PowerShell -- pipe previous command
 $prev = (Get-History -Count 1).CommandLine
 thefuck $prev
 ```
@@ -90,17 +90,17 @@ brew install thefuck
 ```
 
 ```powershell
-# Windows — winget
+# Windows -- winget
 winget install thefuck
 
-# Windows — scoop
+# Windows -- scoop
 scoop install thefuck
 ```
 
 After install, add the alias to your shell profile:
 
 ```bash
-# bash/zsh — add to ~/.bashrc or ~/.zshrc
+# bash/zsh -- add to ~/.bashrc or ~/.zshrc
 eval $(thefuck --alias)
 
 # fish
@@ -108,12 +108,12 @@ thefuck --alias | source
 ```
 
 ```powershell
-# PowerShell — add to $PROFILE
+# PowerShell -- add to $PROFILE
 $env:TF_SHELL = "powershell"; iex "$(thefuck --alias)"
 ```
 
 ## Never
 
 - Run a corrected destructive command (`rm`, `DROP`, `format`, `mkfs`) without explicit confirmation and a warning
-- Guess when the error gives no useful signal — ask the user what they intended
-- Modify files to "fix" a command — only suggest the correct invocation
+- Guess when the error gives no useful signal -- ask the user what they intended
+- Modify files to "fix" a command -- only suggest the correct invocation

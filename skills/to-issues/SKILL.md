@@ -1,4 +1,4 @@
-﻿---
+---
 name: to-issues
 disable-model-invocation: true
 description: Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
@@ -10,13 +10,13 @@ description: Break a plan, spec, or PRD into independently-grabbable issues on t
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Break a plan into independently-grabbable issues using vertical slices (tracer bullets).
 
-The issue tracker and triage label vocabulary should have been provided to you — run `/setup-joseph-childree-skills` if not.
+The issue tracker and triage label vocabulary should have been provided to you -- run `/setup-joseph-childree-skills` if not.
 
 ## Process
 
@@ -73,7 +73,7 @@ A reference to the parent issue on the issue tracker (if the source was an exist
 
 A concise description of this vertical slice. Describe the end-to-end behavior, not layer-by-layer implementation.
 
-Avoid specific file paths or code snippets — they go stale fast. Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it here and note briefly that it came from a prototype. Trim to the decision-rich parts — not a working demo, just the important bits.
+Avoid specific file paths or code snippets -- they go stale fast. Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it here and note briefly that it came from a prototype. Trim to the decision-rich parts -- not a working demo, just the important bits.
 
 ## Acceptance criteria
 

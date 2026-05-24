@@ -1,4 +1,4 @@
-﻿---
+---
 name: grill-with-docs
 disable-model-invocation: true
 description: Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise. Use when user wants to stress-test a plan against their project's language and documented decisions.
@@ -8,9 +8,9 @@ description: Grilling session that challenges your plan against the existing dom
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 </initiation>
 
@@ -62,17 +62,17 @@ If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The ma
 │       └── docs/adr/
 ```
 
-Create files lazily — only when you have something to write. If no `CONTEXT.md` exists, create one when the first term is resolved. If no `docs/Obsidian Vault/[Project Name]` exists, create it when the first ADR is needed.
+Create files lazily -- only when you have something to write. If no `CONTEXT.md` exists, create one when the first term is resolved. If no `docs/Obsidian Vault/[Project Name]` exists, create it when the first ADR is needed.
 
 ## During the session
 
 ### Challenge against the glossary
 
-When the user uses a term that conflicts with the existing language in `CONTEXT.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
+When the user uses a term that conflicts with the existing language in `CONTEXT.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y -- which is it?"
 
 ### Sharpen fuzzy language
 
-When the user uses vague or overloaded terms, propose a precise canonical term. "You're saying 'account' — do you mean the Customer or the User? Those are different things."
+When the user uses vague or overloaded terms, propose a precise canonical term. "You're saying 'account' -- do you mean the Customer or the User? Those are different things."
 
 ### Discuss concrete scenarios
 
@@ -80,11 +80,11 @@ When domain relationships are being discussed, stress-test them with specific sc
 
 ### Cross-reference with code
 
-When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?"
+When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible -- which is right?"
 
 ### Update CONTEXT.md inline
 
-When a term is resolved, update `CONTEXT.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
+When a term is resolved, update `CONTEXT.md` right there. Don't batch these up -- capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
 
 `CONTEXT.md` should be totally devoid of implementation details. Do not treat `CONTEXT.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
 
@@ -92,9 +92,9 @@ When a term is resolved, update `CONTEXT.md` right there. Don't batch these up �
 
 Only offer to create an ADR when all three are true:
 
-1. **Hard to reverse** — the cost of changing your mind later is meaningful
-2. **Surprising without context** — a future reader will wonder "why did they do it this way?"
-3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons
+1. **Hard to reverse** -- the cost of changing your mind later is meaningful
+2. **Surprising without context** -- a future reader will wonder "why did they do it this way?"
+3. **The result of a real trade-off** -- there were genuine alternatives and you picked one for specific reasons
 
 If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
 
@@ -103,4 +103,4 @@ If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](
 ```
 ## Integration with Other Skills
 
-- **`/adr`** — Similar tool as they both maintain ADRs, but the `/grill-with-docs` skill looks at folder structure and when to automatically create ADRs, has a step-by-step guide to create new ADRs manually with AI. The `/adr` skill audits requirements and ADRs in place already and focuses on it's format, and also creates ADRs when it thinks is necessary. These two skill can be combined in the future.
+- **`/adr`** -- Similar tool as they both maintain ADRs, but the `/grill-with-docs` skill looks at folder structure and when to automatically create ADRs, has a step-by-step guide to create new ADRs manually with AI. The `/adr` skill audits requirements and ADRs in place already and focuses on it's format, and also creates ADRs when it thinks is necessary. These two skill can be combined in the future.

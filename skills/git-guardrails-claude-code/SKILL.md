@@ -1,4 +1,4 @@
-﻿---
+---
 name: git-guardrails-claude-code
 disable-model-invocation: true
 description: Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code.
@@ -10,9 +10,9 @@ description: Set up Claude Code hooks to block dangerous git commands (push, res
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Sets up a PreToolUse hook that intercepts and blocks dangerous git commands before Claude executes them.
 
@@ -87,7 +87,7 @@ Add to the appropriate settings file:
 }
 ```
 
-If the settings file already exists, merge the hook into existing `hooks.PreToolUse` array — don't overwrite other settings.
+If the settings file already exists, merge the hook into existing `hooks.PreToolUse` array -- don't overwrite other settings.
 
 ### 4. Ask about customization
 

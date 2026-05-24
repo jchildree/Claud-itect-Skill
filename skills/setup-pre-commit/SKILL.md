@@ -1,4 +1,4 @@
-﻿---
+---
 name: setup-pre-commit
 disable-model-invocation: true
 description: Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.
@@ -10,9 +10,9 @@ description: Set up Husky pre-commit hooks with lint-staged (Prettier), type che
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## What This Sets Up
 
@@ -91,7 +91,7 @@ Only create if no Prettier config exists. Use these defaults:
 
 Stage all changed/created files and commit with message: `Add pre-commit hooks (husky + lint-staged + prettier)`
 
-This will run through the new pre-commit hooks — a good smoke test that everything works.
+This will run through the new pre-commit hooks -- a good smoke test that everything works.
 
 ## Notes
 

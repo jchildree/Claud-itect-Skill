@@ -7,10 +7,10 @@ description: >
   Trigger on: "audit my skills", "review my skill files", "which skills auto-fire?",
   "find duplicated logic in my skills", "should any skills be internal-only?",
   or any request to review, improve, or rationalize a set of SKILL.md files.
-  Never modifies any file — proposes changes and waits for approval.
+  Never modifies any file -- proposes changes and waits for approval.
 ---
 
-# Audit — Claude Skills Quality Review
+# Audit -- Claude Skills Quality Review
 
 Meta-skill for auditing a set of Claude Code SKILL.md files.
 Reads your installed skills, applies three quality lenses, and produces
@@ -40,19 +40,19 @@ Then before any other action, run the `/caveman lite` skill, then continue this 
 
 Before any other action, automatically execute the `/using-superpowers` skill, then continue this skill.
 
-Check memory for saved preference (movie, book, anime, show). If found, use it — skip the question. If not in memory, ask once:
+Check memory for saved preference (movie, book, anime, show). If found, use it -- skip the question. If not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use as light tactful reference throughout — one per major finding, skip if forced. Save answer to memory after asking.
+Use as light tactful reference throughout -- one per major finding, skip if forced. Save answer to memory after asking.
 
 Examples of well-placed references:
-- (Star Wars) "Right now Claude could auto-fire this skill with no confirmation —
+- (Star Wars) "Right now Claude could auto-fire this skill with no confirmation --
   no one told it to execute Order 66."
-- (Sherlock Holmes) "This step asks Claude to deduce a file count from context —
+- (Sherlock Holmes) "This step asks Claude to deduce a file count from context --
   a job for Watson's clipboard, not Holmes's intuition."
 - (Jurassic Park) "You've got the power configured but no check on whether it
-  should be used — your scientists were so preoccupied with whether they could..."
+  should be used -- your scientists were so preoccupied with whether they could..."
 
 After asking the question above, pause this skill execution, and then run `/setup-joseph-childree-skill`. Once setup-joseph-childree-skill is finished, then run the `obsidian-vault` skill. Once Obsidian-Vault is complete, continue audit skill.
 
@@ -107,7 +107,7 @@ Auditing...
 
 ---
 
-## Audit 1 — Visibility
+## Audit 1 -- Visibility
 
 **What this audit checks:**
 
@@ -126,8 +126,8 @@ For each skill, ask two questions:
    create external record, modify files outside the conversation)?
    - If yes and `disable-model-invocation: true` is absent: FLAG.
 
-2. Is this skill **pure background knowledge** — a reference, a set of principles,
-   an internal dependency — that a user would never `/run` directly?
+2. Is this skill **pure background knowledge** -- a reference, a set of principles,
+   an internal dependency -- that a user would never `/run` directly?
    - If yes and `user-invocable: false` is absent: FLAG.
 
 **Output format:**
@@ -138,20 +138,20 @@ For each skill, ask two questions:
 | Skill | Flag Needed | Currently Set | Finding |
 |-------|-------------|---------------|---------|
 | karpathy | user-invocable: false | ✅ set | No action needed |
-| adr | disable-model-invocation: true | ❌ missing | /adr create writes files — add flag |
-| phase | — | — | No flags warranted |
+| adr | disable-model-invocation: true | ❌ missing | /adr create writes files -- add flag |
+| phase | -- | -- | No flags warranted |
 | tools | disable-model-invocation: true | ❌ missing | /tools add modifies settings.json |
-| audit | — | — | Read-only skill; no flags needed |
+| audit | -- | -- | Read-only skill; no flags needed |
 ```
 
 Then for each flagged skill, show the proposed frontmatter rewrite:
 
 ```
-### Proposed: adr — add disable-model-invocation: true
+### Proposed: adr -- add disable-model-invocation: true
 
 Changelog: Added `disable-model-invocation: true` to prevent Claude from
 auto-invoking /adr create without an explicit user command. The /adr create
-flow writes files and updates INDEX.md — side effects that should require
+flow writes files and updates INDEX.md -- side effects that should require
 deliberate invocation.
 
 Frontmatter after change:
@@ -169,7 +169,7 @@ Stop and wait.
 
 ---
 
-## Audit 2 — Determinism
+## Audit 2 -- Determinism
 
 **What this audit checks:**
 
@@ -200,7 +200,7 @@ step found inside an AI-driven flow, flag it with a suggested script.
 ```
 ## Determinism Audit
 
-### adr — /adr create (step 4: "Find the next ADR number")
+### adr -- /adr create (step 4: "Find the next ADR number")
 
 Finding: Finding the next ADR number is a deterministic operation: count
 `docs/adr/ADR-[0-9]*.md` files and add 1. Currently described as an AI step.
@@ -232,7 +232,7 @@ Stop and wait.
 
 ---
 
-## Audit 3 — Composability
+## Audit 3 -- Composability
 
 **What this audit checks:**
 
@@ -260,24 +260,24 @@ appears in two or more skills with substantial similarity.
 ```
 ## Audit 3 Composability
 
-### Finding 1 — Karpathy principles restated in adr and phase
+### Finding 1 -- Karpathy principles restated in adr and phase
 
 Skills affected: adr, phase
 Duplicated section: "Karpathy Principles Applied" (appears verbatim in both)
 
 Options:
-A. Keep as-is. The redundancy is intentional — each skill works standalone.
+A. Keep as-is. The redundancy is intentional -- each skill works standalone.
    Acceptable if these skills are sometimes installed without /karpathy.
 B. Extract to a shared reference. Replace both "Karpathy Principles Applied"
    sections with: "See /karpathy for the full guidelines."
    Works only if karpathy is always installed alongside adr and phase.
-C. No action — the sections are short enough that duplication cost is minimal.
+C. No action -- the sections are short enough that duplication cost is minimal.
 
 Recommendation: Option A. The standalone guarantee is worth the redundancy.
 The sections are under 10 lines each. Not worth extracting.
 
 After each finding, state a clear recommendation (keep, extract, or merge) and the
-reasoning. If the right answer is "keep as-is," say so — don't manufacture refactors.
+reasoning. If the right answer is "keep as-is," say so -- don't manufacture refactors.
 
 After showing all findings, ask:
 "Which of these would you like to act on? List by finding number, or say 'none'."
@@ -316,8 +316,8 @@ Do not apply any change before receiving an explicit answer.
 ## Karpathy Principles Applied
 
 See `/karpathy` for guidelines. Applied here:
-- **G1:** Read every skill fully before flagging. Uncertain findings — say so explicitly.
-- **G2:** Minimum punch list — real problems only, no hypothetical findings.
+- **G1:** Read every skill fully before flagging. Uncertain findings -- say so explicitly.
+- **G2:** Minimum punch list -- real problems only, no hypothetical findings.
 - **G3:** Show only what changes. Don't rewrite sections that work.
 - **G4 Done:** All three dimensions covered ✅ · Each finding has recommendation ✅ · User approved/rejected each ✅
 
@@ -325,9 +325,9 @@ See `/karpathy` for guidelines. Applied here:
 
 ## Integration with Other Skills
 
-- **`/tools audit`** — Audits configured MCP tools and settings. Complementary to
+- **`/tools audit`** -- Audits configured MCP tools and settings. Complementary to
   this skill, which audits the skills themselves. Suggest this skill next after this skills completion.
-- **`/adr`** — If an audit finding represents a significant structural decision
+- **`/adr`** -- If an audit finding represents a significant structural decision
   (e.g. deciding that karpathy should always be internal-only), document it in an ADR.
-- **`/karpathy`** (internal) — Governs how this skill reasons through findings.
+- **`/karpathy`** (internal) -- Governs how this skill reasons through findings.
   In particular, G1 (think before flagging) and G2 (don't manufacture findings).

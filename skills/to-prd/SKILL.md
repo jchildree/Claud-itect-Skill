@@ -1,4 +1,4 @@
-﻿---
+---
 name: to-prd
 disable-model-invocation: true
 description: Turn the current conversation context into a PRD and publish it to the project issue tracker. Use when user wants to create a PRD from the current context.
@@ -8,13 +8,13 @@ description: Turn the current conversation context into a PRD and publish it to 
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
-This skill takes the current conversation context and codebase understanding and produces a PRD. Do NOT interview the user — just synthesize what you already know.
+This skill takes the current conversation context and codebase understanding and produces a PRD. Do NOT interview the user -- just synthesize what you already know.
 
-The issue tracker and triage label vocabulary should have been provided to you — run `/setup-joseph-childree-skills` if not.
+The issue tracker and triage label vocabulary should have been provided to you -- run `/setup-joseph-childree-skills` if not.
 
 ## Process
 
@@ -64,7 +64,7 @@ A list of implementation decisions that were made. This can include:
 
 Do NOT include specific file paths or code snippets. They may end up being outdated very quickly.
 
-Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it within the relevant decision and note briefly that it came from a prototype. Trim to the decision-rich parts — not a working demo, just the important bits.
+Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it within the relevant decision and note briefly that it came from a prototype. Trim to the decision-rich parts -- not a working demo, just the important bits.
 
 ## Testing Decisions
 

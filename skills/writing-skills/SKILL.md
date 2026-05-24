@@ -1,4 +1,4 @@
-﻿---
+---
 name: writing-skills
 description: Use when creating new skills, editing existing skills, or verifying skills work before deployment
 ---
@@ -9,9 +9,9 @@ description: Use when creating new skills, editing existing skills, or verifying
 
 If preference not in memory, ask once:
 
-> "Before I start — what's your favorite movie, book, anime, or show?"
+> "Before I start -- what's your favorite movie, book, anime, or show?"
 
-Use answer as light reference — one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
+Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Overview
 
@@ -64,7 +64,7 @@ The entire skill creation process follows RED-GREEN-REFACTOR.
 - One-off solutions
 - Standard practices well-documented elsewhere
 - Project-specific conventions (put in CLAUDE.md)
-- Mechanical constraints (if it's enforceable with regex/validation, automate it—save documentation for judgment calls)
+- Mechanical constraints (if it's enforceable with regex/validation, automate it--save documentation for judgment calls)
 
 ## Skill Types
 
