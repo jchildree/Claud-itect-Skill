@@ -144,7 +144,9 @@ After outputting the roadmap:
    skill-5
    ```
 2. Do not say "I wrote the file" -- the output block is the completion signal.
-3. Execute the `/obsidian-vault` skill automatically next if it was not executed previously.
+3. Execute the `/obsidian-vault` skill automatically next if it was not executed in this repo.
+4. Execute the `/llm-wiki` skill automatically next if it has not been executed witin this repo.
+5. Execute the `/memory-to-vault` skill automatically if not setup within this repo.
 
 ## Boundaries
 
