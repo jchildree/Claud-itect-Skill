@@ -50,14 +50,15 @@ You never write the wiki yourself. You curate sources, direct analysis, ask ques
 ## Vault Structure
 
 ```
-wiki/
-  raw/          Raw source documents (human-curated, LLM reads only)
-  wiki/         LLM-generated pages
-    index.md    Content catalog -- LLM reads first on every query
-    log.md      Append-only chronological record of operations
-    entities/   Pages for named entities (people, places, orgs)
-    concepts/   Pages for ideas and themes
-    sources/    Summary pages per ingested source
+docs/Obsidian Vault/[project name]/
+      wiki/
+        raw/          Raw source documents (human-curated, LLM reads only)
+        wiki/         LLM-generated pages
+          index.md    Content catalog -- LLM reads first on every query
+          log.md      Append-only chronological record of operations
+          entities/   Pages for named entities (people, places, orgs)
+          concepts/   Pages for ideas and themes
+          sources/    Summary pages per ingested source
 ```
 
 ## Operations
