@@ -41,7 +41,7 @@ No yak shaving. No ritual sacrifices.
 Install it. Try it. Judge me harshly afterward.
 
 After installation start with the skill: 
-- `/audit`
+- `/onboard`
 
 ---
 
