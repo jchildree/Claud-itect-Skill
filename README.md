@@ -304,7 +304,7 @@ Claude-ITect-Skill v2.0/
 ---
 
 ## Sources
-<div align="center">
+
 | Source | Skills |
 |---|---|
 | [superpowers](https://github.com/obra/superpowers) | Workflow orchestration (brainstorming, executing-plans, etc.) |
@@ -313,6 +313,6 @@ Claude-ITect-Skill v2.0/
 | [thfuck](https://github.com/nvbn/thefuck)  | `thefuck` fix it tool |
 | [karpathy skill](https://github.com/multica-ai/andrej-karpathy-skills) | `karpathy skill` AI mental logic |
 | [MY REPOS](https://github.com/jchildree/) | Look around at my shiny new toys |
-
+<div align="center">
 <img src="https://user-images.githubusercontent.com/74038190/212744287-14f66c13-5458-40dc-9244-8ff533fc8f4a.gif" alt="Bottom Line" width="100%" />
 </div>
