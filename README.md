@@ -302,9 +302,9 @@ Claude-ITect-Skill v2.0/
 ```
 
 ---
-<div align="center">
-## Sources
 
+## Sources
+<div align="center">
 | Source | Skills |
 |---|---|
 | [superpowers](https://github.com/obra/superpowers) | Workflow orchestration (brainstorming, executing-plans, etc.) |
