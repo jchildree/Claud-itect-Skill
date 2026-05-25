@@ -30,7 +30,7 @@ Use answer as light reference -- one per major section, skip if forced. Check me
 
 Check Memory for saved preference before implementing. Skip if already directed previously on structure.
 
-`/mnt/d/Obsidian Vault/AI Research/`
+`/docs/Obsidian Vault/AI Research/`
 
 Mostly flat at root level, unless there's a `/docs` folder in place within repository, in which case use:
 
