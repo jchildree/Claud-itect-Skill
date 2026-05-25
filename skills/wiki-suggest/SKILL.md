@@ -48,10 +48,10 @@ Default scope: `all`.
 
 ### Step 1 -- Read Current Wiki State
 
-1. Read `docs/Obsidian Vault/Claude-ITect-Skill Update/Claude-ITect-Skill Update Index.md`
+1. Read `docs/Obsidian Vault/[project name]/[project name] Index.md`
 2. Note which categories already have pages (skills index, hooks index, patterns, glossary, etc.)
-3. Read `docs/Obsidian Vault/Claude-ITect-Skill Update/glossary.md` -- terms already documented
-4. Read `docs/Obsidian Vault/Claude-ITect-Skill Update/patterns.md` -- patterns already documented
+3. Read `docs/Obsidian Vault/[project name]/glossary.md` -- terms already documented
+4. Read `docs/Obsidian Vault/[project name]/patterns.md` -- patterns already documented
 
 ### Step 2 -- Scan Sources
 
@@ -59,11 +59,11 @@ Scan these source paths for undocumented content:
 
 | Source | What to Look For |
 |--------|-----------------|
-| `Claud-itect-Skill/skills/*/SKILL.md` | Skills not yet in Skills Index; new category or trigger patterns |
-| `Claud-itect-Skill/hooks/*.js` | Hook behaviors not documented in patterns.md |
-| `Claud-itect-Skill/agents/*.md` | Agents not in Agents Index or glossary |
+| `/skills/*/SKILL.md` | Skills not yet in Skills Index; new category or trigger patterns |
+| `/hooks/*.js` | Hook behaviors not documented in patterns.md |
+| `/agents/*.md` | Agents not in Agents Index or glossary |
 | `docs/Obsidian Vault/**/*.md` | ADRs with implementation notes not captured in patterns or glossary |
-| `Claud-itect-Skill/pack-manifest.json` | Schema changes not reflected in wiki |
+| `/pack-manifest.json` | Schema changes not reflected in wiki |
 
 ### Step 3 -- Gap Analysis
 
