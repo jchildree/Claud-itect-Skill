@@ -16,10 +16,8 @@
 
 <p align="center"><a href="https://www.buymeacoffee.com/jchildree80" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a></p>
 
-<div align="center">
 
-
-# Claude-ITect-Skill
+## Claude-ITect-Skill
 
 Are you a Claude Architect or as the industry refuses to call us: Claude-ITects™?
 Good. You're in the right place.
@@ -304,7 +302,7 @@ Claude-ITect-Skill v2.0/
 ```
 
 ---
-
+<div align="center">
 ## Sources
 
 | Source | Skills |
