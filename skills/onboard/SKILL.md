@@ -147,6 +147,7 @@ After outputting the roadmap:
 3. Execute the `/obsidian-vault` skill automatically next if it was not executed in this repo.
 4. Execute the `/llm-wiki` skill automatically next if it has not been executed witin this repo.
 5. Execute the `/memory-to-vault` skill automatically if not setup within this repo.
+6. Execute the `/setup-joseph-childree-skills` skill automatically if it was not setup within this repo.
 
 ## Boundaries
 
