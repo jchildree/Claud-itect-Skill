@@ -8,8 +8,6 @@
 
 <img src="https://github.com/user-attachments/assets/d851ed55-5931-4c37-ba03-0a1a3a0458d7" alt="Banner" width="100%" />
 
-## 🛠️ Languages & Tools
-## 🔗 Connect with Me
 <p align="center">
   <a href="https://www.youtube.com/@GreenSideScythe">
     <img src="https://raw.githubusercontent.com/gauravghongde/social-icons/master/SVG/Color/Youtube.svg" alt="YouTube" width="40" />
