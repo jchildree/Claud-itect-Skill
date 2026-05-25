@@ -1,17 +1,16 @@
 <img src="https://capsule-render.vercel.app/api?type=venom&height=220&color=0:000000,100:a371f7&text=Claud-itect-Skill&fontSize=60&fontColor=FFFFFF&animation=fadeIn&fontAlignY=40&desc=An%20awesome%20curated%20skill%20pack%20for%20Agentic%20Engineering.%20Installs%2054%20skills%2C%20and%204%20agents&descSize=22&descColor=FFFFFF&descAlignY=65" width="100%"/>
 
-<p align="center">
-  <a href="https://komarev.com/ghpvc/?username=jchildree">
-    <img src="https://komarev.com/ghpvc/?username=jchildree&label=Profile%20views&color=00FFFF&style=flat-square" alt="jchildree's profile views" />
-  </a>
-</p>
-
 <img src="https://github.com/user-attachments/assets/d851ed55-5931-4c37-ba03-0a1a3a0458d7" alt="Banner" width="100%" />
 
 <p align="center">
   <a href="https://www.youtube.com/@GreenSideScythe">
     <img src="https://raw.githubusercontent.com/gauravghongde/social-icons/master/SVG/Color/Youtube.svg" alt="YouTube" width="40" />
   </a>&nbsp;&nbsp;&nbsp;
+  <p align="center">
+  <a href="https://komarev.com/ghpvc/?username=jchildree">
+    <img src="https://komarev.com/ghpvc/?username=jchildree&label=Profile%20views&color=00FFFF&style=flat-square" alt="jchildree's profile views" />
+  </a>
+</p>
   <a href="mailto:jchildree87@gmail.com">
     <img src="https://raw.githubusercontent.com/gauravghongde/social-icons/master/SVG/Color/Gmail.svg" alt="Gmail" width="40" />
   </a>
