@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://www.youtube.com/@GreenSideScythe">
     <img src="https://raw.githubusercontent.com/gauravghongde/social-icons/master/SVG/Color/Youtube.svg" alt="YouTube" width="40" />
-  </a>&nbsp;&nbsp;&nbsp;
+  </a>&nbsp;
   <a href="https://komarev.com/ghpvc/?username=jchildree">
     <img src="https://komarev.com/ghpvc/?username=jchildree&label=Profile%20views&color=00FFFF&style=flat-square" alt="jchildree's profile views" />
   </a>
