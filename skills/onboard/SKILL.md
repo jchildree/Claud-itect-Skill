@@ -23,7 +23,7 @@ description: >
 
 ## What This Skill Does
 
-Guides new users from "installed 51 skills, now what?" to a personalized starter pack in under 1 minute. On first run, presents a 3-question questionnaire and outputs a green-themed skill roadmap. On repeat runs, shows the existing roadmap or skips if --reset not passed.
+Guides new users from "installed 54 skills, now what?" to a personalized starter pack in under 3 minutes. On first run, presents a 3-question questionnaire and outputs a green-themed skill roadmap. On repeat runs, shows the existing roadmap or skips if --reset not passed.
 
 ## First-Run Detection
 
