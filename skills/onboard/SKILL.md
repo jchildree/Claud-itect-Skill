@@ -144,7 +144,7 @@ After outputting the roadmap:
    skill-5
    ```
 2. Do not say "I wrote the file" -- the output block is the completion signal.
-3. Execute the `/audit` skill automatically next.
+3. Execute the `/obsidian-vault` skill automatically next if it was not executed previously.
 
 ## Boundaries
 
