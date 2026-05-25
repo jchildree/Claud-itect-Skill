@@ -1,4 +1,31 @@
 <img width="2752" height="1536" alt="v2_watermarked-b7140b17-61e1-49ca-91d1-951ab140b39b" src="https://github.com/user-attachments/assets/d851ed55-5931-4c37-ba03-0a1a3a0458d7" />
+<img src="https://capsule-render.vercel.app/api?type=venom&height=220&color=0:000000,100:a371f7&text=Claud-itect-Skill&fontSize=60&fontColor=FFFFFF&animation=fadeIn&fontAlignY=40&desc=An%20awesome%20curated%20skill%20pack%20for%20Agentic%20Engineering.%20Installs%2054%20skills%2C%20and%204%20agents&descSize=22&descColor=FFFFFF&descAlignY=65" width="100%"/>
+
+<p align="center">
+  <a href="https://komarev.com/ghpvc/?username=jchildree">
+    <img src="https://komarev.com/ghpvc/?username=jchildree&label=Profile%20views&color=00FFFF&style=flat-square" alt="jchildree's profile views" />
+  </a>
+</p>
+
+<img src="https://github.com/user-attachments/assets/d851ed55-5931-4c37-ba03-0a1a3a0458d7" alt="Banner" width="100%" />
+
+## 🛠️ Languages & Tools
+## 🔗 Connect with Me
+<p align="center">
+  <a href="https://www.youtube.com/@GreenSideScythe">
+    <img src="https://raw.githubusercontent.com/gauravghongde/social-icons/master/SVG/Color/Youtube.svg" alt="YouTube" width="40" />
+  </a>&nbsp;&nbsp;&nbsp;
+  <a href="mailto:jchildree87@gmail.com">
+    <img src="https://raw.githubusercontent.com/gauravghongde/social-icons/master/SVG/Color/Gmail.svg" alt="Gmail" width="40" />
+  </a>
+</p>
+
+<p align="center"><a href="https://www.buymeacoffee.com/jchildree80" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a></p>
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212744287-14f66c13-5458-40dc-9244-8ff533fc8f4a.gif" alt="Bottom Line" width="100%" />
+</div>
+
 
 # Claude-ITect-Skill
 
