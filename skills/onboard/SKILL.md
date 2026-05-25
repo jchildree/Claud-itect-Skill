@@ -144,6 +144,7 @@ After outputting the roadmap:
    skill-5
    ```
 2. Do not say "I wrote the file" -- the output block is the completion signal.
+3. Execute the `/audit` skill automatically next.
 
 ## Boundaries
 
