@@ -107,10 +107,10 @@ After installation start with the skill:
 
 ```
 your-project/
-└── .claude/
-    ├── skills/     54 skills
-    ├── agents/     4 agent definitions
-    └── hooks/      7 hook files
+  └── .claude/
+      ├── skills/     54 skills
+      ├── agents/     4 agent definitions
+      └── hooks/      7 hook files
 ```
 
 `settings.json` is patched to wire caveman hooks (SessionStart + UserPromptSubmit). Existing entries are preserved. NgonENGINE-specific commands in `commands-ngon/` are **not** auto-installed. Comment if you want these as well.
