@@ -108,7 +108,7 @@ After installation start with the skill:
 ```
 your-project/
 └── .claude/
-    ├── skills/     51 skills
+    ├── skills/     54 skills
     ├── agents/     4 agent definitions
     └── hooks/      7 hook files
 ```
@@ -123,7 +123,7 @@ Restart Claude Code. Then run `/audit` to verify the installation. Duplicate ski
 
 ---
 
-## Skills (51)
+## Skills (54)
 
 ### Superpowers -- workflow orchestration
 
@@ -182,13 +182,19 @@ Cuts token usage ~75% while keeping full technical accuracy.
 | `audit` | Audit skill files for visibility flags, determinism, and composability |
 | `git-guardrails-claude-code` | Enforce pre-commit guardrails via Claude Code hooks |
 | `karpathy` | Karpathy-style code quality principles (internal reasoning layer) |
+| `llm-wiki` | Set up and operate an LLM-maintained personal knowledge base |
+| `memory-to-vault` | Convert Claude's persisted memory into a structured Obsidian vault note |
 | `migrate-to-shoehorn` | Migrate to shoehorn pattern |
+| `onboard` | Interactive first-run experience -- generates a personalized 5-skill starter roadmap |
 | `phase` | Phase-based project management with status lexicon |
 | `safe-push` | Pre-flight large-file, test, uncommitted-change, and diverged-history checks before `git push` |
 | `scaffold-exercises` | Scaffold coding exercise structures |
+| `setup-joseph-childree-skills` | One-time per-repo setup for issue tracker, triage labels, and domain docs |
 | `setup-pre-commit` | Configure pre-commit hooks for a repo |
 | `thefuck` | Fix the previous failed shell command |
 | `tools` | Discover and configure MCP servers and CLI tools |
+| `wiki` | Read, approve, add, search, and graph commands for the project Obsidian vault |
+| `wiki-suggest` | Scan source files for undocumented content and generate wiki suggestion files |
 
 ### Productivity
 
@@ -196,7 +202,6 @@ Cuts token usage ~75% while keeping full technical accuracy.
 |---|---|
 | `grill-me` | Relentless interview -- stress-tests plans and designs |
 | `handoff` | Compact current conversation into a handoff doc for another agent |
-| `writing-skills` | Write a new Claude Code skill from scratch |
 
 ### Writing
 
@@ -291,7 +296,7 @@ The install script writes SessionStart and UserPromptSubmit entries into `.claud
 
 ```
 Claude-ITect-Skill v2.0/
-├── skills/           51 skill directories
+├── skills/           54 skill directories
 ├── agents/           4 agent .md files
 ├── hooks/            7 hook files (JS + PS1)
 ├── commands-ngon/    4 NgonENGINE-specific slash commands (not auto-installed)
