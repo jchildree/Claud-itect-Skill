@@ -20,8 +20,6 @@
 <p align="center"><a href="https://www.buymeacoffee.com/jchildree80" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a></p>
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212744287-14f66c13-5458-40dc-9244-8ff533fc8f4a.gif" alt="Bottom Line" width="100%" />
-</div>
 
 
 # Claude-ITect-Skill
@@ -320,3 +318,6 @@ Claude-ITect-Skill v2.0/
 | [thfuck](https://github.com/nvbn/thefuck)  | `thefuck` fix it tool |
 | [karpathy skill](https://github.com/multica-ai/andrej-karpathy-skills) | `karpathy skill` AI mental logic |
 | [MY REPOS](https://github.com/jchildree/) | Look around at my shiny new toys |
+
+<img src="https://user-images.githubusercontent.com/74038190/212744287-14f66c13-5458-40dc-9244-8ff533fc8f4a.gif" alt="Bottom Line" width="100%" />
+</div>
