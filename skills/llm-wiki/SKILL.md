@@ -23,13 +23,6 @@ disable-model-invocation: true
 
 Build and maintain a persistent, compounding personal knowledge base. The LLM writes and updates the wiki; you provide sources and ask questions.
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Core Idea
 

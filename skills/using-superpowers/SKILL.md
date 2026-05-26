@@ -124,6 +124,14 @@ When multiple skills could apply, use this order:
 
 The skill itself tells you which.
 
+## Preference Lookup (once per session)
+
+Check memory for saved preference (movie, book, anime, or show). If found, hold it in context -- individual skills reference it for light illustrations. If not in memory, ask once at the start of the first user task:
+
+> "Before I start -- what's your favorite movie, book, anime, or show?"
+
+Save the answer to memory. All skills inherit this preference and do not ask again.
+
 ## User Instructions
 
 Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.

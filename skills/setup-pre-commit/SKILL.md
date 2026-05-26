@@ -18,13 +18,6 @@ description: Set up Husky pre-commit hooks with lint-staged (Prettier), type che
 
 # Setup Pre-Commit Hooks
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## What This Sets Up
 
@@ -37,7 +30,7 @@ Use answer as light reference -- one per major section, skip if forced. Check me
 
 ### 1. Detect package manager
 
-Check for `package-lock.json` (npm), `pnpm-lock.yaml` (pnpm), `yarn.lock` (yarn), `bun.lockb` (bun). Use whichever is present. Default to npm if unclear.
+Run `bash .claude/skills/setup-pre-commit/detect-pkg-manager.sh` to detect npm, pnpm, or yarn from lockfiles. For bun, check additionally for `bun.lockb`. Default to npm if unknown.
 
 ### 2. Install dependencies
 

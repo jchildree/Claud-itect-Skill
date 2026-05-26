@@ -52,11 +52,7 @@ Then before any other action, run the `/caveman lite` skill, then continue this 
 
 Before any other action, automatically execute the `/using-superpowers` skill, then continue this skill.
 
-Check memory for saved preference (movie, book, anime, show). If found, use it -- skip the question. If not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use as light tactful reference throughout -- one per major finding, skip if forced. Save answer to memory after asking.
+Preference (movie, book, anime, or show) is loaded at session start by `/using-superpowers`. Use it for light illustrations throughout -- one per major finding, skip if forced.
 
 Examples of well-placed references:
 - (Star Wars) "Right now Claude could auto-fire this skill with no confirmation --
@@ -66,7 +62,7 @@ Examples of well-placed references:
 - (Jurassic Park) "You've got the power configured but no check on whether it
   should be used -- your scientists were so preoccupied with whether they could..."
 
-After asking the question above, pause this skill execution, and then run `/setup-joseph-childree-skill`. Once setup-joseph-childree-skill is finished, then run the `obsidian-vault` skill. Once Obsidian-Vault is complete, continue audit skill.
+After the initiation steps above, pause this skill execution, and then run `/setup-joseph-childree-skill`. Once setup-joseph-childree-skill is finished, then run the `obsidian-vault` skill. Once Obsidian-Vault is complete, continue audit skill.
 
 ---
 
@@ -77,14 +73,13 @@ To avoid restarting from scratch, write a checkpoint after each skill is process
 
 ### Checkpoint format
 
-After finishing each skill's analysis (all three lenses), append one line to
-`.claude/state/audit-progress.json` (create if absent):
+After finishing each skill's analysis (all three lenses), write a checkpoint using the deterministic script (avoids hallucinated timestamps):
 
-```json
-{"skill":"adr","status":"done","findings":2,"ts":"2026-05-23T01:00:00Z"}
+```
+node .claude/skills/audit/write-checkpoint.js .claude/state/audit-progress.json <skill> done <count>
 ```
 
-Fields: `skill` (directory name), `status` (`done`), `findings` (count of flags raised), `ts` (ISO timestamp).
+Fields written: `skill` (directory name), `status` (`done`), `findings` (count of flags raised), `ts` (ISO timestamp from `Date.now()`).
 
 ### `/audit-resume`
 

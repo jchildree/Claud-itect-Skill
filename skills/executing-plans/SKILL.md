@@ -11,20 +11,16 @@ triggers:
   - "follow steps"
 cache_key: "executing-plans-2.0"
 dependencies: []
+disable-model-invocation: true
 description: Use when you have a written implementation plan to execute in a separate session with review checkpoints
 ---
 
 # Executing Plans
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Overview
+
+**Single-agent sequential execution.** For parallel execution across multiple agents, use /subagent-driven-development.
 
 Load plan, review critically, execute all tasks, report when complete.
 

@@ -12,6 +12,7 @@ triggers:
   - "requirements"
 cache_key: "requesting-code-review-2.0"
 dependencies: []
+disable-model-invocation: true
 description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
 ---
 
@@ -19,11 +20,6 @@ description: Use when completing tasks, implementing major features, or before m
 
 ## Initiation
 
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Dispatch a code reviewer subagent to catch issues before they cascade. The reviewer gets precisely crafted context for evaluation -- never your session's history. This keeps the reviewer focused on the work product, not your thought process, and preserves your own context for continued work.
 

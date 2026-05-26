@@ -30,11 +30,6 @@ Works with any tech stack. Binds to the active project at invocation time.
 
 ## Initiation
 
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ---
 
@@ -161,7 +156,7 @@ Applying Karpathy Guideline 1 (Think Before Coding) to ADR creation:
 1. **State the problem** in one sentence -- what are we deciding?
 2. **Name alternatives** -- at least two. Don't omit the option you're rejecting.
 3. **Identify constraints** -- what makes this non-trivial or hard to reverse?
-4. **Find the next ADR number** -- read INDEX.md or count existing files.
+4. **Find the next ADR number** -- run `bash .claude/skills/adr/next-adr-number.sh docs/adr`.
 5. **Draft using template** -- fill Context and Decision first; Consequences follow.
 6. **Run the review checklist** before saving.
 7. **Update INDEX.md** in the same edit.

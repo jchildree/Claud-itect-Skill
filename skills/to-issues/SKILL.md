@@ -20,11 +20,6 @@ description: Break a plan, spec, or PRD into independently-grabbable issues on t
 
 ## Initiation
 
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Break a plan into independently-grabbable issues using vertical slices (tracer bullets).
 

@@ -11,18 +11,12 @@ triggers:
   - "integration options"
 cache_key: "finishing-a-development-branch-2.0"
 dependencies: []
+disable-model-invocation: true
 description: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
 ---
 
 # Finishing a Development Branch
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Overview
 

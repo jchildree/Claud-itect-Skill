@@ -14,6 +14,7 @@ triggers:
   - "new here"
 cache_key: "onboard-2.0"
 dependencies: []
+disable-model-invocation: true
 description: >
   Interactive first-run experience for new Claude-ITect installs. Asks 3 short
   questions about workflow style, project type, and communication preference.

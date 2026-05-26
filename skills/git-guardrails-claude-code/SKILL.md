@@ -20,11 +20,6 @@ description: Set up Claude Code hooks to block dangerous git commands (push, res
 
 ## Initiation
 
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Sets up a PreToolUse hook that intercepts and blocks dangerous git commands before Claude executes them.
 

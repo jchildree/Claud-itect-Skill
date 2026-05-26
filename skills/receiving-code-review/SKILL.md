@@ -12,18 +12,12 @@ triggers:
   - "questionable"
 cache_key: "receiving-code-review-2.0"
 dependencies: []
+disable-model-invocation: true
 description: Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation
 ---
 
 # Code Review Reception
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Overview
 

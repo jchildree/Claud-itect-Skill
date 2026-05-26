@@ -17,15 +17,12 @@ description: Disciplined diagnosis loop for hard bugs and performance regression
 
 # Diagnose
 
+**Scope: Use for application-layer bugs.** For environment, config, or infrastructure issues, use /systematic-debugging instead.
+
 A discipline for hard bugs. Skip phases only when explicitly justified.
 
 ## Initiation
 
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 When exploring the codebase, use the project's domain glossary to get a clear mental model of the relevant modules, and check ADRs in the area you're touching. Assume Copilot wrote the code you're reviewing.
 

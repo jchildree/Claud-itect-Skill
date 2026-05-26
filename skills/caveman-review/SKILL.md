@@ -21,13 +21,6 @@ description: >
 
 Write code review comments terse and actionable. One line per finding. Location, problem, fix. No throat-clearing.
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Rules
 

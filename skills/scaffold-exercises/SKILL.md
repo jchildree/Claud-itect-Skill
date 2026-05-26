@@ -19,11 +19,6 @@ description: Create exercise directory structures with sections, problems, solut
 
 ## Initiation
 
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Create exercise directory structures that pass `pnpm ai-hero-cli internal lint`, then commit with `git commit`.
 

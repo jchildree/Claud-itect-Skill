@@ -19,11 +19,6 @@ description: Find deepening opportunities in a codebase, informed by the domain 
 
 ## Initiation
 
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Surface architectural friction and propose **deepening opportunities** -- refactors that turn shallow modules into deep ones. The aim is testability and AI-navigability.
 

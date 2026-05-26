@@ -1,5 +1,5 @@
 ---
-name: tdd
+name: tdd-guide
 version: "2.0"
 category: engineering
 execution_speed: medium
@@ -10,20 +10,13 @@ triggers:
   - "tracer bullets"
   - "vertical slices"
   - "planning"
-cache_key: "tdd-2.0"
+cache_key: "tdd-guide-2.0"
 dependencies: []
-description: TDD philosophy, planning, and tracer-bullet vertical slice concept. Use when user asks how TDD works, wants to understand test-first thinking, plan which behaviors to test, or discuss tracer bullets. For active implementation enforcement, use test-driven-development.
+description: TDD philosophy, planning, and tracer-bullet vertical slice concept. Use when user asks how TDD works, wants to understand test-first thinking, plan which behaviors to test, or discuss tracer bullets. For active implementation enforcement, use tdd-enforce.
 ---
 
 # Test-Driven Development
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Philosophy
 

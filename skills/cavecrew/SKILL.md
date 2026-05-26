@@ -11,6 +11,7 @@ triggers:
   - "compressed agent output"
 cache_key: "cavecrew-2.0"
 dependencies: []
+user-invocable: false
 description: >
   Decision guide for delegating to caveman-style subagents. Tells the main
   thread WHEN to spawn `cavecrew-investigator` (locate code), `cavecrew-builder`
@@ -24,13 +25,6 @@ description: >
 
 Cavecrew = three subagent presets that emit caveman output. Same job as Anthropic defaults (`Explore`, edit-style agents, reviewer); difference is the tool-result they return is compressed, so main context shrinks per delegation. When any other subagent task is required that cavecrew doesn't have, use `/subagent-driven-development`.
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## When to use cavecrew vs alternatives
 

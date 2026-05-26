@@ -137,7 +137,7 @@ Auto-trigger at key moments to shape agent behavior before and during implementa
 | `requesting-code-review` | Pre-merge verification, major feature complete |
 | `subagent-driven-development` | Breaking work across multiple agents |
 | `systematic-debugging` | Structured bug hunting with hypothesis loop |
-| `test-driven-development` | Writing tests before implementation |
+| `tdd-enforce` | TDD Iron Law enforcement -- write test first, no exceptions |
 | `using-git-worktrees` | Parallel work on multiple branches |
 | `using-superpowers` | Bootstrap -- injects skill awareness at session start |
 | `verification-before-completion` | Final check before declaring a task done |
@@ -152,7 +152,7 @@ Auto-trigger at key moments to shape agent behavior before and during implementa
 | `grill-with-docs` | Interview codebase to build `CONTEXT.md` and ADR entries |
 | `improve-codebase-architecture` | Architecture review and improvement proposals |
 | `prototype` | Spike a solution before committing to full implementation |
-| `tdd` | Test-driven development workflow |
+| `tdd-guide` | TDD philosophy, planning, and tracer-bullet concept |
 | `to-issues` | Break a plan/PRD into independently-grabbable GitHub issues |
 | `to-prd` | Synthesize conversation context into a PRD and publish |
 | `triage` | Move issues through the triage state machine |

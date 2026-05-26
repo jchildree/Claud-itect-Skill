@@ -12,6 +12,7 @@ triggers:
   - "what caveman commands"
 cache_key: "caveman-help-2.0"
 dependencies: []
+user-invocable: false
 description: >
   Quick-reference card for all caveman modes, skills, and commands.
   One-shot display, not a persistent mode. Trigger: /caveman-help,
@@ -22,13 +23,6 @@ description: >
 
 Display this reference card when invoked. One-shot -- do NOT change mode, write flag files, or persist anything. Output in caveman style.
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Modes
 

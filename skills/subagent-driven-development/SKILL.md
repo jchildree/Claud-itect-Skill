@@ -11,18 +11,16 @@ triggers:
   - "same-session execution"
 cache_key: "subagent-driven-development-2.0"
 dependencies: []
+disable-model-invocation: true
 description: Use when executing implementation plans with independent tasks in the current session
 ---
 
 # Subagent-Driven Development
 
+**Parallel multi-agent execution.** For single-agent sequential plan execution, use /executing-plans instead.
+
 ## Initiation
 
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 Execute plan by dispatching fresh subagent per task, with two-stage review after each: spec compliance review first, then code quality review.
 
@@ -294,7 +292,7 @@ Done!
 - **superpowers:finishing-a-development-branch** - Complete development after all tasks
 
 **Subagents should use:**
-- **superpowers:test-driven-development** - Subagents follow TDD for each task
+- **superpowers:tdd-enforce** - Subagents follow TDD for each task
 
 **Alternative workflow:**
 - **superpowers:executing-plans** - Use for parallel session instead of same-session execution

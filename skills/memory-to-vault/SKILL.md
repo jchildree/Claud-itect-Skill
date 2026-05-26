@@ -23,13 +23,6 @@ disable-model-invocation: true
 
 Reads Claude's persisted memory for the current project and generates a categorized high-level outline, saved as a vault note.
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## What This Generates
 

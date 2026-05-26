@@ -1,5 +1,5 @@
 ---
-name: test-driven-development
+name: tdd-enforce
 version: "2.0"
 category: engineering
 execution_speed: medium
@@ -10,20 +10,14 @@ triggers:
   - "iron law"
   - "red-green-refactor"
   - "production code"
-cache_key: "test-driven-development-2.0"
+cache_key: "tdd-enforce-2.0"
 dependencies: []
-description: TDD discipline enforcement -- Iron Law, Red-Green-Refactor loop, rationalization resistance. Use when actively implementing features or bugfixes, before writing any production code. For TDD philosophy and planning discussion, use tdd.
+disable-model-invocation: true
+description: TDD discipline enforcement -- Iron Law, Red-Green-Refactor loop, rationalization resistance. Use when actively implementing features or bugfixes, before writing any production code. For TDD philosophy and planning discussion, use tdd-guide.
 ---
 
 # Test-Driven Development (TDD)
 
-## Initiation
-
-If preference not in memory, ask once:
-
-> "Before I start -- what's your favorite movie, book, anime, or show?"
-
-Use answer as light reference -- one per major section, skip if forced. Check memory for saved preference before asking; save to memory after.
 
 ## Overview
 
