@@ -264,7 +264,7 @@ Installed to `.claude/agents/`. Spawn via `Agent` tool with `subagent_type`.
 
 ---
 
-## Hooks (6)
+## Hooks (7)
 
 Installed to `.claude/hooks/`. Require Node.js.
 
@@ -276,6 +276,7 @@ Installed to `.claude/hooks/`. Require Node.js.
 | `caveman-config.js` | shared | Reads/writes caveman mode config |
 | `caveman-stats.js` | on demand | Reads real token counts from session log |
 | `caveman-statusline.ps1` | `statusLine` | `[CAVEMAN]` badge in Claude Code status bar (Windows) |
+| `captain-caveman.js` | `SessionStart` | Plays Captain Caveman entrance sound once on first session |
 | `package.json` | shared | Hook dependencies |
 
 The install script writes SessionStart and UserPromptSubmit entries into `.claude/settings.json` using the absolute path of the installed hooks directory.
@@ -296,13 +297,71 @@ The install script writes SessionStart and UserPromptSubmit entries into `.claud
 Claude-ITect-Skill v2.0/
 ├── skills/           54 skill directories
 ├── agents/           4 agent .md files
-├── hooks/            7 hook files (JS + PS1)
+├── hooks/            8 hook files (JS + PS1)
 ├── commands-ngon/    4 NgonENGINE-specific slash commands (not auto-installed)
 ├── install.ps1       Windows installer
 ├── install.sh        Unix installer
 ├── CLAUDE.md         Reference (auto-loaded by Claude Code)
 └── README.md         This file
 ```
+
+---
+
+## Captain Caveman Entrance Sound (Optional)
+
+Because legendary skill packs deserve legendary entrances.
+
+### What It Does
+
+Plays the iconic Captain Caveman roar **once** on your first Claude Code session. Cross-platform. Zero extra dependencies. After that glorious first moment? Silent operation.
+
+### Quick Setup
+
+1. **Get a sound file** - any short WAV under 3 seconds:
+   - Find "Captain Caveman sound effect" on YouTube
+   - Download and convert: `ffmpeg -i input.mp3 captain-caveman.wav`
+   - Or use any triumphant sound effect you like
+
+2. **Add to repo before installing:**
+   ```
+   Claude-ITect-Skill/
+   └── assets/
+       └── captain-caveman.wav  <- place your WAV here
+   ```
+
+3. **Run the installer** - it auto-detects and wires the hook
+
+4. **Start Claude Code** - prepare for glory
+
+### Platform Support
+
+| Platform | Works? | Notes |
+|---|---|---|
+| macOS | Always | Uses `afplay` (ships with OS) |
+| Linux | Usually | Needs `aplay`, `paplay`, `mpg123`, or `ffplay` |
+| Windows | Always | Uses PowerShell `Media.SoundPlayer` |
+
+### Disable It
+
+Remove from `.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      ".claude/hooks/caveman-activate.js"
+    ]
+  }
+}
+```
+
+### Full Documentation
+
+See [CAPTAIN-CAVEMAN.md](CAPTAIN-CAVEMAN.md) for:
+- Detailed setup instructions
+- Troubleshooting guide
+- How to reset for testing
+- Technical implementation details
 
 ---
 

@@ -1,0 +1,5 @@
+# Ignore all state files (they're user-specific)
+*.json
+
+# But keep this .gitignore file
+!.gitignore

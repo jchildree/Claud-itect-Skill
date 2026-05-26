@@ -119,6 +119,57 @@ Copy-Dir   "$src\skills"  "$claude\skills"  "skills "
 Copy-Files "$src\agents"  "$claude\agents"  "agents "
 Copy-Files "$src\hooks"   "$claude\hooks"   "hooks  "
 
+# Captain Caveman entrance sound
+Write-Host ""
+Write-Host "Captain Caveman: Installing entrance sound..."
+$ccAssetsDir = Join-Path $claude "assets"
+$ccStateDir  = Join-Path $claude "state"
+if (-not (Test-Path $ccAssetsDir)) { New-Item -ItemType Directory -Force -Path $ccAssetsDir | Out-Null }
+if (-not (Test-Path $ccStateDir))  { New-Item -ItemType Directory -Force -Path $ccStateDir  | Out-Null }
+
+$ccHookSrc  = Join-Path $src "hooks" "captain-caveman.js"
+$ccHookDest = Join-Path $claude "hooks" "captain-caveman.js"
+
+if (Test-Path $ccHookSrc) {
+    Copy-Item $ccHookSrc $ccHookDest -Force
+    Write-Host "hooks  : captain-caveman.js installed"
+
+    $ccSoundSrc  = Join-Path $src "assets" "captain-caveman.wav"
+    $ccSoundDest = Join-Path $ccAssetsDir "captain-caveman.wav"
+    if (Test-Path $ccSoundSrc) {
+        Copy-Item $ccSoundSrc $ccSoundDest -Force
+        Write-Host "assets : captain-caveman.wav copied"
+    } else {
+        Write-Host "assets : captain-caveman.wav not found -- see CAPTAIN-CAVEMAN.md" -ForegroundColor Yellow
+    }
+
+    if (-not $SkipHooks) {
+        $ccSettingsPath = Join-Path $claude "settings.json"
+        $ccSettings = if (Test-Path $ccSettingsPath) {
+            Get-Content $ccSettingsPath -Raw | ConvertFrom-Json
+        } else {
+            [PSCustomObject]@{ hooks = [PSCustomObject]@{} }
+        }
+        if (-not $ccSettings.hooks) {
+            $ccSettings | Add-Member -NotePropertyName "hooks" -NotePropertyValue ([PSCustomObject]@{}) -Force
+        }
+        if (-not $ccSettings.hooks.PSObject.Properties["SessionStart"]) {
+            $ccSettings.hooks | Add-Member -NotePropertyName "SessionStart" -NotePropertyValue @() -Force
+        }
+        $ccCmd = "node `"$ccHookDest`""
+        $ccAlreadyWired = ($ccSettings.hooks.SessionStart | ForEach-Object { $_.hooks } | Where-Object { $_ -and $_.command -eq $ccCmd }).Count -gt 0
+        if (-not $ccAlreadyWired) {
+            $ccSettings.hooks.SessionStart += [PSCustomObject]@{ hooks = @([PSCustomObject]@{ type = "command"; command = $ccCmd; timeout = 5000 }) }
+            [System.IO.File]::WriteAllText($ccSettingsPath, ($ccSettings | ConvertTo-Json -Depth 10) + "`n", [System.Text.UTF8Encoding]::new($false))
+            Write-Host "hooks  : wired captain-caveman.js to SessionStart"
+        } else {
+            Write-Host "hooks  : captain-caveman.js already wired -- skipped"
+        }
+    }
+} else {
+    Write-Host "hooks  : captain-caveman.js not found -- skipping" -ForegroundColor Yellow
+}
+
 if (Test-Path "$src\commands-ngon") {
     Write-Host "commands-ngon: skipped (NgonENGINE-specific -- copy manually if needed)"
 }

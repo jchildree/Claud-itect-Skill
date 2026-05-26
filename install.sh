@@ -109,6 +109,55 @@ copy_dir   "$SRC/skills"  "$CLAUDE/skills"  "skills"
 copy_files "$SRC/agents"  "$CLAUDE/agents"  "agents"
 copy_files "$SRC/hooks"   "$CLAUDE/hooks"   "hooks "
 
+# Captain Caveman entrance sound
+echo ""
+echo "Captain Caveman: Installing entrance sound..."
+CC_ASSETS_DIR="$CLAUDE/assets"
+CC_STATE_DIR="$CLAUDE/state"
+[ -d "$CC_ASSETS_DIR" ] || mkdir -p "$CC_ASSETS_DIR"
+[ -d "$CC_STATE_DIR"  ] || mkdir -p "$CC_STATE_DIR"
+
+CC_HOOK_SRC="$SRC/hooks/captain-caveman.js"
+CC_HOOK_DEST="$CLAUDE/hooks/captain-caveman.js"
+
+if [ -f "$CC_HOOK_SRC" ]; then
+    cp "$CC_HOOK_SRC" "$CC_HOOK_DEST"
+    printf "%-10s installed=%-3d skipped=%d\n" "captain" 1 0
+
+    CC_SOUND_SRC="$SRC/assets/captain-caveman.wav"
+    CC_SOUND_DEST="$CC_ASSETS_DIR/captain-caveman.wav"
+    if [ -f "$CC_SOUND_SRC" ]; then
+        cp "$CC_SOUND_SRC" "$CC_SOUND_DEST"
+        echo "assets   : captain-caveman.wav copied"
+    else
+        echo "assets   : captain-caveman.wav not found -- see CAPTAIN-CAVEMAN.md"
+    fi
+
+    if [ "$SKIP_HOOKS" -eq 0 ]; then
+        node - "$CLAUDE/settings.json" "$CC_HOOK_DEST" <<'CC_WIRE_EOF'
+const fs = require('fs');
+const [,, settingsPath, hookPath] = process.argv;
+let s;
+try { s = JSON.parse(fs.readFileSync(settingsPath, 'utf8')); } catch (e) { s = { hooks: {} }; }
+s.hooks = s.hooks || {};
+s.hooks.SessionStart = s.hooks.SessionStart || [];
+const cmd = 'node "' + hookPath + '"';
+const already = s.hooks.SessionStart.some(function(e) {
+    return (e.hooks || []).some(function(h) { return h.command === cmd; });
+});
+if (!already) {
+    s.hooks.SessionStart.push({ hooks: [{ type: 'command', command: cmd, timeout: 5000 }] });
+    fs.writeFileSync(settingsPath, JSON.stringify(s, null, 2) + '\n', 'utf8');
+    process.stdout.write('hooks    : wired captain-caveman.js to SessionStart\n');
+} else {
+    process.stdout.write('hooks    : captain-caveman.js already wired -- skipped\n');
+}
+CC_WIRE_EOF
+    fi
+else
+    echo "hooks    : captain-caveman.js not found -- skipping"
+fi
+
 if [ -d "$SRC/commands-ngon" ]; then
     echo "commands-ngon: skipped (NgonENGINE-specific -- copy manually if needed)"
 fi
