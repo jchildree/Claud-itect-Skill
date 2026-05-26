@@ -127,14 +127,14 @@ $ccStateDir  = Join-Path $claude "state"
 if (-not (Test-Path $ccAssetsDir)) { New-Item -ItemType Directory -Force -Path $ccAssetsDir | Out-Null }
 if (-not (Test-Path $ccStateDir))  { New-Item -ItemType Directory -Force -Path $ccStateDir  | Out-Null }
 
-$ccHookSrc  = Join-Path $src "hooks" "captain-caveman.js"
-$ccHookDest = Join-Path $claude "hooks" "captain-caveman.js"
+$ccHookSrc  = Join-Path (Join-Path $src "hooks") "captain-caveman.js"
+$ccHookDest = Join-Path (Join-Path $claude "hooks") "captain-caveman.js"
 
 if (Test-Path $ccHookSrc) {
     Copy-Item $ccHookSrc $ccHookDest -Force
     Write-Host "hooks  : captain-caveman.js installed"
 
-    $ccSoundSrc  = Join-Path $src "assets" "captain-caveman.wav"
+    $ccSoundSrc  = Join-Path (Join-Path $src "assets") "captain-caveman.wav"
     $ccSoundDest = Join-Path $ccAssetsDir "captain-caveman.wav"
     if (Test-Path $ccSoundSrc) {
         Copy-Item $ccSoundSrc $ccSoundDest -Force
