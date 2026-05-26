@@ -1,5 +1,3 @@
-<img src="https://capsule-render.vercel.app/api?type=venom&height=220&color=0:000000,100:a371f7&text=Claud-itect-Skill&fontSize=60&fontColor=FFFFFF&animation=fadeIn&fontAlignY=40&desc=An%20awesome%20curated%20skill%20pack%20for%20Agentic%20Engineering.%20Installs%2054%20skills%2C%20and%204%20agents&descSize=22&descColor=FFFFFF&descAlignY=65" width="100%"/>
-
 <img src="https://github.com/user-attachments/assets/d851ed55-5931-4c37-ba03-0a1a3a0458d7" alt="Banner" width="100%" />
 
 <p align="center">
