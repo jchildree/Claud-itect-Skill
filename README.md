@@ -34,7 +34,7 @@ But don't get distracted by the features.
 
 The real sorcery happens during setup when everything just… works.
 
-No yak shaving. No ritual sacrifices.
+No funny dances. No ritual sacrifices.
 
 Install it. Try it. Judge me harshly afterward.
 
