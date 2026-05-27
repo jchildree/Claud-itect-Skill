@@ -368,6 +368,8 @@ See [CAPTAIN-CAVEMAN.md](CAPTAIN-CAVEMAN.md) for:
 
 ## Sources
 
+If you're reading this far. Thanks. If I have made you laugh at any point, or in the future, please leave a star. If you have ideas to improve it, leave a comment in the Discussions.
+
 | Source | Skills |
 |---|---|
 | [superpowers](https://github.com/obra/superpowers) | Workflow orchestration (brainstorming, executing-plans, etc.) |
