@@ -368,7 +368,7 @@ See [CAPTAIN-CAVEMAN.md](CAPTAIN-CAVEMAN.md) for:
 
 ## Sources
 
-If you're reading this far. Thanks. If I have made you laugh at any point, or in the future, please leave a star. If you have ideas to improve it, leave a comment in the Discussions.
+If you're reading this far. Thanks. If I have made you laugh at any point, or in the future, please hit that star button, or if you're feeling super generous, Buy Me Coffee donations are always appreciated. If you have ideas to improve it, leave a comment in the Discussions.
 
 | Source | Skills |
 |---|---|
