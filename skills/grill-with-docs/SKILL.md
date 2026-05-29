@@ -107,7 +107,6 @@ If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](
 
 </supporting-info>
 
-```
 ## Integration with Other Skills
 
-- **`/adr`** -- Similar tool as they both maintain ADRs, but the `/grill-with-docs` skill looks at folder structure and when to automatically create ADRs, has a step-by-step guide to create new ADRs manually with AI. The `/adr` skill audits requirements and ADRs in place already and focuses on it's format, and also creates ADRs when it thinks is necessary. These two skill can be combined in the future.
+- **`/adr`** -- Both maintain ADRs. `/grill-with-docs` focuses on folder structure and guided ADR creation; `/adr` audits existing requirements and format. Complementary -- can be combined.

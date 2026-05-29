@@ -14,6 +14,7 @@ triggers:
   - "find wiki gaps"
 cache_key: "wiki-suggest-2.0"
 dependencies: []
+disable-model-invocation: true
 description: >
   Inference engine for the project wiki. Scans source files (skills, hooks, agents,
   ADRs, codebase) against existing wiki pages, identifies undocumented content,
@@ -81,7 +82,12 @@ For each potential suggestion, ask:
 For each gap identified, create one file:
 `docs/Obsidian Vault/Claude-ITect-Skill Update/_suggestions/PENDING_YYYY-MM-DD_<topic>.md`
 
-Use today's date. Topic slug: lowercase, hyphens, no spaces (e.g., `skill-audit-behavior`).
+Get today's date deterministically:
+```bash
+node -e "console.log(new Date().toISOString().slice(0,10))"
+```
+
+Topic slug: lowercase, hyphens, no spaces (e.g., `skill-audit-behavior`).
 
 File format (required):
 

@@ -12,6 +12,7 @@ triggers:
   - "project lifecycle"
 cache_key: "phase-2.0"
 dependencies: []
+disable-model-invocation: true
 description: >
   Track project phase lifecycle: status snapshots, transitions, and ADR impact analysis.
   Trigger on: "what phase are we in?", "is phase X unblocked?", "did ADR-### move any phase?",
@@ -42,7 +43,7 @@ Binds to the active project at invocation time.
 | `/phase status` | Same as above |
 | `/phase transition [##]` | Record and validate a phase status change |
 | `/phase impact [adr-###]` | Show which phases an ADR touches |
-| `/phase audit` | Check Phase Registry for invariant violations |
+| `/phase audit` | Check Phase Registry for invariant violations (run `.claude/skills/phase/check-focus-invariant.sh` first) |
 | `/phase long` | Full report -- all phases, all criteria, all notes |
 
 ---

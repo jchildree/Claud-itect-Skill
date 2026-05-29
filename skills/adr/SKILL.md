@@ -220,9 +220,6 @@ See `/karpathy` for guidelines. Applied here:
 - **G3:** One decision per ADR. Don't update adjacent ADRs unless they directly conflict.
 - **G4 Done:** File saved ✅ · Checklist passes ✅ · INDEX.md updated ✅
 
-```
 ## Integration with Other Skills
 
-- **`/obsidian-vault`** -- This skill is complementary to one another. While ADRs create, audti, and maintain requirements,
-the Obsidian Vault skill creates the project vault and memory storage to ensure that you keep all your project information safe and sound on your own system.
-It is suggested you add the `/docs/` folder to your `.gitignore`.  
+- **`/obsidian-vault`** -- Complementary skill. ADRs create and maintain requirements; Obsidian Vault stores project info. Add `/docs/` to `.gitignore`.

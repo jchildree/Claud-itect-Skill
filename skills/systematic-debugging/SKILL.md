@@ -5,14 +5,18 @@ category: engineering
 execution_speed: slow
 token_efficiency: low
 triggers:
-  - "bug"
+  - "environment issue"
+  - "infrastructure bug"
+  - "CI failing"
+  - "config problem"
   - "test failure"
-  - "unexpected behavior"
+  - "build failure"
   - "root cause"
   - "before fixes"
 cache_key: "systematic-debugging-2.0"
 dependencies: []
-description: Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+disable-model-invocation: true
+description: Use when encountering environment, config, infrastructure, CI, or build issues -- not application-layer bugs (use diagnose for those). Requires root cause investigation before any fix.
 ---
 
 # Systematic Debugging

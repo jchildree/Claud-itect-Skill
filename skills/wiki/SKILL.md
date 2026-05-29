@@ -16,6 +16,7 @@ triggers:
   - "check the wiki"
 cache_key: "wiki-2.0"
 dependencies: ["wiki-suggest"]
+disable-model-invocation: true
 description: >
   Command set for the project wiki (Obsidian vault). Handles read, approve,
   reject, add, search, and graph subcommands against the
@@ -120,6 +121,8 @@ Add content directly to the wiki (no approval step).
 ---
 
 ## `/wiki graph`
+
+Run `.claude/skills/wiki/wiki-graph.sh <vault-path>` for a deterministic wikilink listing, then augment with the tree layout below.
 
 List wiki structure as a compact tree:
 

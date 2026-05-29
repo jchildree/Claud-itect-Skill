@@ -12,6 +12,7 @@ triggers:
   - "performance regression"
 cache_key: "diagnose-2.0"
 dependencies: []
+disable-model-invocation: true
 description: Disciplined diagnosis loop for hard bugs and performance regressions. Reproduce -> minimise -> hypothesise -> instrument -> fix -> regression-test. Use when user says "diagnose this" / "debug this", reports a bug, says something is broken/throwing/failing, or describes a performance regression.
 ---
 
@@ -24,7 +25,7 @@ A discipline for hard bugs. Skip phases only when explicitly justified.
 ## Initiation
 
 
-When exploring the codebase, use the project's domain glossary to get a clear mental model of the relevant modules, and check ADRs in the area you're touching. Assume Copilot wrote the code you're reviewing.
+See `docs/agents/domain.md` for vocabulary and ADR conventions. Assume Copilot wrote the code you're reviewing.
 
 ## Phase 1 -- Build a feedback loop
 

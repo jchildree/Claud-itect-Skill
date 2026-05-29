@@ -12,7 +12,7 @@ triggers:
   - "vault wikilinks"
 cache_key: "obsidian-vault-2.0"
 dependencies: []
-disable-model-invocation: false
+disable-model-invocation: true
 description: Search, create, and manage notes in the Obsidian vault with wikilinks and index notes. Use when user wants to find, create, or organize notes in Obsidian.
 ---
 
@@ -86,11 +86,7 @@ or
 find "/docs/Obsidian Vault/[Project Name]" -name "*Index*"
 ```
 
-```
 ## Integration with Other Skills
 
-- **`/adr`** -- The ADR skill create, maintains, and audits Architectural Requirements.
-The `/adr` skill will output documents into this projects vault, if setup.
-`/obsidian-vault` skill will ensure notes and links are correctly formatted if present in Vault.
-- **`/grill-with-docs`** -- The grill-with-docs skill creates, and maintains Architectural Design Requirements.
-The `/grill-with-docs` skill will output documents into this projects vault, if setup.
+- **`/adr`** -- ADR skill creates, maintains, and audits Architectural Requirements. Outputs documents into this project's vault if set up. `/obsidian-vault` ensures notes and links are correctly formatted.
+- **`/grill-with-docs`** -- Creates and maintains Architectural Design Requirements. Outputs documents into this project's vault if set up.

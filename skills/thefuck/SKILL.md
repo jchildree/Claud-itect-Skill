@@ -12,6 +12,7 @@ triggers:
   - "failed shell command"
 cache_key: "thefuck-2.0"
 dependencies: []
+disable-model-invocation: true
 description: Fix the previous failed shell command. Trigger when a command errors out, user says "fix that command", "what should I have typed", "correct that", or types "fuck" as a message. Diagnoses the error, proposes corrected command, confirms before running.
 ---
 
