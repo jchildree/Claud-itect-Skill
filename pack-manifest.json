@@ -1,0 +1,18 @@
+{
+  "version": "2.0",
+  "requiredSkills": [
+    "caveman", "audit", "safe-push", "writing-skills", "using-superpowers",
+    "llm-wiki", "memory-to-vault", "onboard", "wiki-suggest", "wiki"
+  ],
+  "requiredHooks": [
+    "caveman-activate.js", "caveman-mode-tracker.js", "check-encoding.js",
+    "skill-metadata-loader.js", "wiki-memory-inject.js"
+  ],
+  "hookWiring": [
+    { "event": "SessionStart",     "file": "caveman-activate.js" },
+    { "event": "SessionStart",     "file": "skill-metadata-loader.js" },
+    { "event": "SessionStart",     "file": "wiki-memory-inject.js" },
+    { "event": "UserPromptSubmit", "file": "caveman-mode-tracker.js" },
+    { "event": "PostToolUse",      "matcher": "Write|Edit", "file": "check-encoding.js" }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "claud-itect",
+  "metadata": {
+    "description": "54 skills, 4 agent definitions, caveman session hooks, and thefuck integration for any Claude Code project"
+  },
+  "owner": {
+    "name": "jchildree"
+  },
+  "plugins": [
+    {
+      "name": "claud-itect",
+      "source": "."
+    }
+  ]
+}
