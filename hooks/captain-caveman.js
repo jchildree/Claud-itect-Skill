@@ -49,13 +49,12 @@ function saveState(state) {
 
 /**
  * Detect platform and play sound using native audio player
- * Returns true when playback happened successfully, false otherwise.
- * @returns {Promise<boolean>}
+ * @returns {Promise<void>}
  */
 async function playSound() {
   if (!fs.existsSync(SOUND_FILE)) {
     console.error('[Captain Caveman] Sound file not found:', SOUND_FILE);
-    return false;
+    return;
   }
 
   const platform = process.platform;
@@ -78,17 +77,23 @@ async function playSound() {
     for (const player of players) {
       try {
         const { cmd, args: playerArgs } = player;
+        command = cmd;
+        args = playerArgs;
+        
         // Test if command exists
         const test = spawn('which', [cmd]);
-        const exists = await new Promise((resolve) => {
-          test.on('close', (code) => resolve(code === 0));
-          test.on('error', () => resolve(false));
+        await new Promise((resolve) => {
+          test.on('close', (code) => {
+            if (code === 0) {
+              resolve(true);
+            } else {
+              command = null;
+              resolve(false);
+            }
+          });
         });
-        if (exists) {
-          command = cmd;
-          args = playerArgs;
-          break;
-        }
+        
+        if (command) break;
       } catch (err) {
         continue;
       }
@@ -96,7 +101,7 @@ async function playSound() {
 
     if (!command) {
       console.error('[Captain Caveman] No audio player found. Install: aplay, paplay, mpg123, or ffplay');
-      return false;
+      return;
     }
   } else if (platform === 'win32') {
     // Windows - use PowerShell SoundPlayer
@@ -108,33 +113,28 @@ async function playSound() {
     ];
   } else {
     console.error('[Captain Caveman] Unsupported platform:', platform);
-    return false;
+    return;
   }
 
   return new Promise((resolve) => {
     const player = spawn(command, args, { stdio: 'ignore' });
-
-    let finished = false;
-
+    
     player.on('close', (code) => {
-      finished = true;
-      if (code === 0) {
-        resolve(true);
-      } else {
+      if (code !== 0) {
         console.error('[Captain Caveman] Audio player exited with code:', code);
-        resolve(false);
       }
+      resolve();
     });
 
     player.on('error', (err) => {
       console.error('[Captain Caveman] Error playing sound:', err.message);
-      if (!finished) resolve(false);
+      resolve();
     });
 
     // Timeout after 5 seconds
     setTimeout(() => {
-      try { player.kill(); } catch (e) {}
-      if (!finished) resolve(false);
+      player.kill();
+      resolve();
     }, 5000);
   });
 }
@@ -146,16 +146,12 @@ async function playSound() {
 async function main() {
   try {
     const state = loadState();
-
+    
     if (!state.soundPlayed) {
       console.log('🦴 CAPTAIN CAVEMAAAAAAN! 🦴');
-      const played = await playSound();
-      if (played) {
-        state.soundPlayed = true;
-        saveState(state);
-      } else {
-        console.error('[Captain Caveman] Did not play sound; will retry on next SessionStart.');
-      }
+      await playSound();
+      state.soundPlayed = true;
+      saveState(state);
     }
   } catch (err) {
     console.error('[Captain Caveman] Hook error:', err.message);
