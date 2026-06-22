@@ -16,7 +16,7 @@ description: >
   Set up and operate an LLM-maintained personal knowledge base wiki. Use when
   building a persistent, compounding knowledge base from source documents --
   articles, papers, notes, transcripts, or any source material.
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 # LLM Wiki
