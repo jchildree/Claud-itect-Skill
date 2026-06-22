@@ -16,7 +16,7 @@ description: >
   Convert Claude's persisted memory into a structured high-level outline and
   save it to the project Obsidian vault. Use to archive and organize
   accumulated session knowledge as a navigable vault note.
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 # Memory to Vault
