@@ -12,7 +12,7 @@ triggers:
   - "vault wikilinks"
 cache_key: "obsidian-vault-2.0"
 dependencies: []
-disable-model-invocation: true
+disable-model-invocation: false
 description: Search, create, and manage notes in the Obsidian vault with wikilinks and index notes. Use when user wants to find, create, or organize notes in Obsidian.
 ---
 
