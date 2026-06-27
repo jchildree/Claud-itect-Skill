@@ -11,7 +11,7 @@ triggers:
   - "concurrent work"
 cache_key: "dispatching-parallel-agents-2.0"
 dependencies: []
-disable-model-invocation: true
+disable-model-invocation: false
 description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
 ---
 
