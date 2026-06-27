@@ -11,7 +11,7 @@ triggers:
   - "same-session execution"
 cache_key: "subagent-driven-development-2.0"
 dependencies: []
-disable-model-invocation: true
+disable-model-invocation: false
 description: Use when executing implementation plans with independent tasks in the current session
 ---
 
