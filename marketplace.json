@@ -1,0 +1,159 @@
+{
+  "schema_version": "v1",
+  "manifest_version": "1",
+  "id": "claud-itect-skill-pack",
+  "name": "Claude-ITect Skill Pack",
+  "description": "An awesome curated skill pack for Claude Code. Installs 54 skills, 4 agent definitions, and caveman session hooks into any project in one command. Includes token compression, product[...]",
+  "version": "2.0.0",
+  "author": {
+    "name": "Joseph Childree",
+    "url": "https://github.com/jchildree"
+  },
+  "homepage": "https://github.com/jchildree/Claud-itect-Skill",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jchildree/Claud-itect-Skill.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "agents",
+    "hooks",
+    "caveman",
+    "token-compression",
+    "productivity",
+    "engineering",
+    "developer-tools"
+  ],
+  "categories": [
+    "productivity",
+    "developer-tools",
+    "education"
+  ],
+  "requirements": {
+    "claude_version": ">=1.0.0",
+    "node_js": ">=18.0.0"
+  },
+  "capabilities": [
+    "skills",
+    "agents",
+    "hooks",
+    "session-management"
+  ],
+  "installation": {
+    "type": "installer",
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "windows": {
+      "command": "powershell -ExecutionPolicy Bypass -File install.ps1",
+      "script": "install.ps1"
+    },
+    "unix": {
+      "command": "bash install.sh",
+      "script": "install.sh"
+    },
+    "instructions": "Run the installer from your project root directory. The skill pack will be installed into .claude/ with all hooks auto-wired.",
+    "post_install": {
+      "windows": "memory-to-outline.ps1",
+      "message": "Restart Claude Code and run /onboard to verify installation"
+    }
+  },
+  "features": [
+    {
+      "name": "54 Curated Skills",
+      "description": "Comprehensive skill library covering brainstorming, engineering, caveman mode, utilities, and more"
+    },
+    {
+      "name": "4 Agent Definitions",
+      "description": "CaveCrew agents (Builder, Investigator, Reviewer) and Geometry Solver for specialized tasks"
+    },
+    {
+      "name": "Caveman Session Hooks",
+      "description": "Automatic token compression modes: lite, full, ultra, and wenyan variants"
+    },
+    {
+      "name": "Code Quality Tools",
+      "description": "Audit, TDD enforcement, code review, ADR management, and safe push guards"
+    },
+    {
+      "name": "Obsidian Vault Integration",
+      "description": "LLM-maintained wiki with auto-sync, suggestions, and knowledge graph"
+    },
+    {
+      "name": "Caveman Compression",
+      "description": "~75% token reduction while maintaining technical accuracy"
+    }
+  ],
+  "manifest": {
+    "requiredSkills": [
+      "caveman",
+      "audit",
+      "safe-push",
+      "writing-skills",
+      "using-superpowers",
+      "llm-wiki",
+      "memory-to-vault",
+      "onboard",
+      "wiki-suggest",
+      "wiki"
+    ],
+    "requiredHooks": [
+      "caveman-activate.js",
+      "caveman-mode-tracker.js",
+      "check-encoding.js",
+      "skill-metadata-loader.js",
+      "wiki-memory-inject.js"
+    ],
+    "optionalHooks": [
+      "caveman-statusline.ps1",
+      "captain-caveman.js",
+      "caveman-stats.js"
+    ],
+    "hookWiring": [
+      {
+        "event": "SessionStart",
+        "file": "caveman-activate.js"
+      },
+      {
+        "event": "SessionStart",
+        "file": "skill-metadata-loader.js"
+      },
+      {
+        "event": "SessionStart",
+        "file": "wiki-memory-inject.js"
+      },
+      {
+        "event": "UserPromptSubmit",
+        "file": "caveman-mode-tracker.js"
+      },
+      {
+        "event": "PostToolUse",
+        "matcher": "Write|Edit",
+        "file": "check-encoding.js"
+      }
+    ]
+  },
+  "documentation": {
+    "readme": "README.md",
+    "getting_started": "README.md#after-installing",
+    "skills_guide": "README.md#skills-54",
+    "agents_guide": "README.md#agents-4",
+    "hooks_guide": "README.md#hooks-7",
+    "troubleshooting": "CLAUDE.md"
+  },
+  "support": {
+    "issues": "https://github.com/jchildree/Claud-itect-Skill/issues",
+    "discussions": "https://github.com/jchildree/Claud-itect-Skill/discussions",
+    "email": "jchildree87@gmail.com"
+  },
+  "changelog_url": "https://github.com/jchildree/Claud-itect-Skill/releases",
+  "verified": true,
+  "security": {
+    "encoding_guard": true,
+    "symlink_protection": true,
+    "sandboxed": false
+  }
+}
